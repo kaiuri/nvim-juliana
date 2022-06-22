@@ -4,7 +4,7 @@
 local M = {}
 
 local highlights = {
-    -- content here will not be touched
+        -- content here will not be touched
     -- PATCH_OPEN
     Normal = { fg = '#CBD3E2', bg = '#293038' },
     Character = { fg = '#93CF8C' },
@@ -49,7 +49,7 @@ local highlights = {
     LineNrBelow = { fg = '#A6ACB9' },
     Macro = { fg = '#8DADE7' },
     Define = { link = 'Macro' },
-    MatchParen = { bold = true },
+    MatchParen = { bg = '#3B454F' },
     ModeMsg = { fg = '#DEE1E8' },
     MoreMsg = { bold = true, fg = '#DEE1E8' },
     Question = { link = 'MoreMsg' },
