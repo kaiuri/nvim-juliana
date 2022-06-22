@@ -58,6 +58,8 @@ There's not configuration, but I might add a `contrast` one if there's demand. O
 ## TO-DO
 
 - [ ] Fix Neovim's vim-inherited markdown highlights so its built in LSP client hover, etc, features display properly.
+- [ ] Add more screenshots.
+- [ ] Display palette on README.
 
 ## Requesting for features
 
