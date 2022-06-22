@@ -51,7 +51,7 @@ There's not configuration, but I might add a `contrast` one if there's demand. O
 
 ## TO-DO
 
-- [ ] Fix markdown code-blocks.
+- [ ] Fix Neovim's vim-inherited markdown highlights so its built in LSP client hover, etc, features display properly.
 
 ## Requesting for features
 
