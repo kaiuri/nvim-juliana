@@ -8,6 +8,10 @@ Port of Sublime's Mariana Theme to Neovim, using Lua, for short attention span d
 
 ## Installation
 
+Plug it with your favorite plugin manager.
+
+- Packer:
+
 ```lua
 use 'nvim-mariana'
 ```
