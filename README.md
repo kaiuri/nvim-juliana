@@ -61,7 +61,7 @@ There's not configuration, but I might add a `contrast` one if there's demand. O
 - [ ] Add more screenshots.
 - [ ] Display palette on README.
 
-## Requesting for features
+## Feature Request
 
 If any language is being poorly supported, please make a new issue attached with an image of how that language looks on Sublime-Text.
 
