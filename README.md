@@ -1,8 +1,10 @@
 # nvim-mariana
 
+![](./assets/nvim-mariana.png)
+
 ## Description
 
-Port of Sublime's Mariana Theme to Neovim, using Lua.
+Port of Sublime's Mariana Theme to Neovim, using Lua, for short attention span devs.
 
 ## Installation
 
