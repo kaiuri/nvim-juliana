@@ -8,6 +8,8 @@ Port of Sublime's Mariana Theme to Neovim, using Lua, for short attention span d
 
 ## Installation
 
+Requirements: `NVIM v0.8.0-dev`.
+
 Plug it with your favorite plugin manager.
 
 - Packer:
