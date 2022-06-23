@@ -4,7 +4,7 @@
 local M = {}
 
 local highlights = {
-        -- content here will not be touched
+    -- content here will not be touched
     -- PATCH_OPEN
     Normal = { fg = '#CBD3E2', bg = '#293038' },
     Character = { fg = '#93CF8C' },
@@ -100,6 +100,7 @@ local highlights = {
     TSKeywordOperator = { fg = '#CF8CCF' },
     TSKeywordReturn = { fg = '#CF8CCF' },
     TSLabel = { fg = '#84C2BB' },
+    tomlTSProperty = { link = 'TSLabel' },
     yamlTSField = { link = 'TSLabel' },
     TSNote = { bold = true, fg = '#93CF8C' },
     TSParameter = { fg = '#FAAE57' },
