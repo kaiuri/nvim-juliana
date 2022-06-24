@@ -57,11 +57,15 @@ There's not configuration, but I might add a `contrast` one if there's demand. O
 - nvim-web-devicons
 - lualine.nvim - on `auto`
 
+## Alacritty Theme
+
+There's a theme for [Alacritty](https://github.com/alacritty/alacritty/) available at [extras](./extras/mariana_alacritty.yml).
+
 ## TO-DO
 
 - [ ] Fix Neovim's vim-inherited markdown highlights so its built in LSP client hover, etc, features display properly.
 - [ ] Add more screenshots.
-- [ ] Display palette on README.
+- [x] Display palette on README.
 
 ## Feature request
 
