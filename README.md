@@ -2,9 +2,11 @@
 
 Status: Under development. Vim's awkward markdown `hl-groups` are still being added, although when using tree-sitter it works fine.
 
-Palette at [assets/](./assets).
+## Palette
 
-## Screenshot
+![](./assets/palette.jpg)
+
+## Screenshots
 
 ![](./assets/nvim-mariana.png)
 
