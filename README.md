@@ -23,7 +23,7 @@ Plug it with your favorite plugin manager.
 - Packer:
 
 ```lua
-use 'nvim-mariana'
+use 'kaiuri/nvim-mariana'
 ```
 
 ## Usage
