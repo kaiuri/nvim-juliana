@@ -66,3 +66,7 @@ There's not configuration, but I might add a `contrast` one if there's demand. O
 If any language is being poorly supported, please make a new issue attached with an image of how that language looks on Sublime-Text.
 
 If a plugin you use isn't rightly supported, please, make a new issue attached with a link to said plugin and I'll do my best to support it.
+
+## Pull Requests
+
+Use the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) style for your commits, that's basically it.
