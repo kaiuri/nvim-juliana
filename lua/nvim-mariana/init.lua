@@ -18,7 +18,7 @@ local highlights = {
     CursorColumn = { link = 'CursorLine' },
     Delimiter = { fg = '#5E99D4' },
     TSPunctDelimiter = { link = 'Delimiter' },
-    DiagnosticError = { fg = '#EF5D64' },
+    DiagnosticError = { fg = '#EF695D' },
     DiagnosticHint = { fg = '#FBC760' },
     DiagnosticInfo = { fg = '#5FB4B4' },
     DiagnosticUnderlineError = { sp = '#EF5D64', underdot = true },
