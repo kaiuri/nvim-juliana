@@ -12,7 +12,7 @@ Status: Under development. Vim's awkward markdown `hl-groups` are still being ad
 
 ## Description
 
-Port of Sublime's Mariana Theme to Neovim, using Lua, for short attention span devs.
+Port of Sublime's Mariana Theme for Neovim, using Lua, for short attention span devs.
 
 ## Installation
 
