@@ -46,16 +46,15 @@ There's none, but I might add a `contrast` one if there's demand. One shouldn't 
 
 ## Plugin Support(Tested)
 
-- vim-sneak
-- nvim-treesitter
-- telescope.nvim
-- nvim-cmp - I haven't had any problems.
-- indent-blankline.nvim
-- nvim-lspconfig
-- FTerm.nvim
-- nvim-tree.lua
-- nvim-web-devicons
-- lualine.nvim - on `auto`
+- [vim-sneak](https://github.com/justinmk/vim-sneak)
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons).
+- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - on `auto`
+- [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
 
 ## Alacritty Theme
 

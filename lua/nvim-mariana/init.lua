@@ -163,6 +163,13 @@ local highlights = {
     healthSuccess = { fg = '#93CF8C' },
     luaTSField = { fg = '#95B2D6' },
     markdownTSPunctSpecial = { fg = '#EF7A5D', bold = true },
+    rainbowcol1 = { fg = '#FEDB95' },
+    rainbowcol2 = { fg = '#A3FE95' },
+    rainbowcol3 = { fg = '#95F7FE' },
+    rainbowcol4 = { fg = '#B195FE' },
+    rainbowcol5 = { fg = '#FE95CD' },
+    rainbowcol6 = { fg = '#FEDB95' },
+    rainbowcol7 = { fg = '#A3FE95' },
     typescriptTSKeyword = { fg = '#EF5D64' },
     -- PATCH_CLOSE
 }
