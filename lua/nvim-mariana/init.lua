@@ -4,7 +4,7 @@
 local M = {}
 
 local highlights = {
-        -- PATCH_OPEN
+    -- PATCH_OPEN
     Normal = { fg = '#CBD3E2', bg = '#2B333B' },
     Character = { fg = '#93CF8C' },
     String = { link = 'Character' },
@@ -171,6 +171,16 @@ local highlights = {
     rainbowcol5 = { fg = '#FE95CD' },
     rainbowcol6 = { fg = '#FEDB95' },
     rainbowcol7 = { fg = '#A3FE95' },
+    rustTSConstBuiltin = { fg = '#5E99D4', italic = true },
+    rustTSField = { fg = '#CBD3E2' },
+    rustTSFuncMacro = { fg = '#5E99D4' },
+    rustTSFunction = { fg = '#5FB4B4' },
+    rustTSKeyword = { fg = '#C992C9' },
+    rustTSOperator = { fg = '#FA7A57' },
+    rustTSPunctBracket = { fg = '#CBD3E2' },
+    rustTSPunctDelimiter = { fg = '#A6ACB9' },
+    rustTSType = { fg = '#FAAE57' },
+    rustTSTypeBuiltin = { fg = '#C695C6', italic = true },
     typescriptTSKeyword = { fg = '#EF5D64' },
     -- PATCH_CLOSE
 }
