@@ -42,7 +42,7 @@ vim.cmd('colo mariana')
 
 ## Configuration
 
-There's not configuration, but I might add a `contrast` one if there's demand. One shouldn't spend too much time tinkering with their .rc files instead of writing code.
+There's none, but I might add a `contrast` one if there's demand. One shouldn't spend too much time tinkering with their .rc files instead of writing code.
 
 ## Plugin Support(Tested)
 
