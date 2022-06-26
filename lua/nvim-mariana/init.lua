@@ -4,7 +4,7 @@
 local M = {}
 
 local highlights = {
-    -- PATCH_OPEN
+        -- PATCH_OPEN
     Normal = { fg = '#CBD3E2', bg = '#2B333B' },
     Character = { fg = '#93CF8C' },
     String = { link = 'Character' },
@@ -31,9 +31,10 @@ local highlights = {
     DiagnosticUnderlineInfo = { sp = '#5FB4B4', underdot = true },
     DiagnosticUnderlineWarn = { sp = '#FAAE57', underdot = true },
     DiagnosticWarn = { fg = '#FAAE57' },
-    DiffAdd = { fg = '#5FB485' },
-    DiffChange = { fg = '#F79322' },
-    DiffDelete = { fg = '#EF5D64' },
+    DiffAdd = { sp = '#93CF8C', underdot = true },
+    DiffChange = { sp = '#EF5D64', underdot = true },
+    DiffDelete = { fg = '#788797' },
+    DiffText = { italic = true },
     Directory = { underdot = true },
     EndOfBuffer = { fg = '#2B333B' },
     Error = { fg = '#FA7A57' },
