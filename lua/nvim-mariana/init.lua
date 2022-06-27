@@ -157,6 +157,7 @@ local highlights = {
     Substitute = { link = 'Visual' },
     Whitespace = { fg = '#5C75A3' },
     Winseparator = { fg = '#4E5A65' },
+    commentTSConstant = { fg = '#8C99A6' },
     gitCommitSelectedFile = { italic = true },
     gitCommitSummary = { bold = true },
     gitCommitTrailerToken = { fg = '#C695C6', italic = true },
