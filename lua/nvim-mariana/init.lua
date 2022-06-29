@@ -177,6 +177,7 @@ local highlights = {
     rainbowcol6 = { fg = '#FEDB95' },
     rainbowcol7 = { fg = '#A3FE95' },
     rustTSConstBuiltin = { fg = '#5E99D4', italic = true },
+    rustTSConstant = { fg = '#5E99D4' },
     rustTSField = { fg = '#CBD3E2' },
     rustTSFuncMacro = { fg = '#5E99D4' },
     rustTSFunction = { fg = '#5FB4B4' },
