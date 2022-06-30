@@ -66,6 +66,7 @@ local highlights = {
     Number = { fg = '#FAAE57' },
     CmpItemKindValue = { link = 'Number' },
     Float = { link = 'Number' },
+    NvimTreePopup = { fg = '#CBD3E2', bg = '#272E35' },
     Operator = { fg = '#FA7A57' },
     TSOperator = { link = 'Operator' },
     WildMenu = { link = 'Pmenu' },
