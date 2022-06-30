@@ -189,6 +189,9 @@ local highlights = {
     rustTSPunctDelimiter = { fg = '#A6ACB9' },
     rustTSType = { fg = '#FAAE57' },
     rustTSTypeBuiltin = { fg = '#C695C6', italic = true },
+    tmuxCommands = { fg = '#C695C6' },
+    tmuxFlags = { fg = '#FAAE57' },
+    tmuxFormatString = { fg = '#5FB4B4' },
     typescriptTSKeyword = { fg = '#EF5D64' },
     -- PATCH_CLOSE
 }
