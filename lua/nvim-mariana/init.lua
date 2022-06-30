@@ -66,7 +66,6 @@ local highlights = {
     Number = { fg = '#FAAE57' },
     CmpItemKindValue = { link = 'Number' },
     Float = { link = 'Number' },
-    NvimTreePopup = { fg = '#CBD3E2', bg = '#272E35' },
     Operator = { fg = '#FA7A57' },
     TSOperator = { link = 'Operator' },
     WildMenu = { link = 'Pmenu' },
@@ -170,6 +169,8 @@ local highlights = {
     htmlTSTagDelimiter = { fg = '#5FB4B4' },
     luaTSField = { fg = '#95B2D6' },
     markdownTSPunctSpecial = { fg = '#EF7A5D', bold = true },
+    qfFileName = { fg = '#5FB4B4' },
+    qfLineNr = { bold = true },
     rainbowcol1 = { fg = '#FEDB95' },
     rainbowcol2 = { fg = '#A3FE95' },
     rainbowcol3 = { fg = '#95F7FE' },
@@ -188,6 +189,9 @@ local highlights = {
     rustTSPunctDelimiter = { fg = '#A6ACB9' },
     rustTSType = { fg = '#FAAE57' },
     rustTSTypeBuiltin = { fg = '#C695C6', italic = true },
+    tmuxCommands = { fg = '#C695C6' },
+    tmuxFlags = { fg = '#FAAE57' },
+    tmuxFormatString = { fg = '#5FB4B4' },
     typescriptTSKeyword = { fg = '#EF5D64' },
     -- PATCH_CLOSE
 }
