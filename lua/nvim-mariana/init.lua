@@ -170,8 +170,6 @@ local highlights = {
     htmlTSTagDelimiter = { fg = '#5FB4B4' },
     luaTSField = { fg = '#95B2D6' },
     markdownTSPunctSpecial = { fg = '#EF7A5D', bold = true },
-    qfFileName = { fg = '#5FB4B4' },
-    qfLineNr = { bold = true },
     rainbowcol1 = { fg = '#FEDB95' },
     rainbowcol2 = { fg = '#A3FE95' },
     rainbowcol3 = { fg = '#95F7FE' },
