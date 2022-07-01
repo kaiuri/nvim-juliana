@@ -194,6 +194,7 @@ local highlights = {
     tmuxFlags = { fg = '#FAAE57' },
     tmuxFormatString = { fg = '#5FB4B4' },
     typescriptTSKeyword = { fg = '#EF5D64' },
+    typescriptTSType = {fg = '#84C2BB' }
     -- PATCH_CLOSE
 }
 
