@@ -134,7 +134,7 @@ local highlights = {
     TSType = { fg = '#C695C6', italic = true },
     CmpItemKindTypeParameter = { link = 'TSType' },
     TSTypeBuiltin = { fg = '#5E99D4', italic = true },
-    TSURI = { fg = '#5FB4B4', dotted = true },
+    TSURI = { fg = '#5FB4B4', underdotted = true },
     TSline = { underline = true },
     TSVariable = { fg = '#CBD3E2' },
     CmpItemKindVariable = { link = 'TSVariable' },
