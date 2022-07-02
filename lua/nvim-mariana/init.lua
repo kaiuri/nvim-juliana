@@ -1,19 +1,21 @@
 --# selene: allow(unscoped_variables)
 --# selene: allow(undefined_variable)
--- Generated with rktjmp/shipwright.nvim
+
 local M = {}
 
 local highlights = {
-    -- PATCH_OPEN
+
     Normal = { fg = '#CBD3E2', bg = '#2B333B' },
     Character = { fg = '#93CF8C' },
     String = { link = 'Character' },
+
     CmpItemAbbrDeprecated = { strikethrough = true },
     CmpItemKindClass = { fg = '#EF5D64' },
     CmpItemKindEnum = { link = 'CmpItemKindClass' },
     CmpItemKindInterface = { link = 'CmpItemKindClass' },
     CmpItemKindMethod = { fg = '#8EB8E1' },
     CmpItemKindUnit = { link = 'CmpItemKindValue' },
+
     ColorColumn = { fg = '#CBD3E2', bg = '#2B333B' },
     Comment = { fg = '#788797', italic = true },
     Conceal = { fg = '#5A6B8C' },
@@ -23,14 +25,7 @@ local highlights = {
     CursorColumn = { link = 'CursorLine' },
     Delimiter = { fg = '#5E99D4' },
     TSPunctDelimiter = { link = 'Delimiter' },
-    DiagnosticError = { fg = '#EF695D' },
-    DiagnosticHint = { fg = '#FBC760' },
-    DiagnosticInfo = { fg = '#5FB4B4' },
-    DiagnosticUnderlineError = { sp = '#EF5D64', underdotted = true },
-    DiagnosticUnderlineHint = { sp = '#D8DEE9', underdotted = true },
-    DiagnosticUnderlineInfo = { sp = '#5FB4B4', underdotted = true },
-    DiagnosticUnderlineWarn = { sp = '#FAAE57', underdotted = true },
-    DiagnosticWarn = { fg = '#FAAE57' },
+
     DiffAdd = { sp = '#93CF8C', underdotted = true },
     DiffChange = { sp = '#EF5D64', underdotted = true },
     DiffDelete = { fg = '#788797' },
@@ -64,7 +59,9 @@ local highlights = {
     NormalFloat = { bg = '#272E35' },
     Pmenu = { link = 'NormalFloat' },
     Number = { fg = '#FAAE57' },
+
     CmpItemKindValue = { link = 'Number' },
+
     Float = { link = 'Number' },
     NvimTreePopup = { fg = '#CBD3E2', bg = '#272E35' },
     Operator = { fg = '#FA7A57' },
@@ -159,19 +156,35 @@ local highlights = {
     Whitespace = { fg = '#5C75A3' },
     Winseparator = { fg = '#4E5A65' },
     commentTSConstant = { fg = '#8C99A6' },
+
+    -- GIT
+
     gitCommitSelectedFile = { italic = true },
     gitCommitSummary = { bold = true },
     gitCommitTrailerToken = { fg = '#C695C6', italic = true },
+
     healthHelp = { fg = '#FBC760' },
     healthSuccess = { fg = '#93CF8C' },
+
+    -- HTML
+
     htmlTSOperator = { fg = '#A6ACB9' },
     htmlTSTag = { fg = '#EF5D64' },
     htmlTSTagAttribute = { fg = '#C695C6' },
     htmlTSTagDelimiter = { fg = '#5FB4B4' },
+
+    -- Lua
+
     luaTSField = { fg = '#95B2D6' },
+
+    -- Markdown
+
     markdownTSPunctSpecial = { fg = '#EF7A5D', bold = true },
     qfFileName = { fg = '#5FB4B4' },
     qfLineNr = { bold = true },
+
+    -- Rainbow Parentheses
+
     rainbowcol1 = { fg = '#FEDB95' },
     rainbowcol2 = { fg = '#A3FE95' },
     rainbowcol3 = { fg = '#95F7FE' },
@@ -179,6 +192,9 @@ local highlights = {
     rainbowcol5 = { fg = '#FE95CD' },
     rainbowcol6 = { fg = '#FEDB95' },
     rainbowcol7 = { fg = '#A3FE95' },
+
+    -- RUST
+
     rustTSConstBuiltin = { fg = '#5E99D4', italic = true },
     rustTSConstant = { fg = '#5E99D4' },
     rustTSField = { fg = '#CBD3E2' },
@@ -190,12 +206,31 @@ local highlights = {
     rustTSPunctDelimiter = { fg = '#A6ACB9' },
     rustTSType = { fg = '#FAAE57' },
     rustTSTypeBuiltin = { fg = '#C695C6', italic = true },
+
+    -- TMUX
+
     tmuxCommands = { fg = '#C695C6' },
     tmuxFlags = { fg = '#FAAE57' },
     tmuxFormatString = { fg = '#5FB4B4' },
+
     typescriptTSKeyword = { fg = '#EF5D64' },
-    typescriptTSType = {fg = '#5FB4B4' }
-    -- PATCH_CLOSE
+    typescriptTSType = { fg = '#5FB4B4' },
+
+    -- HELP
+
+    helpTSTitle = { fg = '#CBD3E2' },
+    helpTSTextReference = { link = 'TSURI' },
+
+    -- DIAGNOSTICS
+
+    DiagnosticError = { fg = '#EF695D' },
+    DiagnosticHint = { fg = '#FBC760' },
+    DiagnosticInfo = { fg = '#5FB4B4' },
+    DiagnosticUnderlineError = { sp = '#EF5D64', underdotted = true },
+    DiagnosticUnderlineHint = { sp = '#D8DEE9', underdotted = true },
+    DiagnosticUnderlineInfo = { sp = '#5FB4B4', underdotted = true },
+    DiagnosticUnderlineWarn = { sp = '#FAAE57', underdotted = true },
+    DiagnosticWarn = { fg = '#FAAE57' },
 }
 
 local function set_hl(colors)
