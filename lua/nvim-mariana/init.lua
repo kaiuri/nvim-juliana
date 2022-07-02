@@ -218,7 +218,7 @@ local highlights = {
 
     -- HELP
 
-    helpTSTitle = { fg = '#EF7A5D' },
+    helpTSTitle = { fg = '#CBD3E2' },
     helpTSTextReference = { link = 'TSURI' },
 
     -- DIAGNOSTICS
