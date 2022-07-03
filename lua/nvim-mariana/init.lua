@@ -131,7 +131,9 @@ local highlights = {
     TSTitle = { fg = '#CBD3E2', bold = true },
     TSType = { fg = '#C695C6', italic = true },
     CmpItemKindTypeParameter = { link = 'TSType' },
+
     TSTypeBuiltin = { fg = '#5E99D4', italic = true },
+
     TSURI = { fg = '#5FB4B4', underdotted = true },
     TSUnderline = { underline = true },
     TSVariable = { fg = '#CBD3E2' },
@@ -207,11 +209,20 @@ local highlights = {
     rustTSType = { fg = '#FAAE57' },
     rustTSTypeBuiltin = { fg = '#C695C6', italic = true },
 
+    -- Golang
+
+    goTSKeyword = { fg = '#EF5D64' },
+    goTSType = { fg = '#5FB4B4' },
+    goTSFunction = { link = 'TSFunction' },
+    goTSNamespace = { link = 'TSSymbol' },
+
     -- TMUX
 
     tmuxCommands = { fg = '#C695C6' },
     tmuxFlags = { fg = '#FAAE57' },
     tmuxFormatString = { fg = '#5FB4B4' },
+
+    -- Typescript
 
     typescriptTSKeyword = { fg = '#EF5D64' },
     typescriptTSType = { fg = '#5FB4B4' },
