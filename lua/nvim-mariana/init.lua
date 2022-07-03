@@ -214,7 +214,7 @@ local highlights = {
     goTSKeyword = { fg = '#EF5D64' },
     goTSType = { fg = '#5FB4B4' },
     goTSFunction = { link = 'TSFunction' },
-    goTSNamespace = { link = 'TSSymbol' },
+    goTSNamespace = { link = '#95B2D6' },
 
     -- TMUX
 
