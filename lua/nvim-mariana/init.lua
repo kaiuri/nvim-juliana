@@ -230,6 +230,7 @@ local highlights = {
     -- Fennel
 
     fennelTSFuncMacro = { link = 'TSKeywordFunction' },
+    fennelTSField = { link = 'luaTSField' },
 
     -- HELP
 
