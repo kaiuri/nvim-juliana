@@ -227,6 +227,10 @@ local highlights = {
     typescriptTSKeyword = { fg = '#EF5D64' },
     typescriptTSType = { fg = '#5FB4B4' },
 
+    -- Fennel
+
+    fennelTSFuncMacro = { link = 'TSKeywordFunction' },
+
     -- HELP
 
     helpTSTitle = { fg = '#CBD3E2' },
