@@ -19,7 +19,7 @@ local highlights = {
     ColorColumn = { fg = '#CBD3E2', bg = '#2B333B' },
     Comment = { fg = '#788797', italic = true },
     Conceal = { fg = '#5A6B8C' },
-    Conditional = { fg = '#C695C6' },
+    Conditional = { fg = '#c695C6' },
     Constant = { fg = '#C695C6' },
     Boolean = { link = 'Constant' },
     CursorColumn = { link = 'CursorLine' },
@@ -227,10 +227,17 @@ local highlights = {
     typescriptTSKeyword = { fg = '#EF5D64' },
     typescriptTSType = { fg = '#5FB4B4' },
 
-    -- Fennel
+    --- Fennel
 
+    -- NOTE: Very weird queries
     fennelTSFuncMacro = { link = 'TSKeywordFunction' },
     fennelTSField = { link = 'luaTSField' },
+    -- fennel.vim
+    FennelStringDelimiter = { fg = '#5FB4B4' },
+    FennelParen = { link = 'TSPunctBracket' },
+    FennelSpecialForm = { fg = '#c695C6', italic = true },
+    FennelKeyword = { fg = '#84C2BB' },
+    FennelTable = { link = 'luaTSPunctDelimiter' },
 
     -- HELP
 

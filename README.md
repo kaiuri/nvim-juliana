@@ -46,15 +46,16 @@ There's none, but I might add a `contrast` one if there's demand. One shouldn't 
 
 ## Plugin Support(Tested)
 
-- [vim-sneak](https://github.com/justinmk/vim-sneak)
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
-- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons).
-- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - on `auto`
-- [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
+- [vim-sneak](https://github.com/justinmk/vim-sneak),
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter),
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim),
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp),
+- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim),
+- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua),
+- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons),
+- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - on `auto`,
+- [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow),
+- [fennel.vim](https://github.com/bakpakin/fennel.vim).
 
 ## Alacritty Theme
 
@@ -62,7 +63,7 @@ There's a theme for [Alacritty](https://github.com/alacritty/alacritty/) availab
 
 ## TO-DO
 
-- [ ] Fix Neovim's vim-inherited markdown highlights so its built in LSP client hover, etc, features display properly.
+- [x] Fix Neovim's vim-inherited markdown highlights so its built in LSP client hover, etc, features display properly.
 - [ ] Add more screenshots.
 - [x] Display palette on README.
 
