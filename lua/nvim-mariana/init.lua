@@ -239,6 +239,10 @@ local highlights = {
     FennelKeyword = { fg = '#84C2BB' },
     FennelTable = { link = 'luaTSPunctDelimiter' },
 
+    --- indent-blankline
+    IndentBlanklineContextChar = { fg = '#4E5A65' },
+    IndentBlanklineContextStart = { sp = '#4E5A65', underline = true },
+
     -- HELP
 
     helpTSTitle = { fg = '#CBD3E2' },
