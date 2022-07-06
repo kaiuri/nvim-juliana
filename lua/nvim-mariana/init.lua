@@ -6,8 +6,7 @@ local M = {}
 local colors = {
     blue2 = '#46525C',
     blue3 = '#303841',
-    blue5 = '#A6ACB8',
-    blue6 = '#A6ACB9',
+    blue6 = '#A6ACB8',
     blue_vibrant = '#5c99d6',
     gray = '#333333',
     green = '#99C794',
@@ -100,7 +99,7 @@ local highlights = {
     Conditional = { fg = colors.pink },
     Constant = { fg = colors.pink },
     Define = { link = 'Macro' },
-    Delimiter = { fg = colors.blue5 },
+    Delimiter = { fg = colors.blue6 },
     Float = { link = 'Number' },
     Function = { fg = '#5E99D4' },
     Identifier = { fg = '#CBD3E2', bg = '#2B333B' },
@@ -137,7 +136,7 @@ local highlights = {
     TSError = { fg = '#CBD3E2' },
     TSField = { fg = colors.pink },
     TSFuncMacro = { fg = '#5E99D4', italic = true },
-    TSFunction = { fg = '#5E99D4' },
+    TSFunction = { link = 'Function' },
     TSInclude = { fg = colors.pink },
     TSKeyword = { fg = colors.pink, italic = true },
     TSKeywordFunction = { fg = colors.pink, italic = true },
@@ -145,7 +144,7 @@ local highlights = {
     TSKeywordReturn = { fg = colors.pink },
     TSLabel = { fg = '#84C2BB' },
     TSMethod = { link = 'Function' },
-    TSNamespace = { link = 'TSVariable' },
+    TSNamespace = { fg = colors.orange },
     TSNote = { fg = '#93CF8C', bold = true },
     TSOperator = { link = 'Operator' },
     TSParameter = { fg = '#FAAE57' },
@@ -215,7 +214,7 @@ local highlights = {
     goTSKeyword = { fg = '#EF5D64' },
     goTSType = { fg = '#5FB4B4' },
     goTSFunction = { link = 'TSFunction' },
-    goTSNamespace = { fg = '#95B2D6' },
+    goTSNamespace = { link = 'TSNamespace' },
 
     -- tmux
 
