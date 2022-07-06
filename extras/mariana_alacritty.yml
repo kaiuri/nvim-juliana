@@ -1,9 +1,9 @@
 colors:
   primary:
     # hard contrast: background = '0x1d2021'
-    background: '0x293038'
+    background: '0x303841'
     # soft contrast: background = '0x32302f'
-    foreground: '0xcbd3e2'
+    foreground: '0xd8dee3'
   normal:
     black: '0x252b32'
     red: '0xef5d64'
@@ -16,9 +16,9 @@ colors:
   bright:
     black: '0x647382'
     red: '0xec5f66'
-    green: '0x99c794'
-    yellow: '0xfac761'
-    blue: '0x5e99d4'
+    green: '0x99C794'
+    yellow: '0xFAC761'
+    blue: '0x5c99d6'
     magenta: '0xc695c6'
     cyan: '0x8cc0cf'
     white: '0xffffff'
