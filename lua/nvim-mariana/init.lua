@@ -130,7 +130,7 @@ local highlights = {
     -- TS-hl globals
     TSConstBuiltin = { fg = '#EF5D64', italic = true },
     TSConstMacro = { fg = colors.pink, italic = true },
-    TSConstant = { fg = colors.pink },
+    TSConstant = { fg = colors.blue_vibrant },
     TSDanger = { fg = '#EF5D64', bold = true },
     TSEmphasis = { italic = true },
     TSError = { fg = '#CBD3E2' },
@@ -197,8 +197,7 @@ local highlights = {
     qfLineNr = { bold = true },
 
     -- RUST
-    rustTSConstBuiltin = { fg = '#5E99D4', italic = true },
-    rustTSConstant = { fg = '#5E99D4' },
+    rustTSConstBuiltin = { link = 'TSConstant', italic = true },
     rustTSField = { fg = '#CBD3E2' },
     rustTSFuncMacro = { fg = '#5E99D4' },
     rustTSFunction = { fg = '#5FB4B4' },
