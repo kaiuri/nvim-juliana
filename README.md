@@ -55,6 +55,7 @@ There's none, but I might add a `contrast` one if there's demand. One shouldn't 
 - [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons),
 - [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - on `auto`,
 - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow),
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [fennel.vim](https://github.com/bakpakin/fennel.vim).
 
 ## Alacritty Theme

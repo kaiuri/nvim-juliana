@@ -91,6 +91,7 @@ local highlights = {
     DiagnosticWarn = { fg = '#FAAE57' },
 
     -- VimSyntax hl-groups
+
     MatchParen = { link = 'Visual', bold = true },
     Boolean = { link = 'Constant' },
     Character = { fg = colors.green },
@@ -296,8 +297,13 @@ local highlights = {
     Sneak = { link = 'Search' },
     SneakLabel = { link = 'Search' },
 
-    -- Nvim-tree
+    --- Nvim-tree
     NvimTreePopup = { fg = '#CBD3E2', bg = '#272E35' },
+
+    --- gitsigns.nvim
+    GitSignsDelete = { fg = colors.red },
+    GitSignsChange = { fg = colors.orange },
+    GitSignsAdd = { fg = colors.green },
 }
 
 local function set_hl(tbl)
