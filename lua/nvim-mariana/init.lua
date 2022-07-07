@@ -225,12 +225,13 @@ local highlights = {
 
     -- typescriptTS
 
-    typescriptTSKeyword = { fg = '#EF5D64' },
+    -- typescriptTSKeyword = { fg = '#EF5D64' },
     typescriptTSType = { fg = '#5E99D4', italic = true },
     typescriptTSProperty = { fg = '#CBD3E2' },
     typescriptTSFunction = { fg = '#5FB4B4' },
     typescriptTSConstructor = { fg = '#FAAE57' },
     typescriptTSOperator = { link = 'TSOperator' },
+    typescriptTSPunctSpecial = { fg = colors.red },
 
     --- fennelTS
 
