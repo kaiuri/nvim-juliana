@@ -244,6 +244,13 @@ local highlights = {
     FennelKeyword = { fg = '#84C2BB' },
     FennelTable = { link = 'luaTSPunctDelimiter' },
 
+    --- clojureTS
+    clojureTSKeywordFunction = { fg = colors.red },
+    clojureTSKeyword = { fg = colors.red },
+    clojureTSSymbol = { fg = colors.pink },
+    clojureTSVariableBuiltin = { link = 'TSVariable' },
+    clojureTSPunctSpecial = { fg = colors.red2 },
+
     --- tomlTS
     tomlTSProperty = { link = 'TSLabel' },
 
