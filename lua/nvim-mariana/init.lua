@@ -161,7 +161,7 @@ local highlights = {
     TSText = { fg = '#CBD3E2' },
     TSTextReference = { fg = '#CBD3E2', underdotted = true },
     TSTitle = { fg = '#CBD3E2', bold = true },
-    TSType = { fg = colors.pink, italic = true },
+    TSType = { fg = colors.orange },
     TSTypeBuiltin = { fg = '#5E99D4', italic = true },
     TSURI = { fg = '#5FB4B4', underdotted = true },
     TSUnderline = { underline = true },
@@ -225,8 +225,6 @@ local highlights = {
 
     -- typescriptTS
 
-    -- typescriptTSKeyword = { fg = '#EF5D64' },
-    typescriptTSType = { fg = '#5E99D4', italic = true },
     typescriptTSProperty = { fg = '#CBD3E2' },
     typescriptTSFunction = { fg = '#5FB4B4' },
     typescriptTSConstructor = { fg = '#FAAE57' },
