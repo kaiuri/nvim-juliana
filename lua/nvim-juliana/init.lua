@@ -318,7 +318,7 @@ function M.load()
     end
     vim.cmd('highlight clear')
     vim.cmd('set t_Co=256')
-    vim.cmd("let g:colors_name='mariana'")
+    vim.cmd("let g:colors_name='juliana'")
 
     set_hl(highlights)
 end

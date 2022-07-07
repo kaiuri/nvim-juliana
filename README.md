@@ -1,6 +1,8 @@
-# nvim-mariana
+# nvim-juliana
 
-Status: Under development. Vim's awkward markdown `hl-groups` are still being added, although when using tree-sitter it works fine.
+## NOTICE
+
+The colorscheme name's been changes for license purposes.
 
 ## Palette
 
@@ -8,7 +10,7 @@ Status: Under development. Vim's awkward markdown `hl-groups` are still being ad
 
 ## Screenshots
 
-![](./assets/nvim-mariana.png)
+![](./assets/nvim-juliana.png)
 
 ## Description
 
@@ -23,7 +25,7 @@ Plug it with your favorite plugin manager.
 - Packer:
 
 ```lua
-use 'kaiuri/nvim-mariana'
+use 'kaiuri/nvim-juliana'
 ```
 
 ## Usage
@@ -31,13 +33,13 @@ use 'kaiuri/nvim-mariana'
 - Vimscript:
 
 ```vim
-colo mariana
+colo juliana
 ```
 
 - Lua:
 
 ```lua
-vim.cmd('colo mariana')
+vim.cmd('colo juliana')
 ```
 
 ## Configuration
@@ -60,7 +62,7 @@ There's none, but I might add a `contrast` one if there's demand. One shouldn't 
 
 ## Alacritty Theme
 
-There's a theme for [Alacritty](https://github.com/alacritty/alacritty/) available at [extras](./extras/mariana_alacritty.yml).
+There's a theme for [Alacritty](https://github.com/alacritty/alacritty/) available at [extras](./extras/juliana_alacritty.yml).
 
 ## TO-DO
 
