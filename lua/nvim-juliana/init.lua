@@ -97,7 +97,7 @@ local highlights = {
     Boolean = { link = 'Constant' },
     Character = { fg = colors.green },
     String = { fg = colors.green },
-    Comment = { fg = colors.blue6, italic = true },
+    Comment = { fg = colors.blue6 },
     Conditional = { fg = colors.pink },
     Constant = { fg = colors.pink },
     Define = { link = 'Macro' },
@@ -132,6 +132,7 @@ local highlights = {
     -- TS-hl globals
     TSConstBuiltin = { fg = '#EF5D64', italic = true },
     TSConstMacro = { fg = colors.pink, italic = true },
+    TSComment = { link = 'Comment' },
     TSConstant = { fg = colors.blue_vibrant },
     TSDanger = { fg = '#EF5D64', bold = true },
     TSEmphasis = { italic = true },
