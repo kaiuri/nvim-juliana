@@ -314,9 +314,9 @@ local highlights = {
     GitSignsAdd = { fg = colors.green, bold = true },
 
     --- vim.lsp
-    LspReferenceText = { link = 'Visual' },
-    LspReferenceRead = { link = 'Visual' },
-    LspReferenceWrite = { link = 'Visual' },
+    LspReferenceText = { bg = '#38424c' },
+    LspReferenceRead = { link = 'LspReferenceText' },
+    LspReferenceWrite = { link = 'LspReferenceText' },
 }
 
 local function set_hl(tbl)
