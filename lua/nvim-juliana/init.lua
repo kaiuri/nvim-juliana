@@ -104,7 +104,7 @@ local highlights = {
     Delimiter = { fg = colors.blue6 },
     Float = { link = 'Number' },
     Function = { fg = '#5E99D4' },
-    Identifier = { fg = '#CBD3E2', bg = '#2B333B' },
+    Identifier = { fg = '#CBD3E2' },
     Include = { fg = '#7999B9' },
     Keyword = { fg = colors.pink },
     Label = { fg = colors.pink },
