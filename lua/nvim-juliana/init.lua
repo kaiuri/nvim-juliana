@@ -6,6 +6,7 @@ local M = {}
 local colors = {
     blue2 = '#46525C',
     blue3 = '#303841',
+    blue5 = '#5FB4B4',
     blue6 = '#A6ACB8',
     blue_vibrant = '#5c99d6',
     gray = '#333333',
@@ -83,13 +84,13 @@ local highlights = {
     -- Diagnostics
 
     DiagnosticError = { fg = colors.red },
-    DiagnosticHint = { fg = '#FBC760' },
-    DiagnosticInfo = { fg = '#5FB4B4' },
+    DiagnosticHint = { fg = '#D8DEE9' },
+    DiagnosticInfo = { fg = colors.blue5 },
+    DiagnosticWarn = { fg = colors.orange },
     DiagnosticUnderlineError = { sp = colors.red, underdotted = true },
     DiagnosticUnderlineHint = { sp = '#D8DEE9', underdotted = true },
     DiagnosticUnderlineInfo = { sp = '#5FB4B4', underdotted = true },
     DiagnosticUnderlineWarn = { sp = '#FAAE57', underdotted = true },
-    DiagnosticWarn = { fg = '#FAAE57' },
 
     -- VimSyntax hl-groups
 
@@ -103,7 +104,7 @@ local highlights = {
     Define = { link = 'Macro' },
     Delimiter = { fg = colors.blue6 },
     Float = { link = 'Number' },
-    Function = { fg = '#5E99D4' },
+    Function = { fg = colors.blue_vibrant },
     Identifier = { fg = '#CBD3E2' },
     Include = { fg = '#7999B9' },
     Keyword = { fg = colors.pink },
@@ -123,7 +124,7 @@ local highlights = {
     Structure = { fg = colors.pink },
     Tag = { fg = colors.pink },
     Title = { fg = colors.pink },
-    Todo = { fg = '#5E99D4', bold = true },
+    Todo = { fg = colors.blue_vibrant, bold = true },
     Type = { fg = colors.pink, italic = true },
     Typedef = { link = 'Structure' },
     Underlined = { underdotted = true },
