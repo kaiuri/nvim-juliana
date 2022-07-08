@@ -312,6 +312,11 @@ local highlights = {
     GitSignsDelete = { fg = colors.red, bold = true },
     GitSignsChange = { fg = colors.orange, bold = true },
     GitSignsAdd = { fg = colors.green, bold = true },
+
+    --- vim.lsp
+    LspReferenceText = { link = 'Visual' },
+    LspReferenceRead = { link = 'Visual' },
+    LspReferenceWrite = { link = 'Visual' },
 }
 
 local function set_hl(tbl)
