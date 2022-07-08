@@ -2,7 +2,7 @@
 
 ## NOTICE
 
-The colorscheme name's been changes for license purposes.
+The colorscheme's name been changed from nvim-mariana to nvim-juliana.
 
 ## Palette
 
