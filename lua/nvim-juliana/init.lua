@@ -264,6 +264,9 @@ local highlights = {
     helpTSTitle = { fg = '#CBD3E2' },
     helpTSTextReference = { link = 'TSURI' },
 
+    --- Python
+    pythonTSField = { fg = '#95B2D6' },
+
     --- Plugins
     -- Rainbow Parentheses
 
