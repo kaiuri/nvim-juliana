@@ -167,7 +167,7 @@ local highlights = {
     TSTypeBuiltin = { fg = '#5E99D4', italic = true },
     TSURI = { fg = '#5FB4B4', underdotted = true },
     TSUnderline = { underline = true },
-    TSVariable = { fg = '#CBD3E2' },
+    TSVariable = { fg = foreground },
     TSVariableBuiltin = { fg = '#EF5D64', italic = true },
     TSWarning = { fg = '#FAAE57', bold = true },
 
@@ -250,7 +250,7 @@ local highlights = {
     clojureTSKeywordFunction = { fg = colors.red },
     clojureTSKeyword = { fg = colors.red },
     clojureTSSymbol = { fg = colors.pink },
-    clojureTSVariableBuiltin = { link = 'TSVariable' },
+    clojureTSVariableBuiltin = { link = 'TSConstBuiltin' },
     clojureTSPunctSpecial = { fg = colors.red2 },
 
     --- tomlTS
