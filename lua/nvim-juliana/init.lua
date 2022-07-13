@@ -131,6 +131,7 @@ local highlights = {
     Whitespace = { fg = '#5C75A3' },
 
     -- TS-hl globals
+    TSBoolean = { fg = colors.red, italic = true },
     TSConstBuiltin = { fg = '#EF5D64', italic = true },
     TSConstMacro = { fg = colors.pink, italic = true },
     TSComment = { link = 'Comment' },
