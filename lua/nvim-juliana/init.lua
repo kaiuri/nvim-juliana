@@ -2,7 +2,6 @@
 --# selene: allow(undefined_variable)
 local M = {}
 
---- TODO: add all colors
 local colors = {
     blue2 = '#46525C',
     blue3 = '#303841',
@@ -19,7 +18,6 @@ local colors = {
     white = '#FFFFFF',
     white3 = '#D8DEE3',
 }
---- NOTE: Those are a few of sublime-mariana's globals
 local background = colors.blue3
 local foreground = colors.white3
 local selection = colors.blue2
@@ -236,7 +234,6 @@ local highlights = {
 
     --- fennelTS
 
-    -- NOTE: Very weird queries
     fennelTSFuncMacro = { link = 'TSKeywordFunction' },
     fennelTSField = { link = 'luaTSField' },
 
@@ -253,6 +250,7 @@ local highlights = {
     clojureTSSymbol = { fg = colors.pink },
     clojureTSVariableBuiltin = { link = 'TSConstBuiltin' },
     clojureTSPunctSpecial = { fg = colors.red2 },
+    clojureTSFuncMacro = { fg = colors.red },
 
     --- tomlTS
     tomlTSProperty = { link = 'TSLabel' },
