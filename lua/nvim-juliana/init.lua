@@ -250,7 +250,7 @@ local highlights = {
     clojureTSSymbol = { fg = colors.pink },
     clojureTSVariableBuiltin = { link = 'TSConstBuiltin' },
     clojureTSPunctSpecial = { fg = colors.red2 },
-    clojureTSFuncMacro = { fg = colors.red },
+    clojureTSFuncMacro = { fg = colors.red2 },
 
     --- tomlTS
     tomlTSProperty = { link = 'TSLabel' },
