@@ -189,6 +189,12 @@ local highlights = {
     htmlTSTagAttribute = { fg = colors.pink },
     htmlTSTagDelimiter = { fg = '#5FB4B4' },
 
+    -- cssTS
+
+    cssTSProperty = { fg = colors.blue5 },
+    cssTSPunctDelimiter = { fg = colors.blue_vibrant },
+    cssTSNumber = { fg = colors.red2 },
+
     -- luaTS
     luaTSField = { fg = '#95B2D6' },
 
