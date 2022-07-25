@@ -92,7 +92,7 @@ local highlights = {
 
     -- VimSyntax hl-groups
 
-    MatchParen = { link = 'Visual', bold = true },
+    MatchParen = { bold = true },
     Boolean = { link = 'Constant' },
     Character = { fg = colors.green },
     String = { fg = colors.green },
@@ -133,7 +133,7 @@ local highlights = {
     TSConstBuiltin = { fg = '#EF5D64', italic = true },
     TSConstMacro = { fg = colors.pink, italic = true },
     TSComment = { link = 'Comment' },
-    TSConstant = { fg = colors.blue_vibrant },
+    TSConstant = { fg = colors.orange },
     TSDanger = { fg = '#EF5D64', bold = true },
     TSEmphasis = { italic = true },
     TSError = { fg = '#CBD3E2' },
@@ -151,7 +151,7 @@ local highlights = {
     TSNote = { fg = '#93CF8C', bold = true },
     TSOperator = { link = 'Operator' },
     TSParameter = { fg = '#FAAE57' },
-    TSProperty = { link = 'TSVariable' },
+    TSProperty = { fg = '#95B2D6' },
     TSPunctBracket = { fg = colors.white },
     TSPunctDelimiter = { link = 'Delimiter' },
     TSPunctSpecial = { fg = '#5EBBD4' },
@@ -191,12 +191,12 @@ local highlights = {
 
     -- cssTS
 
-    cssTSProperty = { fg = colors.blue5 },
+    cssTSProperty = { link = 'TSProperty' },
     cssTSPunctDelimiter = { fg = colors.blue_vibrant },
     cssTSNumber = { fg = colors.red2 },
 
     -- luaTS
-    luaTSField = { fg = '#95B2D6' },
+    luaTSField = { link = 'TSProperty' },
 
     -- markdownTS
     markdownTSPunctSpecial = { fg = '#EF7A5D', bold = true },
@@ -232,11 +232,11 @@ local highlights = {
 
     -- typescriptTS
 
-    typescriptTSProperty = { fg = '#CBD3E2' },
+    typescriptTSProperty = { fg = '#95B2D6' },
     typescriptTSFunction = { fg = '#5FB4B4' },
     typescriptTSConstructor = { fg = '#FAAE57' },
     typescriptTSOperator = { link = 'TSOperator' },
-    typescriptTSPunctSpecial = { fg = colors.red },
+    -- typescriptTSPunctSpecial = { fg = colors.red },
 
     --- fennelTS
 
@@ -254,6 +254,8 @@ local highlights = {
     clojureTSKeywordFunction = { fg = colors.red },
     clojureTSKeyword = { fg = colors.red },
     clojureTSSymbol = { fg = colors.pink },
+
+    clojureTSNumber = { fg = colors.red2 },
     clojureTSVariableBuiltin = { link = 'TSConstBuiltin' },
     clojureTSPunctSpecial = { fg = colors.red2 },
     clojureTSFuncMacro = { fg = colors.red2 },
