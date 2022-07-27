@@ -34,9 +34,12 @@ local highlights = {
     --- UI
     ColorColumn = { fg = '#CBD3E2', bg = '#2B333B' },
     Conceal = { fg = '#5A6B8C' },
+
+    CursorLine = { bg = '#38424c' },
     CursorColumn = { link = 'CursorLine' },
-    CursorLine = { link = 'Visual' },
+
     CursorLineNr = { link = 'LineNr' },
+
     DiffAdd = { sp = '#93CF8C', underdotted = true },
     DiffChange = { sp = '#EF5D64', underdotted = true },
     DiffDelete = { fg = '#788797' },
