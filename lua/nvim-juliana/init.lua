@@ -279,7 +279,8 @@ local highlights = {
     pythonTSField = { fg = '#95B2D6' },
 
     --- Svelte
-    svelteTSTag = { fg = colors.red2 },
+    svelteTSTagDelimiter = { fg = colors.blue5 },
+    svelteTSTag = { fg = colors.red },
     --- Plugins
     -- Rainbow Parentheses
 
