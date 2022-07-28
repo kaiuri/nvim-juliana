@@ -239,6 +239,7 @@ local highlights = {
     typescriptTSFunction = { fg = '#5FB4B4' },
     typescriptTSConstructor = { fg = '#FAAE57' },
     typescriptTSOperator = { link = 'TSOperator' },
+    typescriptTSParameter = { link = 'TSVariable' },
     -- typescriptTSPunctSpecial = { fg = colors.red },
 
     --- fennelTS
@@ -277,6 +278,8 @@ local highlights = {
     --- Python
     pythonTSField = { fg = '#95B2D6' },
 
+    --- Svelte
+    svelteTSTag = { fg = colors.red2 },
     --- Plugins
     -- Rainbow Parentheses
 
