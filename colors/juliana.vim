@@ -1,1 +1,1 @@
-lua require('nvim-juliana').load()
+lua require('nvim-juliana.juliana').load()

@@ -1,28 +1,13 @@
 --# selene: allow(unscoped_variables)
 --# selene: allow(undefined_variable)
-local M = {}
+local c = require('nvim-juliana.palette').normal
 
-local colors = {
-    blue2 = '#46525C',
-    blue3 = '#303841',
-    blue5 = '#5FB4B4',
-    blue6 = '#A6ACB8',
-    blue_vibrant = '#5c99d6',
-    gray = '#333333',
-    green = '#99C794',
-    orange = '#F9AE58',
-    orange3 = '#FAC761',
-    red = '#EC5F66',
-    red2 = '#F97B58',
-    pink = '#C694C1',
-    white = '#FFFFFF',
-    white3 = '#D8DEE3',
-}
-local background = colors.blue3
-local foreground = colors.white3
-local selection = colors.blue2
-local find_highlight_foreground = colors.gray
-local find_highlight = colors.orange3
+local M = {}
+local background = c.gray1
+local foreground = c.gray4
+local selection = c.gray2
+local find_highlight_foreground = c.gray0
+local find_highlight = c.yellow
 
 local highlights = {
 
@@ -32,31 +17,37 @@ local highlights = {
     Visual = { bg = selection },
 
     --- UI
+    NonText = { fg = c.gray2 },
+
     ColorColumn = { fg = '#CBD3E2', bg = '#2B333B' },
-    Conceal = { fg = '#5A6B8C' },
+
+    Conceal = { fg = c.gray3 },
 
     CursorLine = { bg = '#38424c' },
     CursorColumn = { link = 'CursorLine' },
 
     CursorLineNr = { link = 'LineNr' },
 
-    DiffAdd = { sp = '#93CF8C', underdotted = true },
-    DiffChange = { sp = '#EF5D64', underdotted = true },
-    DiffDelete = { fg = '#788797' },
+    DiffAdd = { sp = c.green, underdotted = true },
+    DiffChange = { sp = c.red, underdotted = true },
+    DiffDelete = { fg = c.gray3 },
     DiffText = { italic = true },
     Directory = { underdotted = true },
     EndOfBuffer = { fg = '#2B333B' },
-    Error = { fg = '#FA7A57' },
-    ErrorMsg = { fg = '#EF5D64' },
-    Exception = { fg = colors.pink },
-    FoldColumn = { fg = '#CBD3E2', bg = '#2B333B' },
-    Folded = { sp = '#647382', underdashed = true },
+    Error = { fg = c.orange2 },
+    ErrorMsg = { fg = c.red },
+    Exception = { fg = c.pink },
+
+    -- Folds
+    Folded = { fg = c.gray3 },
+    FoldColumn = { bg = background },
+
     LineNr = { link = 'Visual' },
-    LineNrAbove = { fg = '#A6ACB9' },
-    LineNrBelow = { fg = '#A6ACB9' },
+    LineNrAbove = { fg = c.gray3 },
+    LineNrBelow = { link = 'LineNrAbove' },
+
     ModeMsg = { fg = '#DEE1E8' },
     MoreMsg = { fg = '#DEE1E8', bold = true },
-    NonText = { fg = '#5A6B8C' },
     Pmenu = { link = 'NormalFloat' },
     PmenuSbar = { fg = '#CBD3E2', bg = '#2B333B' },
     PmenuSel = { bg = '#272E35', bold = true },
@@ -67,10 +58,10 @@ local highlights = {
     IncSearch = { link = 'Search' },
 
     SignColumn = { fg = foreground, bg = background },
-    SpellBad = { sp = '#EF5D64', undercurl = true },
-    SpellCap = { sp = '#FAAE57', undercurl = true },
-    SpellLocal = { sp = '#48CBCB', undercurl = true },
-    SpellRare = { sp = colors.pink, undercurl = true },
+    SpellBad = { sp = c.red, undercurl = true },
+    SpellCap = { sp = c.orange1, undercurl = true },
+    SpellLocal = { sp = c.teal, undercurl = true },
+    SpellRare = { sp = c.pink, undercurl = true },
     StatusLine = { fg = '#CBD3E2', bg = '#3D4752' },
     StatusLineNC = { fg = '#CBD3E2', bg = '#2B333B' },
     Substitute = { link = 'Visual' },
@@ -84,94 +75,101 @@ local highlights = {
 
     -- Diagnostics
 
-    DiagnosticError = { fg = colors.red },
+    DiagnosticError = { fg = c.red },
     DiagnosticHint = { fg = '#D8DEE9' },
-    DiagnosticInfo = { fg = colors.blue5 },
-    DiagnosticWarn = { fg = colors.orange },
-    DiagnosticUnderlineError = { sp = colors.red, underdotted = true },
+    DiagnosticInfo = { fg = c.teal },
+    DiagnosticWarn = { fg = c.orange1 },
+    DiagnosticUnderlineError = { sp = c.red, underdotted = true },
     DiagnosticUnderlineHint = { sp = '#D8DEE9', underdotted = true },
-    DiagnosticUnderlineInfo = { sp = '#5FB4B4', underdotted = true },
-    DiagnosticUnderlineWarn = { sp = '#FAAE57', underdotted = true },
+    DiagnosticUnderlineInfo = { sp = c.teal, underdotted = true },
+    DiagnosticUnderlineWarn = { sp = c.orange1, underdotted = true },
 
     -- VimSyntax hl-groups
 
     MatchParen = { bold = true },
     Boolean = { link = 'Constant' },
-    Character = { fg = colors.green },
-    String = { fg = colors.green },
-    Comment = { fg = colors.blue6 },
-    Conditional = { fg = colors.pink },
-    Constant = { fg = colors.pink },
+    Character = { fg = c.green },
+    String = { fg = c.green },
+    Comment = { fg = c.gray3 },
+    Conditional = { fg = c.pink },
+    Constant = { fg = c.pink },
     Define = { link = 'Macro' },
-    Delimiter = { fg = colors.blue6 },
+    Delimiter = { fg = c.gray3 },
     Float = { link = 'Number' },
-    Function = { fg = colors.blue_vibrant },
-    Identifier = { fg = '#CBD3E2' },
+    Function = { fg = c.blue },
+    Identifier = { fg = foreground },
     Include = { fg = '#7999B9' },
-    Keyword = { fg = colors.pink },
-    Label = { fg = colors.pink },
+    Keyword = { fg = c.pink },
+    Label = { fg = c.pink },
     Macro = { fg = '#8DADE7' },
-    Number = { fg = colors.orange },
-    Operator = { fg = colors.red2 },
+    Number = { fg = c.orange1 },
+    Operator = { fg = c.orange2 },
     PreCondit = { link = 'Include' },
     PreProc = { fg = '#A7B4CD' },
-    Repeat = { fg = colors.pink },
-    Special = { fg = '#5FB4B4' },
+    Repeat = { fg = c.pink },
+    Special = { fg = c.teal },
     SpecialChar = { fg = '#5FB485' },
     SpecialComment = { fg = '#788797', underline = true },
-    SpecialKey = { fg = '#48CBCB' },
-    Statement = { fg = colors.pink },
-    StorageClass = { fg = colors.red },
-    Structure = { fg = colors.pink },
-    Tag = { fg = colors.pink },
-    Title = { fg = colors.pink },
-    Todo = { fg = colors.blue_vibrant, bold = true },
-    Type = { fg = colors.pink, italic = true },
+    SpecialKey = { fg = c.teal },
+    Statement = { fg = c.pink },
+    StorageClass = { fg = c.red },
+    Structure = { fg = c.pink },
+    Tag = { fg = c.pink },
+    Title = { fg = c.pink },
+    Todo = { fg = c.blue, bold = true },
+    Type = { fg = c.pink, italic = true },
     Typedef = { link = 'Structure' },
     Underlined = { underdotted = true },
     Whitespace = { fg = '#5C75A3' },
 
     -- TS-hl globals
-    TSBoolean = { fg = colors.red, italic = true },
-    TSConstBuiltin = { fg = '#EF5D64', italic = true },
-    TSConstMacro = { fg = colors.pink, italic = true },
+    TSBoolean = { fg = c.red, italic = true },
+    TSConstBuiltin = { fg = c.red, italic = true },
+    TSConstMacro = { fg = c.pink, italic = true },
     TSComment = { link = 'Comment' },
-    TSConstant = { fg = colors.orange },
-    TSDanger = { fg = '#EF5D64', bold = true },
+    TSConstant = { fg = c.orange1 },
+    TSDanger = { fg = c.red, bold = true },
     TSEmphasis = { italic = true },
-    TSError = { fg = '#CBD3E2' },
-    TSField = { fg = colors.pink },
-    TSFuncMacro = { fg = '#5E99D4', italic = true },
+    TSError = { fg = foreground },
+    TSField = { fg = c.pink },
+    TSFuncMacro = { fg = c.blue, italic = true },
     TSFunction = { link = 'Function' },
-    TSInclude = { fg = colors.pink },
-    TSKeyword = { fg = colors.pink, italic = true },
-    TSKeywordFunction = { fg = colors.pink, italic = true },
-    TSKeywordOperator = { fg = colors.pink },
-    TSKeywordReturn = { fg = colors.pink },
-    TSLabel = { fg = '#84C2BB' },
+    TSInclude = { fg = c.pink },
+    TSKeyword = { fg = c.pink, italic = true },
+    TSKeywordFunction = { fg = c.pink, italic = true },
+    TSKeywordOperator = { fg = c.pink },
+    TSKeywordReturn = { fg = c.pink },
+    TSLabel = { fg = c.teal },
     TSMethod = { link = 'Function' },
-    TSNamespace = { fg = colors.orange },
-    TSNote = { fg = '#93CF8C', bold = true },
+    TSNamespace = { fg = c.orange1 },
+    TSNote = { fg = c.green, bold = true },
     TSOperator = { link = 'Operator' },
-    TSParameter = { fg = '#FAAE57' },
+    TSParameter = { fg = c.orange1 },
     TSProperty = { fg = '#95B2D6' },
-    TSPunctBracket = { fg = colors.white },
+    TSPunctBracket = { fg = c.white },
     TSPunctDelimiter = { link = 'Delimiter' },
-    TSPunctSpecial = { fg = '#5EBBD4' },
-    TSStringEscape = { fg = '#8CC0CF' },
-    TSStringRegex = { fg = '#8CC0CF' },
+    TSPunctSpecial = { fg = c.teal },
+    TSStringEscape = { fg = c.teal },
+    TSStringRegex = { fg = c.teal },
+    TSString = { link = 'String' },
     TSStrong = { bold = true },
     TSSymbol = { fg = '#7EBFC4' },
-    TSText = { fg = '#CBD3E2' },
-    TSTextReference = { fg = '#CBD3E2', underdotted = true },
-    TSTitle = { fg = '#CBD3E2', bold = true },
-    TSType = { fg = colors.orange },
-    TSTypeBuiltin = { fg = '#5E99D4', italic = true },
-    TSURI = { fg = '#5FB4B4', underdotted = true },
+    TSText = { fg = foreground },
+    TSTextReference = { fg = foreground, underdotted = true },
+    TSTitle = { fg = foreground, bold = true },
+    TSType = { fg = c.orange1 },
+    TSTypeQualifier = { fg = c.red },
+    TSTypeBuiltin = { fg = c.blue, italic = true },
+    TSURI = { fg = c.teal, underdotted = true },
     TSUnderline = { underline = true },
     TSVariable = { fg = foreground },
-    TSVariableBuiltin = { fg = '#EF5D64', italic = true },
-    TSWarning = { fg = '#FAAE57', bold = true },
+    TSVariableBuiltin = { fg = c.red, italic = true },
+    TSWarning = { fg = c.orange1, bold = true },
+    TSNumber = { fg = c.orange2 },
+
+    TSTag = { fg = c.red },
+    TSTagDelimiter = { fg = c.teal },
+    TSTagAttribute = { fg = c.pink },
 
     --- commentTS
     commentTSConstant = { fg = '#8C99A6' },
@@ -180,64 +178,52 @@ local highlights = {
 
     gitCommitSelectedFile = { italic = true },
     gitCommitSummary = { bold = true },
-    gitCommitTrailerToken = { fg = colors.pink, italic = true },
+    gitCommitTrailerToken = { fg = c.pink, italic = true },
 
     --- health.vim
-    healthHelp = { fg = '#FBC760' },
-    healthSuccess = { fg = '#93CF8C' },
-
-    -- htmlTS
-    htmlTSOperator = { link = 'TSOperator' },
-    htmlTSTag = { fg = '#EF5D64' },
-    htmlTSTagAttribute = { fg = colors.pink },
-    htmlTSTagDelimiter = { fg = '#5FB4B4' },
-
-    -- cssTS
-
-    cssTSProperty = { link = 'TSProperty' },
-    cssTSPunctDelimiter = { fg = colors.blue_vibrant },
-    cssTSNumber = { fg = colors.red2 },
+    healthHelp = { fg = c.yellow },
+    healthSuccess = { fg = c.green },
 
     -- luaTS
     luaTSField = { link = 'TSProperty' },
 
     -- markdownTS
-    markdownTSPunctSpecial = { fg = '#EF7A5D', bold = true },
+    markdownTSPunctSpecial = { fg = c.orange2, bold = true },
 
     --- quickfix.vim
-    qfFileName = { fg = '#5FB4B4' },
+    qfFileName = { fg = c.teal },
     qfLineNr = { bold = true },
 
     -- RUST
     rustTSConstBuiltin = { link = 'TSConstant', italic = true },
     rustTSField = { fg = '#CBD3E2' },
-    rustTSFuncMacro = { fg = '#5E99D4' },
-    rustTSFunction = { fg = '#5FB4B4' },
-    rustTSKeyword = { fg = colors.pink },
+    rustTSFuncMacro = { fg = c.blue },
+    rustTSFunction = { fg = c.teal },
+    rustTSKeyword = { fg = c.pink },
     rustTSOperator = { link = 'TSOperator' },
     rustTSPunctBracket = { fg = '#CBD3E2' },
-    rustTSPunctDelimiter = { fg = '#A6ACB9' },
-    rustTSType = { fg = '#FAAE57' },
-    rustTSTypeBuiltin = { fg = colors.pink, italic = true },
+    rustTSPunctDelimiter = { fg = c.gray3 },
+    rustTSType = { fg = c.orange1 },
+    rustTSTypeBuiltin = { fg = c.pink, italic = true },
 
     -- golangTS
 
-    goTSKeyword = { fg = '#EF5D64' },
-    goTSType = { fg = '#5FB4B4' },
+    goTSKeyword = { fg = c.red },
+    goTSType = { fg = c.teal },
     goTSFunction = { link = 'TSFunction' },
     goTSNamespace = { link = 'TSNamespace' },
 
     -- tmux
 
-    tmuxCommands = { fg = colors.pink },
-    tmuxFlags = { fg = '#FAAE57' },
-    tmuxFormatString = { fg = '#5FB4B4' },
+    tmuxCommands = { fg = c.pink },
+    tmuxFlags = { fg = c.orange1 },
+    tmuxFormatString = { fg = c.teal },
 
     -- typescriptTS
 
     typescriptTSProperty = { fg = '#95B2D6' },
-    typescriptTSFunction = { fg = '#5FB4B4' },
-    typescriptTSConstructor = { fg = '#FAAE57' },
+    typescriptTSFunction = { fg = c.teal },
+    typescriptTSConstructor = { fg = c.orange1 },
     typescriptTSOperator = { link = 'TSOperator' },
     typescriptTSParameter = { link = 'TSVariable' },
     -- typescriptTSPunctSpecial = { fg = colors.red },
@@ -248,21 +234,21 @@ local highlights = {
     fennelTSField = { link = 'luaTSField' },
 
     -- fennel.vim
-    FennelStringDelimiter = { fg = '#5FB4B4' },
+    FennelStringDelimiter = { fg = c.teal },
     FennelParen = { link = 'TSPunctBracket' },
-    FennelSpecialForm = { fg = colors.pink, italic = true },
-    FennelKeyword = { fg = '#84C2BB' },
+    FennelSpecialForm = { fg = c.pink, italic = true },
+    FennelKeyword = { link = 'clojureTSKeyword' },
     FennelTable = { link = 'luaTSPunctDelimiter' },
 
     --- clojureTS
-    clojureTSKeywordFunction = { fg = colors.red },
-    clojureTSKeyword = { fg = colors.red },
-    clojureTSSymbol = { fg = colors.pink },
+    clojureTSKeywordFunction = { fg = c.red },
+    clojureTSKeyword = { fg = c.red },
+    clojureTSSymbol = { fg = c.pink },
 
-    clojureTSNumber = { fg = colors.red2 },
+    clojureTSNumber = { fg = c.orange2 },
     clojureTSVariableBuiltin = { link = 'TSConstBuiltin' },
-    clojureTSPunctSpecial = { fg = colors.red2 },
-    clojureTSFuncMacro = { fg = colors.red2 },
+    clojureTSPunctSpecial = { fg = c.orange2 },
+    clojureTSFuncMacro = { fg = c.orange2 },
 
     --- tomlTS
     tomlTSProperty = { link = 'TSLabel' },
@@ -272,15 +258,13 @@ local highlights = {
 
     -- helpTS
 
-    helpTSTitle = { fg = '#CBD3E2' },
+    helpTSTitle = { fg = foreground, bold = true },
     helpTSTextReference = { link = 'TSURI' },
+    helpHyperTextEntry = { link = 'TSURI' },
 
     --- Python
     pythonTSField = { fg = '#95B2D6' },
 
-    --- Svelte
-    svelteTSTagDelimiter = { fg = colors.blue5 },
-    svelteTSTag = { fg = colors.red },
     --- Plugins
     -- Rainbow Parentheses
 
@@ -302,7 +286,7 @@ local highlights = {
     CmpItemKindFunction = { link = 'Function' },
     CmpItemKindValue = { link = 'Number' },
     CmpItemAbbrDeprecated = { strikethrough = true },
-    CmpItemKindClass = { fg = '#EF5D64' },
+    CmpItemKindClass = { fg = c.red },
     CmpItemKindEnum = { link = 'CmpItemKindClass' },
     CmpItemKindInterface = { link = 'CmpItemKindClass' },
     CmpItemKindMethod = { fg = '#8EB8E1' },
@@ -327,9 +311,9 @@ local highlights = {
     NvimTreePopup = { fg = '#CBD3E2', bg = '#272E35' },
 
     --- gitsigns.nvim
-    GitSignsDelete = { fg = colors.red, bold = true },
-    GitSignsChange = { fg = colors.orange, bold = true },
-    GitSignsAdd = { fg = colors.green, bold = true },
+    GitSignsDelete = { fg = c.red, bold = true },
+    GitSignsChange = { fg = c.orange1, bold = true },
+    GitSignsAdd = { fg = c.green, bold = true },
 
     --- vim.lsp
     LspReferenceText = { bg = '#38424c' },
