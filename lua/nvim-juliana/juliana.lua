@@ -1,8 +1,8 @@
 --# selene: allow(unscoped_variables)
 --# selene: allow(undefined_variable)
+local M = {}
 local c = require('nvim-juliana.palette').normal
 
-local M = {}
 local background = c.gray1
 local foreground = c.gray4
 local selection = c.gray2
@@ -60,7 +60,7 @@ local highlights = {
     SignColumn = { fg = foreground, bg = background },
     SpellBad = { sp = c.red, undercurl = true },
     SpellCap = { sp = c.orange1, undercurl = true },
-    SpellLocal = { sp = c.teal, undercurl = true },
+    SpellLocal = { sp = c.cyan, undercurl = true },
     SpellRare = { sp = c.pink, undercurl = true },
     StatusLine = { fg = '#CBD3E2', bg = '#3D4752' },
     StatusLineNC = { fg = '#CBD3E2', bg = '#2B333B' },
@@ -77,11 +77,11 @@ local highlights = {
 
     DiagnosticError = { fg = c.red },
     DiagnosticHint = { fg = '#D8DEE9' },
-    DiagnosticInfo = { fg = c.teal },
+    DiagnosticInfo = { fg = c.cyan },
     DiagnosticWarn = { fg = c.orange1 },
     DiagnosticUnderlineError = { sp = c.red, underdotted = true },
     DiagnosticUnderlineHint = { sp = '#D8DEE9', underdotted = true },
-    DiagnosticUnderlineInfo = { sp = c.teal, underdotted = true },
+    DiagnosticUnderlineInfo = { sp = c.cyan, underdotted = true },
     DiagnosticUnderlineWarn = { sp = c.orange1, underdotted = true },
 
     -- VimSyntax hl-groups
@@ -107,10 +107,10 @@ local highlights = {
     PreCondit = { link = 'Include' },
     PreProc = { fg = '#A7B4CD' },
     Repeat = { fg = c.pink },
-    Special = { fg = c.teal },
+    Special = { fg = c.cyan },
     SpecialChar = { fg = '#5FB485' },
     SpecialComment = { fg = '#788797', underline = true },
-    SpecialKey = { fg = c.teal },
+    SpecialKey = { fg = c.cyan },
     Statement = { fg = c.pink },
     StorageClass = { fg = c.red },
     Structure = { fg = c.pink },
@@ -139,18 +139,18 @@ local highlights = {
     TSKeywordFunction = { fg = c.pink, italic = true },
     TSKeywordOperator = { fg = c.pink },
     TSKeywordReturn = { fg = c.pink },
-    TSLabel = { fg = c.teal },
+    TSLabel = { fg = c.cyan },
     TSMethod = { link = 'Function' },
     TSNamespace = { fg = c.orange1 },
     TSNote = { fg = c.green, bold = true },
     TSOperator = { link = 'Operator' },
     TSParameter = { fg = c.orange1 },
     TSProperty = { fg = '#95B2D6' },
-    TSPunctBracket = { fg = c.white },
+    TSPunctBracket = { bg = background },
     TSPunctDelimiter = { link = 'Delimiter' },
-    TSPunctSpecial = { fg = c.teal },
-    TSStringEscape = { fg = c.teal },
-    TSStringRegex = { fg = c.teal },
+    TSPunctSpecial = { fg = c.cyan },
+    TSStringEscape = { fg = c.cyan },
+    TSStringRegex = { fg = c.cyan },
     TSString = { link = 'String' },
     TSStrong = { bold = true },
     TSSymbol = { fg = '#7EBFC4' },
@@ -160,15 +160,15 @@ local highlights = {
     TSType = { fg = c.orange1 },
     TSTypeQualifier = { fg = c.red },
     TSTypeBuiltin = { fg = c.blue, italic = true },
-    TSURI = { fg = c.teal, underdotted = true },
+    TSURI = { fg = c.cyan, underdotted = true },
     TSUnderline = { underline = true },
     TSVariable = { fg = foreground },
     TSVariableBuiltin = { fg = c.red, italic = true },
     TSWarning = { fg = c.orange1, bold = true },
-    TSNumber = { fg = c.orange2 },
+    TSNumber = { link = 'Number' },
 
     TSTag = { fg = c.red },
-    TSTagDelimiter = { fg = c.teal },
+    TSTagDelimiter = { fg = c.cyan },
     TSTagAttribute = { fg = c.pink },
 
     --- commentTS
@@ -191,14 +191,14 @@ local highlights = {
     markdownTSPunctSpecial = { fg = c.orange2, bold = true },
 
     --- quickfix.vim
-    qfFileName = { fg = c.teal },
+    qfFileName = { fg = c.cyan },
     qfLineNr = { bold = true },
 
     -- RUST
     rustTSConstBuiltin = { link = 'TSConstant', italic = true },
     rustTSField = { fg = '#CBD3E2' },
     rustTSFuncMacro = { fg = c.blue },
-    rustTSFunction = { fg = c.teal },
+    rustTSFunction = { fg = c.cyan },
     rustTSKeyword = { fg = c.pink },
     rustTSOperator = { link = 'TSOperator' },
     rustTSPunctBracket = { fg = '#CBD3E2' },
@@ -209,7 +209,7 @@ local highlights = {
     -- golangTS
 
     goTSKeyword = { fg = c.red },
-    goTSType = { fg = c.teal },
+    goTSType = { fg = c.cyan },
     goTSFunction = { link = 'TSFunction' },
     goTSNamespace = { link = 'TSNamespace' },
 
@@ -217,24 +217,28 @@ local highlights = {
 
     tmuxCommands = { fg = c.pink },
     tmuxFlags = { fg = c.orange1 },
-    tmuxFormatString = { fg = c.teal },
+    tmuxFormatString = { fg = c.cyan },
 
     -- typescriptTS
 
     typescriptTSProperty = { fg = '#95B2D6' },
-    typescriptTSFunction = { fg = c.teal },
+    typescriptTSFunction = { fg = c.cyan },
     typescriptTSConstructor = { fg = c.orange1 },
     typescriptTSOperator = { link = 'TSOperator' },
     typescriptTSParameter = { link = 'TSVariable' },
+    typescriptType = { fg = c.red },
+    typescriptTSKeyword = { fg = c.red },
     -- typescriptTSPunctSpecial = { fg = colors.red },
 
     --- fennelTS
 
     fennelTSFuncMacro = { link = 'TSKeywordFunction' },
     fennelTSField = { link = 'luaTSField' },
+    --- CSS
+    cssTSType = { fg = c.cyan },
 
     -- fennel.vim
-    FennelStringDelimiter = { fg = c.teal },
+    FennelStringDelimiter = { fg = c.cyan },
     FennelParen = { link = 'TSPunctBracket' },
     FennelSpecialForm = { fg = c.pink, italic = true },
     FennelKeyword = { link = 'clojureTSKeyword' },
@@ -245,7 +249,6 @@ local highlights = {
     clojureTSKeyword = { fg = c.red },
     clojureTSSymbol = { fg = c.pink },
 
-    clojureTSNumber = { fg = c.orange2 },
     clojureTSVariableBuiltin = { link = 'TSConstBuiltin' },
     clojureTSPunctSpecial = { fg = c.orange2 },
     clojureTSFuncMacro = { fg = c.orange2 },
