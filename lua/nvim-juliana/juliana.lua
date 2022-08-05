@@ -87,7 +87,7 @@ local highlights = {
     -- VimSyntax hl-groups
 
     MatchParen = { bold = true },
-    Boolean = { link = 'Constant' },
+    Boolean = { fg = c.red, italic = true },
     Character = { fg = c.green },
     String = { fg = c.green },
     Comment = { fg = c.gray3 },
@@ -99,7 +99,7 @@ local highlights = {
     Function = { fg = c.blue },
     Identifier = { fg = foreground },
     Include = { fg = '#7999B9' },
-    Keyword = { fg = c.pink },
+    Keyword = { fg = c.pink, italic = true },
     Label = { fg = c.pink },
     Macro = { fg = '#8DADE7' },
     Number = { fg = c.orange1 },
@@ -114,7 +114,7 @@ local highlights = {
     Statement = { fg = c.pink },
     StorageClass = { fg = c.red },
     Structure = { fg = c.pink },
-    Tag = { fg = c.pink },
+    Tag = { fg = c.red },
     Title = { fg = c.pink },
     Todo = { fg = c.blue, bold = true },
     Type = { fg = c.pink, italic = true },
@@ -123,7 +123,7 @@ local highlights = {
     Whitespace = { fg = '#5C75A3' },
 
     -- TS-hl globals
-    TSBoolean = { fg = c.red, italic = true },
+    TSBoolean = { link = 'Boolean' },
     TSConstBuiltin = { fg = c.red, italic = true },
     TSConstMacro = { fg = c.pink, italic = true },
     TSComment = { link = 'Comment' },
@@ -135,7 +135,7 @@ local highlights = {
     TSFuncMacro = { fg = c.blue, italic = true },
     TSFunction = { link = 'Function' },
     TSInclude = { fg = c.pink },
-    TSKeyword = { fg = c.pink, italic = true },
+    TSKeyword = { link = 'Keyword' },
     TSKeywordFunction = { fg = c.pink, italic = true },
     TSKeywordOperator = { fg = c.pink },
     TSKeywordReturn = { fg = c.pink },
@@ -167,7 +167,7 @@ local highlights = {
     TSWarning = { fg = c.orange1, bold = true },
     TSNumber = { link = 'Number' },
 
-    TSTag = { fg = c.red },
+    TSTag = { link = 'Tag' },
     TSTagDelimiter = { fg = c.cyan },
     TSTagAttribute = { fg = c.pink },
 
@@ -186,6 +186,8 @@ local highlights = {
 
     -- luaTS
     luaTSField = { link = 'TSProperty' },
+    luaTSConstructor = { link = 'TSPunctBracket' },
+    luaTable = { link = 'TSPunctBracket' },
 
     -- markdownTS
     markdownTSPunctSpecial = { fg = c.orange2, bold = true },
@@ -229,6 +231,8 @@ local highlights = {
     typescriptType = { fg = c.red },
     typescriptTSKeyword = { fg = c.red },
     -- typescriptTSPunctSpecial = { fg = colors.red },
+    --- JavaScript
+    jsdocTSKeyword = { link = 'typescriptType' },
 
     --- fennelTS
 
