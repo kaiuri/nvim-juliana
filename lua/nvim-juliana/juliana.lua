@@ -3,12 +3,13 @@
 local M = {}
 -- stylua: ignore
 local c = {
-    gray0   = '#333333',
-    gray1   = '#303841',
-    gray2   = '#46525C',
-    gray3   = '#A6ACB8',
-    gray4   = '#d5dee6',
-    white   = '#FFFFFF',
+    black   = '#333333',
+    bg0     = '#272E35',
+    bg1     = '#303841',
+    gray0   = '#46525C',
+    gray1   = '#A6ACB8',
+    white0  = '#d5dee6',
+    white1  = '#FFFFFF',
     blue    = '#5c99d6',
     cyan    = '#5FB4B4',
     green   = '#99C794',
@@ -18,10 +19,9 @@ local c = {
     red     = '#EC5F66',
     pink    = '#cc8ec6',
 }
-
-local background = c.gray1
-local foreground = c.gray4
-local selection = c.gray2
+local background = c.bg1
+local foreground = c.white0
+local selection = c.gray0
 -- local find_highlight_foreground = c.gray0
 -- local find_highlight = c.yellow
 
@@ -39,19 +39,19 @@ local highlights = {
     Visual = { bg = selection },
 
     --- UI
-    NormalFloat = { bg = c.gray1 },
+    NormalFloat = { bg = c.bg0 },
     FloatBorder = { fg = '#7999B9', bg = background },
 
-    Pmenu = { bg = '#272E35' },
-    PmenuSbar = { fg = c.gray2 },
-    PmenuSel = { bg = c.gray1, bold = true },
+    Pmenu = { bg = c.bg0 },
+    PmenuSbar = { fg = c.gray0 },
+    PmenuSel = { bg = c.bg1, bold = true },
     PmenuThumb = { bg = '#58657E' },
 
-    NonText = { fg = c.gray2 },
+    NonText = { fg = c.gray0 },
 
     ColorColumn = { fg = '#CBD3E2', bg = '#2B333B' },
 
-    Conceal = { fg = c.gray3 },
+    Conceal = { fg = c.gray1 },
 
     CursorLine = { bg = '#38424c' },
     CursorColumn = { link = 'CursorLine' },
@@ -60,21 +60,21 @@ local highlights = {
 
     DiffAdd = { sp = c.green, underdotted = true },
     DiffChange = { sp = c.red, underdotted = true },
-    DiffDelete = { fg = c.gray3 },
+    DiffDelete = { fg = c.gray1 },
     DiffText = { italic = true },
 
-    Directory = { underdotted = true },
+    Directory = { fg = c.cyan },
     EndOfBuffer = { fg = '#2B333B' },
     Error = { fg = c.orange2 },
     ErrorMsg = { fg = c.red },
     Exception = { fg = c.pink },
 
     -- Folds
-    Folded = { fg = c.gray3 },
+    Folded = { fg = c.gray1 },
     FoldColumn = { bg = background },
 
     LineNr = { link = 'Visual' },
-    LineNrAbove = { fg = c.gray3 },
+    LineNrAbove = { fg = c.gray1 },
     LineNrBelow = { link = 'LineNrAbove' },
 
     ModeMsg = { fg = '#DEE1E8' },
@@ -106,10 +106,15 @@ local highlights = {
     DiagnosticHint = { fg = hint, bold = true },
     DiagnosticInfo = { fg = info, bold = true },
     DiagnosticWarn = { fg = warn, bold = true },
-    DiagnosticUnderlineError = { sp = error, underdotted = true },
-    DiagnosticUnderlineHint = { sp = hint, underdotted = true },
-    DiagnosticUnderlineInfo = { sp = info, underdotted = true },
-    DiagnosticUnderlineWarn = { sp = warn, underdotted = true },
+    DiagnosticUnderlineError = { sp = error, undercurl = true },
+    DiagnosticUnderlineHint = { sp = hint, undercurl = true },
+    DiagnosticUnderlineInfo = { sp = info, undercurl = true },
+    DiagnosticUnderlineWarn = { sp = warn, undercurl = true },
+
+    DiagnosticVirtualTextError = { bg = c.bg0, fg = c.error },
+    DiagnosticVirtualTextWarn = { bg = c.bg0, fg = c.warn },
+    DiagnosticVirtualTextInfo = { bg = c.bg0, fg = c.info },
+    DiagnosticVirtualTextHint = { bg = c.bg0, fg = c.hint },
 
     -- VimSyntax hl-groups
 
@@ -117,11 +122,11 @@ local highlights = {
     Boolean = { fg = c.red, italic = true },
     Character = { fg = c.green },
     String = { fg = c.green },
-    Comment = { fg = c.gray3 },
+    Comment = { fg = c.gray1 },
     Conditional = { fg = c.pink },
     Constant = { link = 'TSConstant' },
     Define = { link = 'Macro' },
-    Delimiter = { fg = c.gray3 },
+    Delimiter = { fg = c.gray1 },
     Float = { link = 'Number' },
     Function = { fg = c.blue },
     Identifier = { fg = foreground },
@@ -165,8 +170,8 @@ local highlights = {
     TSInclude = { fg = c.pink },
     TSKeyword = { link = 'Keyword' },
     TSKeywordFunction = { fg = c.pink, italic = true },
-    TSKeywordOperator = { fg = c.pink },
-    TSKeywordReturn = { fg = c.pink },
+    TSKeywordOperator = { link = 'Keyword' },
+    TSKeywordReturn = { link = 'Keyword' },
     TSLabel = { fg = c.cyan },
     TSMethod = { link = 'Function' },
     TSNamespace = { fg = c.orange1 },
@@ -199,6 +204,8 @@ local highlights = {
     TSTagDelimiter = { fg = c.cyan },
     TSTagAttribute = { fg = c.pink },
 
+    --- HTML
+    htmlTagName = { link = 'Tag' },
     --- commentTS
     commentTSConstant = { fg = '#8C99A6' },
 
@@ -232,7 +239,7 @@ local highlights = {
     rustTSKeyword = { fg = c.pink },
     rustTSOperator = { link = 'TSOperator' },
     rustTSPunctBracket = { fg = '#CBD3E2' },
-    rustTSPunctDelimiter = { fg = c.gray3 },
+    rustTSPunctDelimiter = { fg = c.gray1 },
     rustTSType = { fg = c.orange1 },
     rustTSTypeBuiltin = { fg = c.pink, italic = true },
 
@@ -252,7 +259,7 @@ local highlights = {
     -- typescriptTS
 
     typescriptTSProperty = { fg = '#95B2D6' },
-    typescriptTSFunction = { fg = c.cyan },
+    typescriptTSFunction = { link = 'Function' },
     typescriptTSConstructor = { fg = c.orange1 },
     typescriptTSOperator = { link = 'TSOperator' },
     typescriptTSParameter = { link = 'TSVariable' },
@@ -261,6 +268,7 @@ local highlights = {
     -- typescriptTSPunctSpecial = { fg = colors.red },
     --- JavaScript
     jsdocTSKeyword = { link = 'typescriptType' },
+    javaScriptReserved = { fg = c.red },
 
     --- fennelTS
 
@@ -343,7 +351,7 @@ local highlights = {
     SneakLabel = { link = 'Search' },
 
     --- Nvim-tree
-    NvimTreePopup = { fg = '#CBD3E2', bg = '#272E35' },
+    NvimTreePopup = { fg = '#CBD3E2', bg = c.bg0 },
 
     --- gitsigns.nvim
     GitSignsDelete = { fg = c.red, bold = true },
@@ -364,8 +372,13 @@ local highlights = {
 
     --- dressing.nvim
     FloatTitle = { link = 'Comment' },
+
     ---  symbols-outline.nvim
     FocusedSymbol = { link = 'Visual' },
+
+    -- Trouble
+    TroubleIndent = { bg = c.bg1 },
+    TroubleLocation = { bold = true },
 }
 
 local function set_hl(tbl)
