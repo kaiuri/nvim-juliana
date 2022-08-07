@@ -24,9 +24,14 @@ local foreground = c.gray4
 local selection = c.gray2
 local find_highlight_foreground = c.gray0
 local find_highlight = c.yellow
+
+local error = c.red
+local hint = c.blue
+local info = c.cyan
+local warn = c.orange1
+
 --- reference https://github.com/nvim-treesitter/nvim-treesitter/blob/master/lua/nvim-treesitter/highlight.lua
 --- TODO: Add support for everything in there.
-
 local highlights = {
 
     --- Modes
@@ -57,6 +62,7 @@ local highlights = {
     DiffChange = { sp = c.red, underdotted = true },
     DiffDelete = { fg = c.gray3 },
     DiffText = { italic = true },
+
     Directory = { underdotted = true },
     EndOfBuffer = { fg = '#2B333B' },
     Error = { fg = c.orange2 },
@@ -96,14 +102,14 @@ local highlights = {
 
     -- Diagnostics
 
-    DiagnosticError = { fg = c.red },
-    DiagnosticHint = { fg = '#D8DEE9' },
-    DiagnosticInfo = { fg = c.cyan },
-    DiagnosticWarn = { fg = c.orange1 },
-    DiagnosticUnderlineError = { sp = c.red, underdotted = true },
-    DiagnosticUnderlineHint = { sp = '#D8DEE9', underdotted = true },
-    DiagnosticUnderlineInfo = { sp = c.cyan, underdotted = true },
-    DiagnosticUnderlineWarn = { sp = c.orange1, underdotted = true },
+    DiagnosticError = { fg = error, bold = true },
+    DiagnosticHint  = { fg = hint, bold = true  },
+    DiagnosticInfo  = { fg = info, bold = true  },
+    DiagnosticWarn  = { fg = warn, bold = true  },
+    DiagnosticUnderlineError = { sp = error, underdotted = true },
+    DiagnosticUnderlineHint  = { sp = hint, underdotted = true  },
+    DiagnosticUnderlineInfo  = { sp = info, underdotted = true  },
+    DiagnosticUnderlineWarn  = { sp = warn, underdotted = true  },
 
     -- VimSyntax hl-groups
 
