@@ -26,7 +26,7 @@ local find_highlight_foreground = c.gray0
 local find_highlight = c.yellow
 
 local error = c.red
-local hint = c.blue
+local hint = c.yellow
 local info = c.cyan
 local warn = c.orange1
 
