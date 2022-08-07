@@ -88,3 +88,7 @@ If a plugin you use isn't rightly supported, please, make a new issue attached w
 ## Pull Requests
 
 Use the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) style for your commits, that's it.
+
+# Credits
+
+- [Mariana - Sublime HQ Pty Ltd, Dmitri Voronianski](http://www.sublimetext.com/).
