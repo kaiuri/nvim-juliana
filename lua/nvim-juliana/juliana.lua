@@ -1,22 +1,47 @@
 --# selene: allow(unscoped_variables)
 --# selene: allow(undefined_variable)
 local M = {}
-local c = require('nvim-juliana.palette').normal
+-- stylua: ignore
+local c = {
+    gray0   = '#333333',
+    gray1   = '#303841',
+    gray2   = '#46525C',
+    gray3   = '#A6ACB8',
+    gray4   = '#d5dee6',
+    white   = '#FFFFFF',
+    blue    = '#5c99d6',
+    cyan    = '#5FB4B4',
+    green   = '#99C794',
+    yellow  = '#FAC761',
+    orange1 = '#F9AE58',
+    orange2 = '#F97B58',
+    red     = '#EC5F66',
+    pink    = '#cc8ec6',
+}
 
 local background = c.gray1
 local foreground = c.gray4
 local selection = c.gray2
 local find_highlight_foreground = c.gray0
 local find_highlight = c.yellow
+--- reference https://github.com/nvim-treesitter/nvim-treesitter/blob/master/lua/nvim-treesitter/highlight.lua
+--- TODO: Add support for everything in there.
 
 local highlights = {
 
     --- Modes
     Normal = { fg = foreground, bg = background },
-    NormalFloat = { bg = '#272E35' },
     Visual = { bg = selection },
 
     --- UI
+    NormalFloat = { bg = c.gray1 },
+    FloatBorder = { fg = '#7999B9', bg = background },
+
+    Pmenu = { bg = '#272E35' },
+    PmenuSbar = { fg = c.gray2 },
+    PmenuSel = { bg = c.gray1, bold = true },
+    PmenuThumb = { bg = '#58657E' },
+
     NonText = { fg = c.gray2 },
 
     ColorColumn = { fg = '#CBD3E2', bg = '#2B333B' },
@@ -48,10 +73,6 @@ local highlights = {
 
     ModeMsg = { fg = '#DEE1E8' },
     MoreMsg = { fg = '#DEE1E8', bold = true },
-    Pmenu = { link = 'NormalFloat' },
-    PmenuSbar = { fg = '#CBD3E2', bg = '#2B333B' },
-    PmenuSel = { bg = '#272E35', bold = true },
-    PmenuThumb = { bg = '#58657E' },
     Question = { link = 'MoreMsg' },
 
     Search = { fg = find_highlight_foreground, bg = find_highlight },
@@ -228,8 +249,8 @@ local highlights = {
     typescriptTSConstructor = { fg = c.orange1 },
     typescriptTSOperator = { link = 'TSOperator' },
     typescriptTSParameter = { link = 'TSVariable' },
-    typescriptType = { fg = c.red },
-    typescriptTSKeyword = { fg = c.red },
+    typescriptTSType = { fg = c.cyan },
+    typescriptTSKeyword = { fg = '#ec5f89', italic = true },
     -- typescriptTSPunctSpecial = { fg = colors.red },
     --- JavaScript
     jsdocTSKeyword = { link = 'typescriptType' },
@@ -326,6 +347,16 @@ local highlights = {
     LspReferenceText = { bg = '#38424c' },
     LspReferenceRead = { link = 'LspReferenceText' },
     LspReferenceWrite = { link = 'LspReferenceText' },
+
+    --- Telescope
+    TelescopeBorder = { link = 'NonText' },
+    TelescopeTitle = { fg = foreground, bold = true },
+    TelescopePromptCounter = { fg = foreground },
+    TelescopeMatching = { bg = background },
+    TelescopeSelectionCaret = { link = 'CursorLine' },
+
+    --- dressing.nvim
+    FloatTitle = { link = 'Comment' },
 }
 
 local function set_hl(tbl)

@@ -15,22 +15,21 @@ local st = {
     pink = '#cc8ec6',
 }
 local normal = {
-    gray0 = st.gray,
-    gray1 = st.blue3,
-    gray2 = st.blue2,
-    gray3 = st.blue6,
-    gray4 = st.white3,
-    white = st.white,
-    blue = st.blue_vibrant,
-    cyan = st.blue5,
-    green = st.green,
-    yellow = st.orange3,
-    orange1 = st.orange,
-    orange2 = st.red2,
-    red = st.red,
-    pink = st.pink,
+    gray0 = '#333333',
+    gray1 = '#303841',
+    gray2 = '#46525C',
+    gray3 = '#A6ACB8',
+    gray4 = '#d5dee6',
+    white = '#FFFFFF',
+    blue = '#5c99d6',
+    cyan = '#5FB4B4',
+    green = '#99C794',
+    yellow = '#FAC761',
+    orange1 = '#F9AE58',
+    orange2 = '#F97B58',
+    red = '#EC5F66',
+    pink = '#cc8ec6',
 }
-
 
 return {
     mariana = st,
