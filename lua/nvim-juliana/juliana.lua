@@ -22,8 +22,8 @@ local c = {
 local background = c.gray1
 local foreground = c.gray4
 local selection = c.gray2
-local find_highlight_foreground = c.gray0
-local find_highlight = c.yellow
+-- local find_highlight_foreground = c.gray0
+-- local find_highlight = c.yellow
 
 local error = c.red
 local hint = c.yellow
@@ -81,7 +81,7 @@ local highlights = {
     MoreMsg = { fg = '#DEE1E8', bold = true },
     Question = { link = 'MoreMsg' },
 
-    Search = { fg = find_highlight_foreground, bg = find_highlight },
+    Search = { link = 'Visual' },
     IncSearch = { link = 'Search' },
 
     SignColumn = { fg = foreground, bg = background },
@@ -103,13 +103,13 @@ local highlights = {
     -- Diagnostics
 
     DiagnosticError = { fg = error, bold = true },
-    DiagnosticHint  = { fg = hint, bold = true  },
-    DiagnosticInfo  = { fg = info, bold = true  },
-    DiagnosticWarn  = { fg = warn, bold = true  },
+    DiagnosticHint = { fg = hint, bold = true },
+    DiagnosticInfo = { fg = info, bold = true },
+    DiagnosticWarn = { fg = warn, bold = true },
     DiagnosticUnderlineError = { sp = error, underdotted = true },
-    DiagnosticUnderlineHint  = { sp = hint, underdotted = true  },
-    DiagnosticUnderlineInfo  = { sp = info, underdotted = true  },
-    DiagnosticUnderlineWarn  = { sp = warn, underdotted = true  },
+    DiagnosticUnderlineHint = { sp = hint, underdotted = true },
+    DiagnosticUnderlineInfo = { sp = info, underdotted = true },
+    DiagnosticUnderlineWarn = { sp = warn, underdotted = true },
 
     -- VimSyntax hl-groups
 
@@ -119,7 +119,7 @@ local highlights = {
     String = { fg = c.green },
     Comment = { fg = c.gray3 },
     Conditional = { fg = c.pink },
-    Constant = { fg = c.pink },
+    Constant = { link = 'TSConstant' },
     Define = { link = 'Macro' },
     Delimiter = { fg = c.gray3 },
     Float = { link = 'Number' },
@@ -140,7 +140,8 @@ local highlights = {
     SpecialKey = { fg = c.cyan },
     Statement = { fg = c.pink },
     StorageClass = { fg = c.red },
-    Structure = { fg = c.pink },
+    Structure = { link = 'StorageClass' },
+    Struct = { link = 'Structure' },
     Tag = { fg = c.red },
     Title = { fg = c.pink },
     Todo = { fg = c.blue, bold = true },
@@ -363,6 +364,8 @@ local highlights = {
 
     --- dressing.nvim
     FloatTitle = { link = 'Comment' },
+    ---  symbols-outline.nvim
+    FocusedSymbol = { link = 'Visual' },
 }
 
 local function set_hl(tbl)
