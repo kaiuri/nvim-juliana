@@ -44,7 +44,22 @@ vim.cmd('colo juliana')
 
 ## Configuration
 
-There's none, but I might add a `contrast` one if there's demand. One shouldn't spend too much time tinkering with their .rc files instead of writing code.
+There's none, but I might add a `contrast` one if there's demand. One shouldn't spend too much time tinkering with their `.rc` files instead of writing code.
+
+### Suggestions
+
+If you're using tree-sitter's `typescript` you can get prettier highlights by modifying your `nvim-treesitter` settings to add additional `vim_regex_highlighting` for `typescript` _e.g._:
+
+```lua
+require('nvim-treesitter.configs').setup {
+    -- ...
+    highlight = {
+    -- ...
+      additional_vim_regex_highlighting = { 'typescript' },
+    -- ...
+    }
+    -- ...
+```
 
 ## Plugin Support(Tested)
 
@@ -63,12 +78,6 @@ There's none, but I might add a `contrast` one if there's demand. One shouldn't 
 ## Alacritty Theme
 
 There's a theme for [Alacritty](https://github.com/alacritty/alacritty/) available at [extras](./extras/juliana_alacritty.yml).
-
-## TO-DO
-
-- [x] Fix Neovim's vim-inherited markdown highlights so its built in LSP client hover, etc, features display properly.
-- [ ] Add more screenshots.
-- [x] Display palette on README.
 
 ## Feature request
 
