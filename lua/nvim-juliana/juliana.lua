@@ -303,6 +303,7 @@ local highlights = {
   -- yamlTS
   yamlTSField = { link = 'TSLabel' },
 
+  jsonTSLabel = { link = 'TSLabel' },
   -- helpTS
 
   helpTSTitle = { fg = foreground, bold = true },

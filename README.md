@@ -6,7 +6,8 @@
 
 ## Screenshots
 
-![](./assets/nvim-juliana.png)
+![](./assets/screenshot_1.png)
+![](./assets/screenshot_2.png)
 
 ## Description
 
