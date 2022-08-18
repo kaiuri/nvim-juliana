@@ -1,9 +1,5 @@
 # nvim-juliana
 
-## NOTICE
-
-The colorscheme's name been changed from nvim-mariana to nvim-juliana.
-
 ## Palette
 
 ![](./assets/palette.jpg)
