@@ -2,6 +2,10 @@
 
 ## Palette
 
+```lua
+require('nvim-julina').colors
+```
+
 ![](./assets/palette.jpg)
 
 ## Screenshots
@@ -11,7 +15,7 @@
 
 ## Description
 
-Port of Sublime's Mariana Theme for Neovim, using Lua, for short attention span devs.
+Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support.
 
 ## Installation
 
@@ -60,17 +64,18 @@ require('nvim-treesitter.configs').setup {
 
 ## Plugin Support(Tested)
 
-- [vim-sneak](https://github.com/justinmk/vim-sneak),
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter),
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim),
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp),
-- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim),
-- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua),
-- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons),
-- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - on `auto`,
-- [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow),
+- [nvim-semantic-tokens](https://github.com/theHamsta/nvim-semantic-tokens)
+- [vim-sneak](https://github.com/justinmk/vim-sneak)
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - on `auto`
+- [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
-- [fennel.vim](https://github.com/bakpakin/fennel.vim).
+- [fennel.vim](https://github.com/bakpakin/fennel.vim)
 
 ## Alacritty Theme
 
