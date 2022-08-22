@@ -3,7 +3,7 @@
 ## Palette
 
 ```lua
-require('nvim-julina').colors
+require('nvim-juliana').colors
 ```
 
 ![](./assets/palette.jpg)
