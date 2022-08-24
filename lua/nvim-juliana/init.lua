@@ -127,7 +127,7 @@ local highlights = {
 
   Delimiter = { fg = colors.gray1 },
   Float = { link = 'Number' },
-  Function = { fg = colors.blue },
+  Function = { fg = colors.cyan },
   Identifier = { fg = foreground },
   Include = { fg = '#7999B9' },
 
@@ -180,13 +180,13 @@ local highlights = {
 
   TSFunction = { link = 'Function' },
   TSFunctionCall = { link = 'TSFunction' },
-  TSFuncBuiltin = { link = 'Special' },
+  TSFuncBuiltin = { fg = colors.blue },
   -- TSFuncMacro = { fg = colors.blue, italic = true },
   TSFuncMacro = { link = 'Macro' },
 
   TSParameter = { link = 'Identifier' },
   TSParameterReference = { link = 'TSParameter' },
-  TSMethod = { link = 'Function' },
+  TSMethod = { fg = '#5cb3d6' },
   TSMethodCall = { link = 'TSMethod' },
   TSField = { fg = '#95B2D6' },
   ---- kaiuri: Continue from here
@@ -421,7 +421,7 @@ local highlights = {
   -- LspEvent = {},
   LspFunction = { link = 'TSFunction' },
   LspMethod = { link = 'TSMethod' },
-  LspMacro = { link = 'TSFuncMacro' },
+  LspMacro = { link = 'Macro' },
   LspKeyword = { link = 'TSKeyword' },
   -- LspModifier = {},
   LspComment = { link = 'TSComment' },
@@ -438,7 +438,7 @@ local highlights = {
   LspAsync = { fg = colors.red },
   -- LspModification = {},
   -- LspDocumentation = {},
-  -- LspDefaultLibrary = {},
+  -- LspDefaultLibrary = { fg = colors.orange1 },
 }
 
 local function set_hl(tbl)
