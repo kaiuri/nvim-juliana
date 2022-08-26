@@ -193,6 +193,7 @@ local hl_groups = {
   TSMethod = { fg = '#5cb3d6' },
   TSMethodCall = { link = 'TSMethod' },
   TSField = { fg = '#95B2D6' },
+
   ---- kaiuri: Continue from here
   --references:
   --  https://github.com/nvim-treesitter/nvim-treesitter/blob/master/lua/nvim-treesitter/highlight.lua
@@ -433,7 +434,7 @@ local hl_groups = {
   LspNumber = { link = 'TSNumber' },
   LspRegexp = { link = 'TSStringRegex' },
   LspOperator = { link = 'TSOperator' },
-  -- LspDeclaration = {},
+  -- LspDeclaration = { link = 'TSType' },
   -- LspDefinition = {},
   LspReadonly = { link = 'TSKeyword' },
   LspStatic = { fg = p.orange },
