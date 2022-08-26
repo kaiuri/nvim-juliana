@@ -393,7 +393,7 @@ local highlights = {
   TelescopePromptCounter = { fg = foreground },
   TelescopeMatching = { bg = background },
   TelescopeSelectionCaret = { fg = foreground },
-  TelescopeSelection = { bg = background },
+  TelescopeSelection = { link = 'Visual' },
 
   --- dressing.nvim
   FloatTitle = { link = 'Comment' },
@@ -451,6 +451,7 @@ local load = function()
   if vim.g.colors_name then
     vim.cmd('hi clear')
   end
+
   vim.cmd('highlight clear')
   vim.cmd('set t_Co=256')
   vim.g.colors_name = 'juliana'
