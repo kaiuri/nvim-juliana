@@ -2,8 +2,12 @@
 
 ## Palette
 
+To get hold of the original SublimeText Mariana's palette do
+
 ```lua
-require('nvim-juliana.palette').mariana
+require('nvim-juliana.palette')
+--- or
+require('nvim-juliana').colors
 ```
 
 ![](./assets/palette.jpg)
@@ -64,7 +68,7 @@ require('nvim-treesitter.configs').setup {
 
 ## Plugin Support(Tested)
 
-- [nvim-semantic-tokens](https://github.com/theHamsta/nvim-semantic-tokens)
+- [nvim-semantic-tokens](https://github.com/theHamsta/nvim-semantic-tokens) - This is a temporary plugin which enables semantic token based highlighting.
 - [vim-sneak](https://github.com/justinmk/vim-sneak)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
@@ -72,7 +76,7 @@ require('nvim-treesitter.configs').setup {
 - [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
 - [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) - on `auto`
+- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
 - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [fennel.vim](https://github.com/bakpakin/fennel.vim)
