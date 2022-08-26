@@ -1,76 +1,77 @@
-local colors = {
-  black = '#333333',
-  bg0 = '#272E35',
-  bg1 = '#303841',
-  gray0 = '#46525C',
-  gray1 = '#A6ACB8',
-  fg = '#d5dee6',
-  white1 = '#FFFFFF',
-  blue = '#5c99d6',
-  cyan = '#5FB4B4',
-  green = '#99C794',
-  yellow = '#FAC761',
-  orange1 = '#F9AE58',
-  orange2 = '#F97B58',
-  red = '#EC5F66',
-  pink = '#cc8ec6',
-}
-local background = colors.bg1
-local foreground = colors.fg
-local selection = colors.gray0
--- local find_highlight_foreground = c.gray0
--- local find_highlight = c.yellow
+---@class SublimeTextPalette
+---@field blue2 string: '#46525c'
+---@field blue3 string: '#303841'
+---@field blue5 string: '#5fb4b4'
+---@field blue6 string: '#a6acb8'
+---@field blue_vibrant string: '#5c99d6'
+---@field gray string: '#333333'
+---@field green string: '#99c794'
+---@field orange string: '#f9ae58'
+---@field orange3 string: '#fac761'
+---@field pink string: '#cc8ec6'
+---@field red string: '#ec5f66'
+---@field red2 string: '#f97b58'
+---@field white string: '#ffffff'
+---@field white3 string: '#d5dee6'
+local p = require('nvim-juliana.palette')
 
-local error = colors.red
-local hint = colors.yellow
-local info = colors.cyan
-local warn = colors.orange1
+--- Add an extra background
+p.bg_extra = '#272e35'
+
+local background = p.blue3
+local foreground = p.white3
+local selection = p.blue2
+
+local error = p.red
+local hint = p.orange3
+local info = p.blue5
+local warn = p.orange
 
 --- reference https://github.com/nvim-treesitter/nvim-treesitter/blob/master/lua/nvim-treesitter/highlight.lua
 --- TODO: Add support for everything in there.
-local highlights = {
+local hl_groups = {
 
   --- Modes
   Normal = { fg = foreground, bg = background },
   Visual = { bg = selection },
 
   --- UI
-  NormalFloat = { bg = colors.bg0 },
+  NormalFloat = { bg = p.bg_extra },
   FloatBorder = { fg = '#7999B9', bg = background },
 
-  Pmenu = { bg = colors.bg0 },
-  PmenuSbar = { fg = colors.gray0 },
-  PmenuSel = { bg = colors.bg1, bold = true },
+  Pmenu = { bg = p.bg_extra },
+  PmenuSbar = { fg = p.blue2 },
+  PmenuSel = { bg = p.blue3, bold = true },
   PmenuThumb = { bg = '#58657E' },
 
-  NonText = { fg = colors.gray0 },
+  NonText = { fg = p.blue2 },
 
   ColorColumn = { fg = '#CBD3E2', bg = '#2B333B' },
 
-  Conceal = { fg = colors.gray1 },
+  Conceal = { fg = p.blue6 },
 
   CursorLine = { bg = '#38424c' },
   CursorColumn = { link = 'CursorLine' },
 
   CursorLineNr = { link = 'LineNr' },
 
-  DiffAdd = { sp = colors.green, underdotted = true },
-  DiffChange = { sp = colors.red, underdotted = true },
-  DiffDelete = { fg = colors.gray1 },
+  DiffAdd = { sp = p.green, underdotted = true },
+  DiffChange = { sp = p.red, underdotted = true },
+  DiffDelete = { fg = p.blue6 },
   DiffText = { italic = true },
 
-  Directory = { fg = colors.cyan },
+  Directory = { fg = p.blue5 },
   EndOfBuffer = { fg = '#2B333B' },
-  Error = { fg = colors.orange2 },
-  ErrorMsg = { fg = colors.red },
-  Exception = { fg = colors.pink },
+  Error = { fg = p.red2 },
+  ErrorMsg = { fg = p.red },
+  Exception = { fg = p.pink },
 
   -- Folds
-  Folded = { fg = colors.gray1 },
+  Folded = { fg = p.blue6 },
   FoldColumn = { bg = background },
 
   LineNr = { link = 'Visual' },
-  LineNrAbove = { fg = colors.gray1 },
+  LineNrAbove = { fg = p.blue6 },
   LineNrBelow = { link = 'LineNrAbove' },
 
   ModeMsg = { fg = '#DEE1E8' },
@@ -81,10 +82,10 @@ local highlights = {
   IncSearch = { link = 'Search' },
 
   SignColumn = { fg = foreground, bg = background },
-  SpellBad = { sp = colors.red, undercurl = true },
-  SpellCap = { sp = colors.orange1, undercurl = true },
-  SpellLocal = { sp = colors.cyan, undercurl = true },
-  SpellRare = { sp = colors.pink, undercurl = true },
+  SpellBad = { sp = p.red, undercurl = true },
+  SpellCap = { sp = p.orange, undercurl = true },
+  SpellLocal = { sp = p.blue5, undercurl = true },
+  SpellRare = { sp = p.pink, undercurl = true },
   StatusLine = { fg = '#CBD3E2', bg = '#3D4752' },
   StatusLineNC = { fg = '#CBD3E2', bg = '#2B333B' },
   Substitute = { link = 'Visual' },
@@ -107,80 +108,83 @@ local highlights = {
   DiagnosticUnderlineInfo = { sp = info, undercurl = true },
   DiagnosticUnderlineWarn = { sp = warn, undercurl = true },
 
-  DiagnosticVirtualTextError = { bg = colors.bg0, fg = colors.error },
-  DiagnosticVirtualTextWarn = { bg = colors.bg0, fg = colors.warn },
-  DiagnosticVirtualTextInfo = { bg = colors.bg0, fg = colors.info },
-  DiagnosticVirtualTextHint = { bg = colors.bg0, fg = colors.hint },
+  DiagnosticVirtualTextError = { bg = p.bg_extra, fg = error },
+  DiagnosticVirtualTextWarn = { bg = p.bg_extra, fg = warn },
+  DiagnosticVirtualTextInfo = { bg = p.bg_extra, fg = info },
+  DiagnosticVirtualTextHint = { bg = p.bg_extra, fg = hint },
 
   -- VimSyntax hl-groups
 
+  Boolean = { fg = p.red, italic = true },
   MatchParen = { bold = true },
-  Boolean = { fg = colors.red, italic = true },
 
-  Character = { fg = colors.green },
+  Character = { fg = p.green },
 
-  String = { fg = colors.green },
-  Comment = { fg = colors.gray1 },
-  Conditional = { fg = colors.pink },
-  Constant = { fg = colors.orange1 },
-  Define = { fg = colors.pink, italic = true },
+  String = { fg = p.green },
+  Comment = { fg = p.blue6 },
+  Conditional = { fg = p.pink },
+  Constant = { fg = p.orange },
+  Define = { fg = p.pink, italic = true },
 
-  Delimiter = { fg = colors.gray1 },
+  Delimiter = { fg = p.blue6 },
   Float = { link = 'Number' },
-  Function = { fg = colors.cyan },
+  Function = { fg = p.blue5 },
   Identifier = { fg = foreground },
   Include = { fg = '#7999B9' },
 
-  Keyword = { fg = colors.pink, italic = true },
+  Keyword = { fg = p.pink, italic = true },
 
-  Label = { fg = colors.pink },
+  Label = { fg = p.pink },
   Macro = { fg = '#8DADE7' },
-  Number = { fg = colors.orange1 },
-  Operator = { fg = colors.orange2 },
+  Number = { fg = p.orange },
+  Operator = { fg = p.red2 },
   PreCondit = { link = 'Include' },
   PreProc = { fg = '#A7B4CD' },
-  Repeat = { fg = colors.pink },
+  Repeat = { fg = p.pink },
 
-  Special = { fg = colors.cyan },
+  Special = { fg = p.blue5 },
 
-  SpecialChar = { fg = colors.cyan },
+  SpecialChar = { fg = p.blue5 },
 
   SpecialComment = { fg = '#788797', underline = true },
-  SpecialKey = { fg = colors.cyan },
-  Statement = { fg = colors.pink },
-  StorageClass = { fg = colors.red },
+  SpecialKey = { fg = p.blue5 },
+  Statement = { fg = p.pink },
+  StorageClass = { fg = p.red },
   Structure = { link = 'StorageClass' },
   Struct = { link = 'Structure' },
-  Tag = { fg = colors.red },
-  Title = { fg = colors.pink },
-  Todo = { fg = colors.blue, bold = true },
-  Type = { fg = colors.pink, italic = true },
+  Tag = { fg = p.red },
+  Title = { fg = foreground, bold = true },
+  Todo = { fg = p.blue_vibrant, bold = true },
+  Type = { fg = p.orange },
   Typedef = { link = 'Structure' },
   Underlined = { underdotted = true },
   Whitespace = { fg = '#5C75A3' },
 
   -- TS-hl globals
+
   TSPunctBracket = { link = 'Delimiter' },
   TSPunctDelimiter = { link = 'Delimiter' },
-  TSPunctSpecial = { fg = colors.cyan },
+  TSPunctSpecial = { fg = p.blue5 },
 
   TSConstant = { link = 'Constant' },
-  TSConstBuiltin = { fg = colors.red, italic = true },
+  TSConstBuiltin = { fg = p.red, italic = true },
   TSConstMacro = { link = 'Define' },
   TSString = { link = 'String' },
 
-  TSStringRegex = { fg = colors.cyan },
+  TSStringRegex = { fg = p.blue5 },
   TSStringEscape = { link = 'SpecialChar' },
   TSStringSpecial = { link = 'SpecialChar' },
+
   TSCharacter = { link = 'Character' },
   TSCharacterSpecial = { link = 'SpecialChar' },
+
   TSNumber = { link = 'Number' },
   TSBoolean = { link = 'Boolean' },
   TSFloat = { link = 'Float' },
 
   TSFunction = { link = 'Function' },
   TSFunctionCall = { link = 'TSFunction' },
-  TSFuncBuiltin = { fg = colors.blue },
+  TSFuncBuiltin = { fg = p.blue_vibrant },
   -- TSFuncMacro = { fg = colors.blue, italic = true },
   TSFuncMacro = { link = 'Macro' },
 
@@ -196,38 +200,40 @@ local highlights = {
   --  https://github.com/theHamsta/nvim-semantic-tokens/blob/master/lua/nvim-semantic-tokens/presets/default.lua
 
   TSComment = { link = 'Comment' },
-  TSDanger = { fg = colors.red, bold = true },
+  TSDanger = { fg = p.red, bold = true },
   TSEmphasis = { italic = true },
   TSEnum = { link = 'TSType' },
   TSError = { fg = foreground },
-  TSInclude = { fg = colors.pink },
+  TSInclude = { fg = p.pink },
   TSInterface = { link = 'TSType' },
   TSKeyword = { link = 'Keyword' },
-  TSKeywordFunction = { fg = colors.pink, italic = true },
+  TSKeywordFunction = { fg = p.pink, italic = true },
   TSKeywordOperator = { link = 'TSOperator' },
   TSKeywordReturn = { link = 'TSKeyword' },
-  TSLabel = { fg = colors.cyan },
-  TSNamespace = { fg = colors.orange1 },
-  TSNote = { fg = colors.green, bold = true },
+  TSLabel = { fg = p.blue5 },
+  TSNamespace = { fg = p.orange },
+  TSNote = { fg = p.green, bold = true },
   TSOperator = { link = 'Operator' },
   TSProperty = { fg = '#95B2D6' },
   TSStrong = { bold = true },
   TSSymbol = { fg = '#7EBFC4' },
   TSTag = { link = 'Tag' },
-  TSTagAttribute = { fg = colors.pink },
-  TSTagDelimiter = { fg = colors.cyan },
+  TSTagAttribute = { fg = p.pink },
+  TSTagDelimiter = { fg = p.blue5 },
   TSText = { fg = foreground },
   TSTextReference = { fg = foreground, underdotted = true },
-  TSTitle = { fg = foreground, bold = true },
+
+  TSTitle = { link = 'Title' },
+
   TSTodo = { link = 'Todo' },
-  TSType = { fg = colors.orange1 },
-  TSTypeBuiltin = { fg = colors.blue, italic = true },
-  TSTypeQualifier = { fg = colors.red },
-  TSURI = { fg = colors.cyan, underdotted = true },
+  TSType = { link = 'Type' },
+  TSTypeBuiltin = { fg = p.blue_vibrant, italic = true },
+  TSTypeQualifier = { fg = p.red },
+  TSURI = { fg = p.blue5, underdotted = true },
   TSUnderline = { underline = true },
   TSVariable = { fg = foreground },
-  TSVariableBuiltin = { fg = colors.red, italic = true },
-  TSWarning = { fg = colors.orange1, bold = true },
+  TSVariableBuiltin = { fg = p.red, italic = true },
+  TSWarning = { fg = p.orange, bold = true },
 
   --- HTML
   htmlTagName = { link = 'Tag' },
@@ -238,85 +244,83 @@ local highlights = {
 
   gitCommitSelectedFile = { italic = true },
   gitCommitSummary = { bold = true },
-  gitCommitTrailerToken = { fg = colors.pink, italic = true },
+  gitCommitTrailerToken = { fg = p.pink, italic = true },
 
   --- health.vim
-  healthHelp = { fg = colors.yellow },
-  healthSuccess = { fg = colors.green },
+  healthHelp = { fg = p.orange3 },
+  healthSuccess = { fg = p.green },
 
   -- luaTS
-  luaTSField = { link = 'TSField' },
   luaTSConstructor = { link = 'TSPunctBracket' },
   luaTable = { link = 'TSPunctBracket' },
 
   -- markdownTS
-  markdownTSPunctSpecial = { fg = colors.orange2, bold = true },
+  markdownTSPunctSpecial = { fg = p.red2, bold = true },
 
   --- quickfix.vim
-  qfFileName = { fg = colors.cyan },
+  qfFileName = { fg = p.blue5 },
   qfLineNr = { bold = true },
 
   -- RUST
   rustTSConstBuiltin = { link = 'TSConstant', italic = true },
   rustTSField = { fg = '#CBD3E2' },
-  rustTSFuncMacro = { fg = colors.blue },
-  rustTSFunction = { fg = colors.cyan },
-  rustTSKeyword = { fg = colors.pink },
+  rustTSFuncMacro = { fg = p.blue_vibrant },
+  rustTSFunction = { fg = p.blue5 },
+  rustTSKeyword = { fg = p.pink },
   rustTSOperator = { link = 'TSOperator' },
   rustTSPunctBracket = { fg = '#CBD3E2' },
-  rustTSPunctDelimiter = { fg = colors.gray1 },
-  rustTSType = { fg = colors.orange1 },
-  rustTSTypeBuiltin = { fg = colors.pink, italic = true },
+  rustTSPunctDelimiter = { fg = p.blue6 },
+  rustTSType = { fg = p.orange },
+  rustTSTypeBuiltin = { fg = p.pink, italic = true },
 
   -- golangTS
 
-  goTSKeyword = { fg = colors.red },
-  goTSType = { fg = colors.cyan },
+  goTSKeyword = { fg = p.red },
+  goTSType = { fg = p.blue5 },
   goTSFunction = { link = 'TSFunction' },
   goTSNamespace = { link = 'TSNamespace' },
 
   -- tmux
 
-  tmuxCommands = { fg = colors.pink },
-  tmuxFlags = { fg = colors.orange1 },
-  tmuxFormatString = { fg = colors.cyan },
+  tmuxCommands = { fg = p.pink },
+  tmuxFlags = { fg = p.orange },
+  tmuxFormatString = { fg = p.blue5 },
 
   -- typescriptTS
 
-  typescriptTSProperty = { fg = '#95B2D6' },
   typescriptTSFunction = { link = 'Function' },
-  typescriptTSConstructor = { fg = colors.orange1 },
+  typescriptTSConstructor = { fg = p.orange },
   typescriptTSOperator = { link = 'TSOperator' },
   typescriptTSParameter = { link = 'TSVariable' },
-  typescriptTSType = { fg = colors.cyan },
+  typescriptTSType = { fg = p.blue5 },
   typescriptTSKeyword = { fg = '#ec5f89', italic = true },
   -- typescriptTSPunctSpecial = { fg = colors.red },
   --- JavaScript
   jsdocTSKeyword = { link = 'typescriptType' },
-  javaScriptReserved = { fg = colors.red },
+  javaScriptReserved = { fg = p.red },
 
   --- fennelTS
 
   fennelTSFuncMacro = { link = 'TSKeywordFunction' },
   fennelTSField = { link = 'TSField' },
   --- CSS
-  cssTSType = { fg = colors.cyan },
+  cssTSType = { fg = p.blue5 },
 
   -- fennel.vim
-  FennelStringDelimiter = { fg = colors.cyan },
+  FennelStringDelimiter = { fg = p.blue5 },
   FennelParen = { link = 'TSPunctBracket' },
-  FennelSpecialForm = { fg = colors.pink, italic = true },
+  FennelSpecialForm = { fg = p.pink, italic = true },
   FennelKeyword = { link = 'clojureTSKeyword' },
   FennelTable = { link = 'luaTSPunctDelimiter' },
 
   --- clojureTS
-  clojureTSKeywordFunction = { fg = colors.red },
-  clojureTSKeyword = { fg = colors.red },
-  clojureTSSymbol = { fg = colors.pink },
+  clojureTSKeywordFunction = { fg = p.red },
+  clojureTSKeyword = { fg = p.red },
+  clojureTSSymbol = { fg = p.pink },
 
   clojureTSVariableBuiltin = { link = 'TSConstBuiltin' },
-  clojureTSPunctSpecial = { fg = colors.orange2 },
-  clojureTSFuncMacro = { fg = colors.orange2 },
+  clojureTSPunctSpecial = { fg = p.red2 },
+  clojureTSFuncMacro = { fg = p.red2 },
 
   --- tomlTS
   tomlTSProperty = { link = 'TSLabel' },
@@ -355,7 +359,7 @@ local highlights = {
   CmpItemKindFunction = { link = 'Function' },
   CmpItemKindValue = { link = 'Number' },
   CmpItemAbbrDeprecated = { strikethrough = true },
-  CmpItemKindClass = { fg = colors.red },
+  CmpItemKindClass = { fg = p.red },
   CmpItemKindEnum = { link = 'CmpItemKindClass' },
   CmpItemKindInterface = { link = 'CmpItemKindClass' },
   CmpItemKindMethod = { fg = '#8EB8E1' },
@@ -393,7 +397,7 @@ local highlights = {
   TelescopePromptCounter = { fg = foreground },
   TelescopeMatching = { bg = background },
   TelescopeSelectionCaret = { fg = foreground },
-  TelescopeSelection = { bg = background },
+  TelescopeSelection = { link = 'Visual' },
 
   --- dressing.nvim
   FloatTitle = { link = 'Comment' },
@@ -402,7 +406,7 @@ local highlights = {
   FocusedSymbol = { link = 'Visual' },
 
   -- Trouble
-  TroubleIndent = { bg = colors.bg1 },
+  TroubleIndent = { bg = p.blue3 },
   TroubleLocation = { bold = true },
 
   -- Temporary native lsp semantic highlighting
@@ -432,18 +436,20 @@ local highlights = {
   -- LspDeclaration = {},
   -- LspDefinition = {},
   LspReadonly = { link = 'TSKeyword' },
-  LspStatic = { fg = colors.orange1 },
+  LspStatic = { fg = p.orange },
   LspDeprecated = { strikethrough = true },
   -- LspAbstract = {},
-  LspAsync = { fg = colors.red },
+  LspAsync = { fg = p.red },
   -- LspModification = {},
   -- LspDocumentation = {},
-  -- LspDefaultLibrary = { fg = colors.orange1 },
+  LspDefaultLibrary = { fg = p.blue_vibrant },
 }
 
 local function set_hl(tbl)
+  ---@type function
+  local nvim_set_hl = vim.api.nvim_set_hl
   for group, attrs in pairs(tbl) do
-    vim.api.nvim_set_hl(0, group, attrs)
+    nvim_set_hl(0, group, attrs)
   end
 end
 
@@ -451,15 +457,15 @@ local load = function()
   if vim.g.colors_name then
     vim.cmd('hi clear')
   end
+
   vim.cmd('highlight clear')
   vim.cmd('set t_Co=256')
   vim.g.colors_name = 'juliana'
 
-  set_hl(highlights)
+  set_hl(hl_groups)
 end
 
 return {
   load = load,
-  colors = colors
-
+  colors = p
 }
