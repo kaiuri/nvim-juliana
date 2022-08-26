@@ -446,8 +446,8 @@ local hl_groups = {
   LspDefaultLibrary = { fg = p.blue_vibrant },
 }
 
+---@param tbl {[string]: HighlightDefMap}
 local function set_hl(tbl)
-  ---@type function
   local nvim_set_hl = vim.api.nvim_set_hl
   for group, attrs in pairs(tbl) do
     nvim_set_hl(0, group, attrs)

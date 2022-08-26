@@ -1,28 +1,29 @@
 ---@meta
+---@class HighlightDefMap
+---@field fg? string: color name or "#RRGGBB", see note.
+---@field bg? string: color name or "#RRGGBB", see note.
+---@field sp? string: color name or "#RRGGBB"
+---@field blend? integer: [0, 100]
+---@field bold? boolean
+---@field standout? boolean
+---@field underline? boolean
+---@field undercurl? boolean
+---@field underdouble? boolean
+---@field underdotted? boolean
+---@field underdashed? boolean
+---@field strikethrough? boolean
+---@field italic? boolean
+---@field reverse? boolean
+---@field nocombine? boolean
+---@field link? string: name of another highlight group to link to, see `:hi-link`.
+---@field default? boolean: Don't override existing definition `:hi-default`
+---@field ctermfg? string: Sets foreground of cterm color `highlight-ctermfg`
+---@field ctermbg? string: Sets background of cterm color `highlight-ctermbg`
+---@field cterm? string: cterm attribute map, like `highlight-args`. If not set , cterm attributes will match those from the attribute map documented above.
 
----@class AutoCommand
----@field group? integer | string
----@field pattern? string|string[]
----@field buffer? integer
----@field desc? string
----@field callback string|fun(args: {id: number, event: string, group: number|nil, match: string, buf: number, file:string})
----@field command ? string
----@field once ? boolean
----@field nested ? boolean
-
----Create an `autocommand`
----@param event string|string[]
----@param opts AutoCommand
-function vim.api.nvim_create_autocmd(event, opts) end
-
--- Create or get an autocommand group |autocmd-groups|.
---- @param name string: String: The name of the group
---- @param opts { clear?: boolean }
---- @return integer: Id of the created group.
-function vim.api.nvim_create_augroup(name, opts) end
-
---- Create a new user command user-commands
----@param name string: Upper case
----@param command string|fun(tbl?: {})
----@param opts {desc?: string, force?: boolean, preview?: function}
-function vim.api.nvim_create_user_command(name, command, opts) end
+---Sets a highlight group. Unlike the `:highlight` command which can update a highlight group, this function completely replaces the definition. For example:
+---`nvim_set_hl(0, 'Visual', {})` will clear the highlight group `Visual`.
+---@param ns_id integer: Namespace id for this highlight `nvim_create_namespace`. 0 to sets it globally.
+---@param name string: Highlight group name, e.g. "ErrorMsg"
+---@param val HighlightDefMap: Highlight definition map.
+function vim.api.nvim_set_hl(ns_id, name, val) end
