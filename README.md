@@ -1,5 +1,13 @@
 # nvim-juliana
 
+---
+
+### Notice 2022-08-28
+
+There's been a big [`breaking change`](https://github.com/neovim/neovim/issues/14090#issuecomment-1229436847) at Neovim relating to tree-sitter highlight groups, they've been unlinked from `nvim-treesitter` in favor of general ones like `@label`. This messes up languages like `json`, which, for this specific colorscheme, requires different colors than those used over other languages for the same tree-sitter `query`. I consider this plugin **failing** as of now, but if you have any ideas on how to fix it _without_ providing custom highlighting `queries`, I'm open to it, please open an `issue`.
+
+---
+
 ## Palette
 
 To get hold of the original SublimeText Mariana's palette do
