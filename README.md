@@ -4,7 +4,7 @@
 
 ### Notice 2022-08-28
 
-There's been a big [`breaking change`](https://github.com/neovim/neovim/issues/14090#issuecomment-1229436847) at Neovim relating to tree-sitter highlight groups, they've been unlinked from `nvim-treesitter` in favor of general ones like `@label`. This messes up languages like `json`, which, for this specific colorscheme, requires a different color than the one used by other languages for the same tree-sitter `query`. I consider this plugin **failing** as of now, but if you have any ideas on how to fix it _without_ providing custom highlighting `queries`, I'm open to it, please open an `issue`.
+There's been a [`breaking change`](https://github.com/neovim/neovim/issues/14090#issuecomment-1229436847) at Neovim relating to tree-sitter highlight groups, they've been unlinked from `nvim-treesitter` in favor of general ones like `@label`. This messes up languages like `json`, which, for this specific colorscheme, requires a different highlight than the one used by other languages for the same tree-sitter `query`. I've cooked up a way to fix that and will do it once I have time, until then this plugin is considered broken.
 
 ---
 
