@@ -1,9 +1,10 @@
 ---@class SublimeTextPalette
+---@field black string: '#000000'
+---@field blue string: '#5c99d6'
 ---@field blue2 string: '#46525c'
 ---@field blue3 string: '#303841'
 ---@field blue5 string: '#5fb4b4'
 ---@field blue6 string: '#a6acb8'
----@field blue_vibrant string: '#5c99d6'
 ---@field gray string: '#333333'
 ---@field green string: '#99c794'
 ---@field orange string: '#f9ae58'
@@ -150,7 +151,7 @@ return {
     Struct = { link = 'Structure' },
     Tag = { fg = colors.red },
     Title = { fg = foreground, bold = true },
-    Todo = { fg = colors.blue_vibrant, bold = true },
+    Todo = { fg = colors.blue, bold = true },
     Type = { fg = colors.orange },
     Typedef = { link = 'Structure' },
     Underlined = { underdotted = true },
@@ -180,11 +181,11 @@ return {
 
     TSFunction = { link = 'Function' },
     TSFunctionCall = { link = 'TSFunction' },
-    TSFuncBuiltin = { fg = colors.blue_vibrant },
+    TSFuncBuiltin = { fg = colors.blue },
     -- TSFuncMacro = { fg = colors.blue, italic = true },
     TSFuncMacro = { link = 'Macro' },
 
-    TSParameter = { link = 'Identifier' },
+    TSParameter = { fg = colors.orange },
     TSParameterReference = { link = 'TSParameter' },
     TSMethod = { fg = '#5cb3d6' },
     TSMethodCall = { link = 'TSMethod' },
@@ -205,7 +206,7 @@ return {
     TSInterface = { link = 'TSType' },
     TSKeyword = { link = 'Keyword' },
     TSKeywordFunction = { fg = colors.pink, italic = true },
-    TSKeywordOperator = { link = 'TSOperator' },
+    TSKeywordOperator = { fg = colors.pink },
     TSKeywordReturn = { link = 'TSKeyword' },
     TSLabel = { fg = colors.blue5 },
     TSNamespace = { fg = colors.orange },
@@ -224,7 +225,7 @@ return {
 
     TSTodo = { link = 'Todo' },
     TSType = { link = 'Type' },
-    TSTypeBuiltin = { fg = colors.blue_vibrant, italic = true },
+    TSTypeBuiltin = { fg = colors.blue, italic = true },
     TSTypeQualifier = { fg = colors.red },
     TSURI = { fg = colors.blue5, underdotted = true },
     TSUnderline = { underline = true },
@@ -260,7 +261,7 @@ return {
     -- RUST
     rustTSConstBuiltin = { link = 'TSConstant', italic = true },
     rustTSField = { fg = '#CBD3E2' },
-    rustTSFuncMacro = { fg = colors.blue_vibrant },
+    rustTSFuncMacro = { fg = colors.blue },
     rustTSFunction = { fg = colors.blue5 },
     rustTSKeyword = { fg = colors.pink },
     rustTSOperator = { link = 'TSOperator' },
@@ -287,7 +288,7 @@ return {
     typescriptTSFunction = { link = 'Function' },
     typescriptTSConstructor = { fg = colors.orange },
     typescriptTSOperator = { link = 'TSOperator' },
-    typescriptTSParameter = { link = 'TSVariable' },
+    typescriptTSParameter = { fg = colors.orange },
     typescriptTSType = { fg = colors.blue5 },
     typescriptTSKeyword = { fg = '#ec5f89', italic = true },
     -- typescriptTSPunctSpecial = { fg = colors.red },
@@ -419,7 +420,7 @@ return {
     LspProperty = { link = 'TSProperty' },
     LspEnumMember = { link = 'TSField' },
     -- LspEvent = {},
-    LspFunction = { link = 'TSFunction' },
+    LspFunction = { fg = colors.blue },
     LspMethod = { link = 'TSMethod' },
     LspMacro = { link = 'Macro' },
     LspKeyword = { link = 'TSKeyword' },
@@ -438,6 +439,6 @@ return {
     LspAsync = { fg = colors.red },
     -- LspModification = {},
     -- LspDocumentation = {},
-    LspDefaultLibrary = { fg = colors.blue_vibrant },
+    LspDefaultLibrary = { fg = colors.blue },
 
 }
