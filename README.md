@@ -4,7 +4,7 @@
 
 ### Notice 2022-08-28
 
-There's been a [`breaking change`](https://github.com/neovim/neovim/issues/14090#issuecomment-1229436847) at Neovim relating to tree-sitter highlight groups, they've been unlinked from `nvim-treesitter` in favor of general ones like `@label`. This messes up languages like `json`, which, for this specific colorscheme, requires a different highlight than the one used by other languages for the same tree-sitter `query`. I've cooked up a way to fix that and will do it once I have time, until then this plugin is considered broken.
+There's been a [`breaking change`](https://github.com/neovim/neovim/issues/14090#issuecomment-1229436847) at Neovim relating to tree-sitter highlight groups, they've been unlinked from `nvim-treesitter` in favor of general ones like `@label`. This messes up languages like `json`, which, for this specific colorscheme, requires a different highlight than the one used by other languages for the same tree-sitter `query`. It can be solved by using language servers that include semantic token highlighting or additional vim-regex highlights.
 
 ---
 
@@ -76,7 +76,6 @@ require('nvim-treesitter.configs').setup {
 
 ## Plugin Support(Tested)
 
-- [nvim-semantic-tokens](https://github.com/theHamsta/nvim-semantic-tokens) - This is a temporary plugin which enables semantic token based highlighting.
 - [vim-sneak](https://github.com/justinmk/vim-sneak)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
@@ -88,6 +87,7 @@ require('nvim-treesitter.configs').setup {
 - [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [fennel.vim](https://github.com/bakpakin/fennel.vim)
+- [nvim-semantic-tokens](https://github.com/theHamsta/nvim-semantic-tokens) - This is a temporary plugin which enables semantic token based highlighting.
 
 ## Alacritty Theme
 
