@@ -13,7 +13,7 @@ There's been a [`breaking change`](https://github.com/neovim/neovim/issues/14090
 To get hold of the original SublimeText Mariana's palette do
 
 ```lua
-require('nvim-juliana.palette')
+require('nvim-juliana.colors')
 --- or
 require('nvim-juliana').colors
 ```
