@@ -235,9 +235,6 @@ return {
 
     --- HTML
     htmlTagName = { link = 'Tag' },
-    --- commentTS
-    commentTSConstant = { fg = '#8C99A6' },
-
     -- git.vim
 
     gitCommitSelectedFile = { italic = true },
