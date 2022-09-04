@@ -453,6 +453,7 @@ local function set_hl(tbl)
     end
 end
 
+
 local load = function()
     if vim.g.colors_name then
         vim.cmd('hi clear')
