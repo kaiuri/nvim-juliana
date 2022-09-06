@@ -180,8 +180,8 @@ return {
     TSFloat = { link = 'Float' },
 
     TSFunction = { link = 'Function' },
-    TSFunctionCall = { link = 'TSFunction' },
-    TSFuncBuiltin = { fg = colors.blue },
+    TSFunctionCall = { fg = colors.blue },
+    TSFuncBuiltin = { fg = colors.blue, italic = true },
     -- TSFuncMacro = { fg = colors.blue, italic = true },
     TSFuncMacro = { link = 'Macro' },
 
@@ -204,9 +204,11 @@ return {
     TSError = { fg = foreground },
     TSInclude = { fg = colors.pink },
     TSInterface = { link = 'TSType' },
-    TSKeyword = { link = 'Keyword' },
+    TSKeyword = { fg = colors.red },
     TSKeywordFunction = { fg = colors.pink, italic = true },
-    TSKeywordOperator = { fg = colors.pink },
+
+    TSKeywordOperator = { fg = colors.red2 },
+
     TSKeywordReturn = { link = 'TSKeyword' },
     TSLabel = { fg = colors.blue5 },
     TSNamespace = { fg = colors.orange },
@@ -403,8 +405,17 @@ return {
     TroubleIndent = { bg = colors.blue3 },
     TroubleLocation = { bold = true },
 
+    --- NvimTree
+    NvimTreeNormal           = { fg = foreground, bg = "#22262A" },
+    NvimTreeRootFolder       = { fg = foreground, bg = "#22262A", bold = true },
+    NvimTreeOpenedFolderName = { link = 'NvimTreeNormal' },
+    NvimTreeFolderName       = { link = 'NvimTreeNormal' },
+    NvimTreeIndentMarker     = { fg = foreground, bg = "#22262A", bold = true },
+    NvimTreeEmptyFolderName  = { link = 'Comment' },
+    NvimTreeFolderIcon       = { fg = colors.blue6 },
+    NvimTreeGitDirty         = { fg = '#6699CC' },
+
     -- Temporary native lsp semantic highlighting
-    -- https://github.com/theHamsta/nvim-semantic-tokens
     LspNamespace = { link = 'TSNamespace' },
     LspType = { link = 'TSType' },
     LspClass = { link = 'TSType' },
@@ -436,6 +447,6 @@ return {
     LspAsync = { fg = colors.red },
     -- LspModification = {},
     -- LspDocumentation = {},
-    LspDefaultLibrary = { fg = colors.blue },
+    LspDefaultLibrary = { fg = colors.blue, italic = true },
 
 }
