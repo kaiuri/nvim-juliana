@@ -121,7 +121,7 @@ return {
     String = { fg = colors.green },
     Comment = { fg = colors.blue6 },
     Conditional = { fg = colors.pink },
-    Constant = { fg = colors.orange },
+    Constant = { fg = colors.white },
     Define = { fg = colors.pink, italic = true },
 
     Delimiter = { fg = colors.blue6 },
@@ -160,7 +160,7 @@ return {
 
     -- TS-hl globals
 
-    TSPunctBracket = { link = 'Delimiter' },
+    TSPunctBracket = { fg = colors.white },
     TSPunctDelimiter = { link = 'Delimiter' },
     TSPunctSpecial = { fg = colors.blue5 },
 
