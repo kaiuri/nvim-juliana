@@ -15,6 +15,7 @@
 ---@field white string: '#ffffff'
 ---@field white3 string: '#d5dee6'
 local colors = require('nvim-juliana.colors')
+
 colors.bg_extra = '#272e35'
 
 local background = colors.blue3
@@ -183,20 +184,13 @@ return {
     TSFunctionCall = { fg = colors.blue },
     TSFuncBuiltin = { fg = colors.blue, italic = true },
     -- TSFuncMacro = { fg = colors.blue, italic = true },
-    TSFuncMacro = { link = 'Macro' },
+    TSFuncMacro = { fg = colors.blue },
 
     TSParameter = { fg = colors.orange },
     TSParameterReference = { link = 'TSParameter' },
     TSMethod = { fg = '#5cb3d6' },
     TSMethodCall = { link = 'TSMethod' },
     TSField = { fg = '#95B2D6' },
-
-    ---- kaiuri: Continue from here
-    --references:
-    --  https://github.com/nvim-treesitter/nvim-treesitter/blob/master/lua/nvim-treesitter/highlight.lua
-    --  https://github.com/neovim/neovim/blob/master/runtime/lua/vim/treesitter/highlighter.lua
-    --  https://github.com/theHamsta/nvim-semantic-tokens/blob/master/lua/nvim-semantic-tokens/presets/default.lua
-
     TSComment = { link = 'Comment' },
     TSDanger = { fg = colors.red, bold = true },
     TSEmphasis = { italic = true },
@@ -234,6 +228,7 @@ return {
     TSVariable = { fg = foreground },
     TSVariableBuiltin = { fg = colors.red, italic = true },
     TSWarning = { fg = colors.orange, bold = true },
+    TSLiteral = { fg = colors.pink },
 
     --- HTML
     htmlTagName = { link = 'Tag' },
@@ -247,34 +242,47 @@ return {
     healthHelp = { fg = colors.orange3 },
     healthSuccess = { fg = colors.green },
 
-    -- luaTS
+    -- lua
     luaTable = { link = 'TSPunctBracket' },
 
-    -- markdownTS
-    markdownTSPunctSpecial = { fg = colors.red2, bold = true },
+    --- Markdown
+    markdownRule = { fg = colors.red, bold = true },
+    markdownLinkText = { fg = foreground },
+    markdownUrl = { fg = colors.blue, underline = true },
+    markdownLinkTextDelimiter = { fg = colors.blue5 },
+    markdownLinkDelimiter = { fg = colors.blue5 },
+    markdownH1Delimiter = { fg = colors.red },
+    markdownH2Delimiter = { fg = colors.red2 },
+    markdownH3Delimiter = { fg = colors.red2 },
+    markdownH4Delimiter = { fg = colors.red2 },
+    markdownH5Delimiter = { fg = colors.red2 },
+    markdownH6Delimiter = { fg = colors.red2 },
+    markdownCode = { bg = '#38424c' },
+    markdownListMarker = { fg = colors.orange3, bold = true },
+    -- markdownTS --- does not exist anymore
+    -- markdownTSPunctSpecial = { fg = colors.red2, bold = true },
 
     --- quickfix.vim
     qfFileName = { fg = colors.blue5 },
     qfLineNr = { bold = true },
 
-    -- RUST
-    rustTSConstBuiltin = { link = 'TSConstant', italic = true },
-    rustTSField = { fg = '#CBD3E2' },
-    rustTSFuncMacro = { fg = colors.blue },
-    rustTSFunction = { fg = colors.blue5 },
-    rustTSKeyword = { fg = colors.pink },
-    rustTSOperator = { link = 'TSOperator' },
-    rustTSPunctBracket = { fg = '#CBD3E2' },
-    rustTSPunctDelimiter = { fg = colors.blue6 },
-    rustTSType = { fg = colors.orange },
-    rustTSTypeBuiltin = { fg = colors.pink, italic = true },
+    -- rustTS  -- doest not exist anymore
+    -- rustTSConstBuiltin = { link = 'TSConstant', italic = true },
+    -- rustTSField = { fg = '#CBD3E2' },
+    -- rustTSFuncMacro = { fg = colors.blue },
+    -- rustTSFunction = { fg = colors.blue5 },
+    -- rustTSKeyword = { fg = colors.pink },
+    -- rustTSOperator = { link = 'TSOperator' },
+    -- rustTSPunctBracket = { fg = '#CBD3E2' },
+    -- rustTSPunctDelimiter = { fg = colors.blue6 },
+    -- rustTSType = { fg = colors.orange },
+    -- rustTSTypeBuiltin = { fg = colors.pink, italic = true },
 
-    -- golangTS
-
-    goTSKeyword = { fg = colors.red },
-    goTSType = { fg = colors.blue5 },
-    goTSFunction = { link = 'TSFunction' },
-    goTSNamespace = { link = 'TSNamespace' },
+    -- goTS --- does not exist anymore
+    -- goTSKeyword = { fg = colors.red },
+    -- goTSType = { fg = colors.blue5 },
+    -- goTSFunction = { link = 'TSFunction' },
+    -- goTSNamespace = { link = 'TSNamespace' },
 
     -- tmux
 
@@ -282,17 +290,16 @@ return {
     tmuxFlags = { fg = colors.orange },
     tmuxFormatString = { fg = colors.blue5 },
 
-    -- typescriptTS
-
-    typescriptTSFunction = { link = 'Function' },
-    typescriptTSConstructor = { fg = colors.orange },
-    typescriptTSOperator = { link = 'TSOperator' },
-    typescriptTSParameter = { fg = colors.orange },
-    typescriptTSType = { fg = colors.blue5 },
-    typescriptTSKeyword = { fg = '#ec5f89', italic = true },
+    -- typescriptTS -- does not exist anymore
+    -- typescriptTSFunction = { link = 'Function' },
+    -- typescriptTSConstructor = { fg = colors.orange },
+    -- typescriptTSOperator = { link = 'TSOperator' },
+    -- typescriptTSParameter = { fg = colors.orange },
+    -- typescriptTSType = { fg = colors.blue5 },
+    -- typescriptTSKeyword = { fg = '#ec5f89', italic = true },
     -- typescriptTSPunctSpecial = { fg = colors.red },
     --- JavaScript
-    jsdocTSKeyword = { link = 'typescriptType' },
+    -- jsdocTSKeyword = { link = 'typescriptType' },
     javaScriptReserved = { fg = colors.red },
 
     --- fennelTS
@@ -306,33 +313,39 @@ return {
     FennelStringDelimiter = { fg = colors.blue5 },
     FennelParen = { link = 'TSPunctBracket' },
     FennelSpecialForm = { fg = colors.pink, italic = true },
-    FennelKeyword = { link = 'clojureTSKeyword' },
-    FennelTable = { link = 'luaTSPunctDelimiter' },
+    FennelKeyword = { link = 'TSKeyword' },
+    FennelTable = { link = 'TSConstructor' },
 
-    --- clojureTS
-    clojureTSKeywordFunction = { fg = colors.red },
-    clojureTSKeyword = { fg = colors.red },
-    clojureTSSymbol = { fg = colors.pink },
-
-    clojureTSVariableBuiltin = { link = 'TSConstBuiltin' },
-    clojureTSPunctSpecial = { fg = colors.red2 },
-    clojureTSFuncMacro = { fg = colors.red2 },
+    --- clojureTS --- does not exist anymore
+    -- clojureTSKeywordFunction = { fg = colors.red },
+    -- clojureTSKeyword = { fg = colors.red },
+    -- clojureTSSymbol = { fg = colors.pink },
+    -- clojureTSVariableBuiltin = { link = 'TSConstBuiltin' },
+    -- clojureTSPunctSpecial = { fg = colors.red2 },
+    -- clojureTSFuncMacro = { fg = colors.red2 },
 
     --- Data Serialization Languages
+    --- toml
     tomlproperty = { fg = colors.blue5 },
 
+    --- yaml
     yamlfield = { fg = colors.blue5 },
 
+    --- json
     jsonKeyword = { fg = colors.blue5 },
 
-    -- helpTS
+    -- helpTS --- does not exist anymore
+    -- helpTSTitle = { fg = foreground, bold = true },
+    -- helpTSTextReference = { link = 'TSURI' },
 
-    helpTSTitle = { fg = foreground, bold = true },
-    helpTSTextReference = { link = 'TSURI' },
+    --- help
     helpHyperTextEntry = { link = 'TSURI' },
+    helpSectionDelim = { fg = colors.red, bold = true },
+    helpHyperTextJump = { fg = colors.blue, underdotted = true },
+    helpHeader = { link = 'Title' },
 
-    --- Python
-    pythonTSField = { fg = '#95B2D6' },
+    --- Python -- does not exist anymore
+    -- pythonTSField = { fg = '#95B2D6' },
 
     --- Plugins
     -- Rainbow Parentheses
@@ -376,7 +389,6 @@ return {
     Sneak = { link = 'Search' },
     SneakLabel = { link = 'Search' },
 
-
     --- gitsigns.nvim
     GitSignsDelete = { fg = error, bold = true },
     GitSignsChange = { fg = hint, bold = true },
@@ -406,14 +418,14 @@ return {
     TroubleLocation = { bold = true },
 
     --- NvimTree
-    NvimTreeNormal           = { fg = foreground, bg = "#22262A" },
-    NvimTreeRootFolder       = { fg = foreground, bg = "#22262A", bold = true },
+    NvimTreeNormal = { fg = foreground, bg = '#22262A' },
+    NvimTreeRootFolder = { fg = foreground, bg = '#22262A', bold = true },
     NvimTreeOpenedFolderName = { link = 'NvimTreeNormal' },
-    NvimTreeFolderName       = { link = 'NvimTreeNormal' },
-    NvimTreeIndentMarker     = { fg = foreground, bg = "#22262A", bold = true },
-    NvimTreeEmptyFolderName  = { link = 'Comment' },
-    NvimTreeFolderIcon       = { fg = colors.blue6 },
-    NvimTreeGitDirty         = { fg = '#6699CC' },
+    NvimTreeFolderName = { link = 'NvimTreeNormal' },
+    NvimTreeIndentMarker = { fg = foreground, bg = '#22262A', bold = true },
+    NvimTreeEmptyFolderName = { link = 'Comment' },
+    NvimTreeFolderIcon = { fg = colors.blue6 },
+    NvimTreeGitDirty = { fg = '#6699CC' },
 
     -- Temporary native lsp semantic highlighting
     LspNamespace = { link = 'TSNamespace' },
@@ -448,5 +460,4 @@ return {
     -- LspModification = {},
     -- LspDocumentation = {},
     LspDefaultLibrary = { fg = colors.blue, italic = true },
-
 }
