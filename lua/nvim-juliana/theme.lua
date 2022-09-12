@@ -22,10 +22,12 @@ local background = colors.blue3
 local foreground = colors.white3
 local selection = colors.blue2
 
-local error = colors.red
+local danger = colors.red
 local hint = colors.orange3
 local info = colors.blue5
 local warn = colors.orange
+local debug = colors.red2
+local trace = colors.pink
 
 return {
 
@@ -53,10 +55,10 @@ return {
 
     CursorLineNr = { link = 'LineNr' },
 
-    DiffAdd = { sp = colors.green, underdotted = true },
-    DiffChange = { sp = colors.red, underdotted = true },
+    DiffAdd    = { sp = colors.green, underline = true },
+    DiffChange = { sp = colors.red, underline = true },
     DiffDelete = { fg = colors.blue6 },
-    DiffText = { italic = true },
+    DiffText   = { italic = true },
 
     Directory = { fg = colors.blue5 },
     EndOfBuffer = { fg = '#2B333B' },
@@ -76,7 +78,7 @@ return {
     MoreMsg = { fg = '#DEE1E8', bold = true },
     Question = { link = 'MoreMsg' },
 
-    Search = { link = 'Visual' },
+    Search = { fg = colors.black, bg = colors.orange },
     IncSearch = { link = 'Search' },
 
     SignColumn = { fg = foreground, bg = background },
@@ -97,16 +99,16 @@ return {
 
     -- Diagnostics
 
-    DiagnosticError = { fg = error, bold = true },
+    DiagnosticError = { fg = danger, bold = true },
     DiagnosticHint = { fg = hint, bold = true },
     DiagnosticInfo = { fg = info, bold = true },
     DiagnosticWarn = { fg = warn, bold = true },
-    DiagnosticUnderlineError = { sp = error, undercurl = true },
+    DiagnosticUnderlineError = { sp = danger, undercurl = true },
     DiagnosticUnderlineHint = { sp = hint, undercurl = true },
     DiagnosticUnderlineInfo = { sp = info, undercurl = true },
     DiagnosticUnderlineWarn = { sp = warn, undercurl = true },
 
-    DiagnosticVirtualTextError = { bg = colors.bg_extra, fg = error },
+    DiagnosticVirtualTextError = { bg = colors.bg_extra, fg = danger },
     DiagnosticVirtualTextWarn = { bg = colors.bg_extra, fg = warn },
     DiagnosticVirtualTextInfo = { bg = colors.bg_extra, fg = info },
     DiagnosticVirtualTextHint = { bg = colors.bg_extra, fg = hint },
@@ -390,7 +392,7 @@ return {
     SneakLabel = { link = 'Search' },
 
     --- gitsigns.nvim
-    GitSignsDelete = { fg = error, bold = true },
+    GitSignsDelete = { fg = danger, bold = true },
     GitSignsChange = { fg = hint, bold = true },
     GitSignsAdd = { fg = info, bold = true },
 
@@ -418,14 +420,47 @@ return {
     TroubleLocation = { bold = true },
 
     --- NvimTree
-    NvimTreeNormal = { fg = foreground, bg = '#22262A' },
-    NvimTreeRootFolder = { fg = foreground, bg = '#22262A', bold = true },
-    NvimTreeOpenedFolderName = { link = 'NvimTreeNormal' },
-    NvimTreeFolderName = { link = 'NvimTreeNormal' },
+    NvimTreeNormal       = { fg = foreground, bg = '#22262A' },
+    NvimTreeRootFolder   = { fg = foreground, bg = '#22262A', bold = true },
     NvimTreeIndentMarker = { fg = foreground, bg = '#22262A', bold = true },
-    NvimTreeEmptyFolderName = { link = 'Comment' },
-    NvimTreeFolderIcon = { fg = colors.blue6 },
-    NvimTreeGitDirty = { fg = '#6699CC' },
+
+    NvimTreeOpenedFolderName = { link = 'NvimTreeNormal' },
+    NvimTreeFolderName       = { link = 'NvimTreeNormal' },
+    NvimTreeEmptyFolderName  = { link = 'Comment' },
+    NvimTreeFolderIcon       = { fg = colors.blue6 },
+
+    NvimTreeFileDeleted = { link = 'Comment' },
+    NvimTreeFileNew = { fg = colors.white },
+
+    NvimTreeGitDirty   = { fg = danger },
+    NvimTreeGitStaged  = { fg = info },
+    NvimTreeGitRenamed = { fg = warn },
+    NvimTreeGitDeleted = { fg = danger },
+    NvimTreeSymlink    = { fg = hint },
+
+    --- nvim-notify
+    NotifyERRORBorder = { fg = danger },
+    NotifyWARNBorder  = { fg = warn },
+    NotifyINFOBorder  = { fg = info },
+    NotifyDEBUGBorder = { fg = debug },
+    NotifyTRACEBorder = { fg = trace },
+    NotifyERRORIcon   = { fg = danger },
+    NotifyWARNIcon    = { fg = warn },
+    NotifyINFOIcon    = { fg = info },
+    NotifyDEBUGIcon   = { fg = debug },
+    NotifyTRACEIcon   = { fg = trace },
+
+    NotifyERRORTitle = { fg = danger, bold = true },
+    NotifyWARNTitle  = { fg = warn, bold = true },
+    NotifyINFOTitle  = { fg = info, bold = true },
+    NotifyDEBUGTitle = { fg = debug, bold = true },
+    NotifyTRACETitle = { fg = trace, bold = true },
+
+    NotifyERRORBody = { link = 'TSText' },
+    NotifyWARNBody  = { link = 'TSText' },
+    NotifyINFOBody  = { link = 'TSText' },
+    NotifyDEBUGBody = { link = 'TSText' },
+    NotifyTRACEBody = { link = 'TSText' },
 
     -- Temporary native lsp semantic highlighting
     LspNamespace = { link = 'TSNamespace' },
@@ -440,7 +475,7 @@ return {
     LspProperty = { link = 'TSProperty' },
     LspEnumMember = { link = 'TSField' },
     -- LspEvent = {},
-    LspFunction = { fg = colors.blue },
+    LspFunction = { link = 'TSFunction' },
     LspMethod = { link = 'TSMethod' },
     LspMacro = { link = 'Macro' },
     LspKeyword = { link = 'TSKeyword' },
@@ -453,11 +488,11 @@ return {
     -- LspDeclaration = { link = 'TSType' },
     -- LspDefinition = {},
     LspReadonly = { link = 'TSKeyword' },
-    LspStatic = { fg = colors.orange },
+    LspStatic = { link = 'TSConstant' },
     LspDeprecated = { strikethrough = true },
     -- LspAbstract = {},
-    LspAsync = { fg = colors.red },
+    LspAsync = { bold = true },
     -- LspModification = {},
     -- LspDocumentation = {},
-    LspDefaultLibrary = { fg = colors.blue, italic = true },
+    LspDefaultLibrary = { italic = true },
 }
