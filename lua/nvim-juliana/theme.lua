@@ -89,9 +89,11 @@ return {
     StatusLine = { fg = '#CBD3E2', bg = '#3D4752' },
     StatusLineNC = { fg = '#CBD3E2', bg = '#2B333B' },
     Substitute = { link = 'Visual' },
-    TabLine = { fg = '#CBD3E2', bg = '#2B333B' },
-    TabLineFill = { fg = '#CBD3E2', bg = '#2B333B' },
-    TabLineSel = { fg = '#CBD3E2', bg = '#2B333B' },
+
+    TabLine = { fg = colors.blue6, bg = colors.blue2 },
+    TabLineFill = { fg = colors.blue6, bg = colors.blue2 },
+    TabLineSel = { fg = foreground, bg = background },
+
     VertSplit = { fg = '#4E5A65' },
     WarningMsg = { link = 'ErrorMsg' },
     WildMenu = { link = 'Pmenu' },

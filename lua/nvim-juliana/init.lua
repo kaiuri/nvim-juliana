@@ -8,7 +8,6 @@ local function set_hl(tbl)
     end
 end
 
-
 local load = function()
     if vim.g.colors_name then
         vim.cmd('hi clear')
@@ -22,6 +21,8 @@ local load = function()
 end
 
 return {
+    ---@type function
     load = load,
+    ---@type SublimeTextPalette
     colors = require('nvim-juliana.colors')
 }
