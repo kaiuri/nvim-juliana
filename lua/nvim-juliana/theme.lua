@@ -352,6 +352,11 @@ return {
     helpSectionDelim = { fg = colors.red, bold = true },
     helpHyperTextJump = { fg = colors.blue, underdotted = true },
     helpHeader = { link = 'Title' },
+    helpExample = { fg = colors.green },
+    helpURL = { fg = colors.blue, underline = true },
+    helpCommand = { bg = '#38424c' },
+
+
 
     --- Python -- does not exist anymore
     -- pythonTSField = { fg = '#95B2D6' },
