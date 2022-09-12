@@ -482,7 +482,7 @@ return {
     LspFunction = { link = 'TSFunction' },
     LspMethod = { link = 'TSMethod' },
     LspMacro = { link = 'Macro' },
-    LspKeyword = { link = 'TSKeyword' },
+    LspKeyword = { fg = colors.red2 },
     -- LspModifier = {},
     LspComment = { link = 'TSComment' },
     LspString = { link = 'TSString' },
