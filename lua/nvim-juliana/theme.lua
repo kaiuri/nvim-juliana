@@ -420,17 +420,19 @@ return {
     TroubleLocation = { bold = true },
 
     --- NvimTree
-    NvimTreeNormal       = { fg = foreground, bg = '#22262A' },
+    NvimTreeNormal       = { fg = colors.blue6, bg = '#22262A' },
     NvimTreeRootFolder   = { fg = foreground, bg = '#22262A', bold = true },
     NvimTreeIndentMarker = { fg = foreground, bg = '#22262A', bold = true },
 
-    NvimTreeOpenedFolderName = { link = 'NvimTreeNormal' },
-    NvimTreeFolderName       = { link = 'NvimTreeNormal' },
-    NvimTreeEmptyFolderName  = { link = 'Comment' },
+
+    NvimTreeOpenedFolderName = { fg = colors.white },
+    NvimTreeFolderName       = { fg = colors.blue6 },
+    NvimTreeEmptyFolderName  = { link = "Comment" },
     NvimTreeFolderIcon       = { fg = colors.blue6 },
 
     NvimTreeFileDeleted = { link = 'Comment' },
     NvimTreeFileNew = { fg = colors.white },
+    NvimTreeSpecialFile = { fg = foreground },
 
     NvimTreeGitDirty   = { fg = danger },
     NvimTreeGitStaged  = { fg = info },
