@@ -1,10 +1,10 @@
 # nvim-juliana
 
----
+<!-- --- -->
 
-### Notice 2022-08-28
-
-There's been a [`breaking change`](https://github.com/neovim/neovim/issues/14090#issuecomment-1229436847) at Neovim relating to tree-sitter highlight groups, they've been unlinked from `nvim-treesitter` in favor of general ones like `@label`. This messes up languages like `json`, which, for this specific colorscheme, requires a different highlight than the one used by other languages for the same tree-sitter `query`. It can be solved by using language servers that include semantic token highlighting or additional vim-regex highlights.
+<!-- ### Notice 2022-08-28 -->
+<!---->
+<!-- There's been a [`breaking change`](https://github.com/neovim/neovim/issues/14090#issuecomment-1229436847) at Neovim relating to tree-sitter highlight groups, they've been unlinked from `nvim-treesitter` in favor of general ones like `@label`. This messes up languages like `json`, which, for this specific colorscheme, requires a different highlight than the one used by other languages for the same tree-sitter `query`. It can be solved by using language servers that include semantic token highlighting or additional vim-regex highlights. -->
 
 ---
 
@@ -102,6 +102,10 @@ If a plugin you use isn't rightly supported, please, make a new issue attached w
 ## Pull Requests
 
 Use the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) style for your commits, that's it.
+
+## Todo
+
+- [ ] Update screenshots.
 
 # Credits
 
