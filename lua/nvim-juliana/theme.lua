@@ -101,10 +101,15 @@ return {
 
     -- Diagnostics
 
-    DiagnosticError = { fg = danger, bold = true },
-    DiagnosticHint = { fg = hint, bold = true },
-    DiagnosticInfo = { fg = info, bold = true },
-    DiagnosticWarn = { fg = warn, bold = true },
+    DiagnosticError = { fg = danger },
+    DiagnosticHint = { fg = hint },
+    DiagnosticInfo = { fg = info },
+    DiagnosticWarn = { fg = warn },
+    DiagnosticSignError = { fg = danger, bold = true },
+    DiagnosticSignHint = { fg = hint, bold = true },
+    DiagnosticSignInfo = { fg = info, bold = true },
+    DiagnosticSignWarn = { fg = warn, bold = true },
+
     DiagnosticUnderlineError = { sp = danger, undercurl = true },
     DiagnosticUnderlineHint = { sp = hint, undercurl = true },
     DiagnosticUnderlineInfo = { sp = info, undercurl = true },
