@@ -501,7 +501,7 @@ return {
     LspOperator = { link = 'TSOperator' },
     -- LspDeclaration = { link = 'TSType' },
     -- LspDefinition = {},
-    LspReadonly = { link = 'TSKeyword' },
+    LspReadonly = { link = 'TSConstant' },
     LspStatic = { link = 'TSConstant' },
     LspDeprecated = { strikethrough = true },
     -- LspAbstract = {},
