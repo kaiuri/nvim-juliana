@@ -237,7 +237,7 @@ return {
     TSVariable = { fg = foreground },
     TSVariableBuiltin = { fg = colors.red, italic = true },
     TSWarning = { fg = colors.orange, bold = true },
-    TSLiteral = { fg = colors.pink },
+    TSLiteral = { italic = true },
 
     --- HTML
     htmlTagName = { link = 'Tag' },
