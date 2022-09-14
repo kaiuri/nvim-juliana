@@ -408,6 +408,10 @@ return {
     GitSignsChange = { fg = hint, bold = true },
     GitSignsAdd = { fg = info, bold = true },
 
+    --- packer.nvim
+    packerHash = { fg = colors.red },
+    packerString = { bg = '#38424c' },
+
     --- vim.lsp
     LspReferenceText = { bg = '#38424c' },
     LspReferenceRead = { link = 'LspReferenceText' },
