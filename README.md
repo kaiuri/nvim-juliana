@@ -23,7 +23,7 @@ require('nvim-juliana').colors
 ## Screenshots
 
 ![](./assets/screenshot_1.png)
-![](./assets/screenshot_2.png)
+<!-- ![](./assets/screenshot_2.png) -->
 
 ## Description
 
