@@ -268,30 +268,10 @@ return {
     markdownH6Delimiter = { fg = colors.red2 },
     markdownCode = { bg = '#38424c' },
     markdownListMarker = { fg = colors.orange3, bold = true },
-    -- markdownTS --- does not exist anymore
-    -- markdownTSPunctSpecial = { fg = colors.red2, bold = true },
 
     --- quickfix.vim
     qfFileName = { fg = colors.blue5 },
     qfLineNr = { bold = true },
-
-    -- rustTS  -- doest not exist anymore
-    -- rustTSConstBuiltin = { link = 'TSConstant', italic = true },
-    -- rustTSField = { fg = '#CBD3E2' },
-    -- rustTSFuncMacro = { fg = colors.blue },
-    -- rustTSFunction = { fg = colors.blue5 },
-    -- rustTSKeyword = { fg = colors.pink },
-    -- rustTSOperator = { link = 'TSOperator' },
-    -- rustTSPunctBracket = { fg = '#CBD3E2' },
-    -- rustTSPunctDelimiter = { fg = colors.blue6 },
-    -- rustTSType = { fg = colors.orange },
-    -- rustTSTypeBuiltin = { fg = colors.pink, italic = true },
-
-    -- goTS --- does not exist anymore
-    -- goTSKeyword = { fg = colors.red },
-    -- goTSType = { fg = colors.blue5 },
-    -- goTSFunction = { link = 'TSFunction' },
-    -- goTSNamespace = { link = 'TSNamespace' },
 
     -- tmux
 
@@ -299,14 +279,6 @@ return {
     tmuxFlags = { fg = colors.orange },
     tmuxFormatString = { fg = colors.blue5 },
 
-    -- typescriptTS -- does not exist anymore
-    -- typescriptTSFunction = { link = 'Function' },
-    -- typescriptTSConstructor = { fg = colors.orange },
-    -- typescriptTSOperator = { link = 'TSOperator' },
-    -- typescriptTSParameter = { fg = colors.orange },
-    -- typescriptTSType = { fg = colors.blue5 },
-    -- typescriptTSKeyword = { fg = '#ec5f89', italic = true },
-    -- typescriptTSPunctSpecial = { fg = colors.red },
     --- JavaScript
     -- jsdocTSKeyword = { link = 'typescriptType' },
     javaScriptReserved = { fg = colors.red },
@@ -325,14 +297,6 @@ return {
     FennelKeyword = { link = 'TSKeyword' },
     FennelTable = { link = 'TSConstructor' },
 
-    --- clojureTS --- does not exist anymore
-    -- clojureTSKeywordFunction = { fg = colors.red },
-    -- clojureTSKeyword = { fg = colors.red },
-    -- clojureTSSymbol = { fg = colors.pink },
-    -- clojureTSVariableBuiltin = { link = 'TSConstBuiltin' },
-    -- clojureTSPunctSpecial = { fg = colors.red2 },
-    -- clojureTSFuncMacro = { fg = colors.red2 },
-
     --- Data Serialization Languages
     --- toml
     tomlproperty = { fg = colors.blue5 },
@@ -343,18 +307,14 @@ return {
     --- json
     jsonKeyword = { fg = colors.blue5 },
 
-    -- helpTS --- does not exist anymore
-    -- helpTSTitle = { fg = foreground, bold = true },
-    -- helpTSTextReference = { link = 'TSURI' },
-
     --- help
     helpHyperTextEntry = { link = 'TSURI' },
-    helpSectionDelim = { fg = colors.red, bold = true },
-    helpHyperTextJump = { fg = colors.blue, underdotted = true },
-    helpHeader = { link = 'Title' },
-    helpExample = { fg = colors.green },
-    helpURL = { fg = colors.blue, underline = true },
-    helpCommand = { bg = '#38424c' },
+    helpSectionDelim   = { fg = colors.red, bold = true },
+    helpHyperTextJump  = { fg = colors.blue, underdotted = true },
+    helpHeader         = { link = 'Title' },
+    helpExample        = { fg = colors.green },
+    helpURL            = { fg = colors.blue, underline = true },
+    helpCommand        = { bg = '#38424c' },
 
 
 
@@ -373,57 +333,61 @@ return {
     rainbowcol7 = { fg = '#A3FE95' },
 
     --- indent-blankline
-    IndentBlanklineContextChar = { fg = '#4E5A65' },
+    IndentBlanklineContextChar  = { fg = '#4E5A65' },
     IndentBlanklineContextStart = { sp = '#4E5A65', underline = true },
 
     --- nvim-cmp
 
-    CmpItemKindStruct = { link = 'Structure' },
-    CmpItemKindFunction = { link = 'Function' },
-    CmpItemKindValue = { link = 'Number' },
-    CmpItemAbbrDeprecated = { strikethrough = true },
-    CmpItemKindClass = { fg = colors.red },
-    CmpItemKindEnum = { link = 'CmpItemKindClass' },
-    CmpItemKindInterface = { link = 'CmpItemKindClass' },
-    CmpItemKindMethod = { fg = '#8EB8E1' },
-    CmpItemKindUnit = { link = 'CmpItemKindValue' },
-    CmpItemKindConstant = { link = 'TSConstant' },
-    CmpItemKindField = { link = 'TSField' },
-    CmpItemKindModule = { link = 'TSInclude' },
-    CmpItemKindKeyword = { link = 'TSKeyword' },
-    CmpItemKindEnumMember = { link = 'TSLabel' },
-    CmpItemKindProperty = { link = 'TSLabel' },
-    CmpItemKindOperator = { link = 'TSOperator' },
-    CmpItemKindReference = { link = 'TSSymbol' },
-    CmpItemKindSnippet = { link = 'TSText' },
+    CmpItemKindStruct        = { link = 'Structure' },
+    CmpItemKindFunction      = { link = 'Function' },
+    CmpItemKindValue         = { link = 'Number' },
+    CmpItemAbbrDeprecated    = { strikethrough = true },
+    CmpItemKindClass         = { fg = colors.red },
+    CmpItemKindEnum          = { link = 'CmpItemKindClass' },
+    CmpItemKindInterface     = { link = 'CmpItemKindClass' },
+    CmpItemKindMethod        = { fg = '#8EB8E1' },
+    CmpItemKindUnit          = { link = 'CmpItemKindValue' },
+    CmpItemKindConstant      = { link = 'TSConstant' },
+    CmpItemKindField         = { link = 'TSField' },
+    CmpItemKindModule        = { link = 'TSInclude' },
+    CmpItemKindKeyword       = { link = 'TSKeyword' },
+    CmpItemKindEnumMember    = { link = 'TSLabel' },
+    CmpItemKindProperty      = { link = 'TSLabel' },
+    CmpItemKindOperator      = { link = 'TSOperator' },
+    CmpItemKindReference     = { link = 'TSSymbol' },
+    CmpItemKindSnippet       = { link = 'TSText' },
     CmpItemKindTypeParameter = { link = 'TSType' },
-    CmpItemKindVariable = { link = 'TSVariable' },
+    CmpItemKindVariable      = { link = 'TSVariable' },
 
     --- Sneak.vim
-    Sneak = { link = 'Search' },
+    Sneak      = { link = 'Search' },
     SneakLabel = { link = 'Search' },
 
     --- gitsigns.nvim
+
     GitSignsDelete = { fg = danger, bold = true },
     GitSignsChange = { fg = hint, bold = true },
-    GitSignsAdd = { fg = info, bold = true },
+    GitSignsAdd    = { fg = info, bold = true },
 
     --- packer.nvim
-    packerHash = { fg = colors.red },
-    packerString = { bg = '#38424c' },
+
+    packerHash          = { fg = colors.red },
+    packerString        = { bg = '#38424c' },
+    packerStatusSuccess = { fg = info },
 
     --- vim.lsp
-    LspReferenceText = { bg = '#38424c' },
-    LspReferenceRead = { link = 'LspReferenceText' },
+
+    LspReferenceText  = { bg = '#38424c' },
+    LspReferenceRead  = { link = 'LspReferenceText' },
     LspReferenceWrite = { link = 'LspReferenceText' },
 
     --- Telescope
-    TelescopeBorder = { link = 'NonText' },
-    TelescopeTitle = { fg = foreground, bold = true },
-    TelescopePromptCounter = { fg = foreground },
-    TelescopeMatching = { bg = background },
+    TelescopeBorder         = { link = 'NonText' },
+    TelescopeTitle          = { fg = foreground, bold = true },
+    TelescopePromptCounter  = { fg = foreground },
+    TelescopeMatching       = { bg = background },
     TelescopeSelectionCaret = { fg = foreground },
-    TelescopeSelection = { link = 'Visual' },
+    TelescopeSelection      = { link = 'Visual' },
 
     --- dressing.nvim
     FloatTitle = { link = 'Comment' },
@@ -432,7 +396,7 @@ return {
     FocusedSymbol = { link = 'Visual' },
 
     -- Trouble
-    TroubleIndent = { bg = colors.blue3 },
+    TroubleIndent   = { bg = colors.blue3 },
     TroubleLocation = { bold = true },
 
     --- NvimTree
@@ -441,10 +405,11 @@ return {
     NvimTreeIndentMarker = { fg = foreground, bg = '#22262A', bold = true },
 
 
-    NvimTreeOpenedFolderName = { fg = colors.white },
+    NvimTreeOpenedFolderName = { underdotted = true },
     NvimTreeFolderName       = { fg = colors.blue6 },
     NvimTreeEmptyFolderName  = { link = "Comment" },
     NvimTreeFolderIcon       = { fg = colors.blue6 },
+    NvimTreeExecFile         = { fg = colors.green, bold = true },
 
     NvimTreeFileDeleted = { link = 'Comment' },
     NvimTreeFileNew = { fg = colors.white },
@@ -480,37 +445,57 @@ return {
     NotifyDEBUGBody = { link = 'TSText' },
     NotifyTRACEBody = { link = 'TSText' },
 
+    --- DevIcons
+    DevIconDropbox       = { fg = colors.blue },
+    DevIconGitCommit     = { fg = colors.red },
+    DevIconGitConfig     = { fg = colors.blue5 },
+    DevIconGitIgnore     = { fg = colors.red },
+    DevIconGitModules    = { fg = colors.blue5 },
+    DevIconGitAttributes = { fg = colors.blue5 },
+    DevIconToml          = { fg = colors.blue5 },
+    DevIconYaml          = { link = 'DevIconToml' },
+    DevIconYml           = { link = 'DevIconToml' },
+    DevIconJson          = { fg = colors.orange },
+    DevIconGo            = { fg = colors.blue },
+    DevIconTs            = { fg = colors.blue },
+    DevIconTsx           = { fg = colors.blue },
+    DevIconDockerfile    = { fg = colors.blue },
+    DevIconDsStore       = { fg = colors.blue6 },
+
+
     -- Temporary native lsp semantic highlighting
-    LspNamespace = { link = 'TSNamespace' },
-    LspType = { link = 'TSType' },
-    LspClass = { link = 'TSType' },
-    LspEnum = { link = 'TSType' },
-    LspInterface = { link = 'TSType' },
-    LspStruct = { link = 'TSType' },
-    LspTypeParameter = { link = 'TSType' },
-    LspParameter = { link = 'TSParameter' },
-    LspVariable = { link = 'TSVariable' },
-    LspProperty = { link = 'TSProperty' },
-    LspEnumMember = { link = 'TSField' },
-    -- LspEvent = {},
-    LspFunction = { link = 'TSFunction' },
-    LspMethod = { link = 'TSMethod' },
-    LspMacro = { link = 'Macro' },
-    LspKeyword = { fg = colors.red2 },
-    -- LspModifier = {},
-    LspComment = { link = 'TSComment' },
-    LspString = { link = 'TSString' },
-    LspNumber = { link = 'TSNumber' },
-    LspRegexp = { link = 'TSStringRegex' },
-    LspOperator = { link = 'TSOperator' },
-    -- LspDeclaration = { link = 'TSType' },
-    -- LspDefinition = {},
-    LspReadonly = { link = 'TSConstant' },
-    LspStatic = { link = 'TSConstant' },
-    LspDeprecated = { strikethrough = true },
-    -- LspAbstract = {},
-    LspAsync = { bold = true },
-    -- LspModification = {},
+    LspNamespace      = { link = 'TSNamespace' },
+    LspType           = { link = 'TSType' },
+    LspClass          = { link = 'TSType' },
+    LspEnum           = { link = 'TSType' },
+    LspInterface      = { link = 'TSType' },
+    LspStruct         = { link = 'TSType' },
+    LspTypeParameter  = { link = 'TSType' },
+    LspParameter      = { link = 'TSParameter' },
+    LspVariable       = { link = 'TSVariable' },
+    LspProperty       = { link = 'TSProperty' },
+    LspEnumMember     = { link = 'TSField' },
+    -- LspEvent         = {},
+    LspFunction       = { link = 'TSFunction' },
+    LspMethod         = { link = 'TSMethod' },
+    LspMacro          = { link = 'Macro' },
+    LspKeyword        = { fg = colors.red2 },
+    -- LspModifier      = {},
+    LspComment        = { link = 'TSComment' },
+    LspString         = { link = 'TSString' },
+    LspNumber         = { link = 'TSNumber' },
+    LspRegexp         = { link = 'TSStringRegex' },
+    LspOperator       = { link = 'TSOperator' },
+    -- LspDeclaration   = { link = 'TSType' },
+    -- LspDefinition    = {},
+    LspReadonly       = { link = 'TSConstant' },
+    LspStatic         = { link = 'TSConstant' },
+    LspDeprecated     = { strikethrough = true },
+    -- LspAbstract      = {},
+    LspAsync          = { bold = true },
+    -- LspModification  = {},
     -- LspDocumentation = {},
     LspDefaultLibrary = { italic = true },
+
+
 }
