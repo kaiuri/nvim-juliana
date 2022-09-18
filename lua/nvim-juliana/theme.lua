@@ -377,7 +377,10 @@ return {
 
     --- vim.lsp
 
-    LspReferenceText  = { bg = '#38424c' },
+    LspReferenceText  = {
+        bg = colors.bg_extra, -- temporary, until a better highlight is found
+        -- bg = '#38424c',
+    },
     LspReferenceRead  = { link = 'LspReferenceText' },
     LspReferenceWrite = { link = 'LspReferenceText' },
 
