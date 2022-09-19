@@ -23,6 +23,7 @@ require('nvim-juliana').colors
 ## Screenshots
 
 ![](./assets/screenshot_1.png)
+
 <!-- ![](./assets/screenshot_2.png) -->
 
 ## Description
@@ -98,6 +99,10 @@ There's a theme for [Alacritty](https://github.com/alacritty/alacritty/) availab
 If any language is being poorly supported, please make a new issue attached with an image of how that language looks on Sublime-Text.
 
 If a plugin you use isn't rightly supported, please, make a new issue attached with a link to said plugin and I'll do my best to support it.
+
+### Important
+
+- Issues that have been inactive for more than 10 days are considered stale and will be closed if they aren't bug related.
 
 ## Pull Requests
 
