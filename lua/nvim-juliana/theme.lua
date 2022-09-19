@@ -40,8 +40,8 @@ return {
     FloatBorder = { fg = '#7999B9', bg = background },
 
     Pmenu = { bg = colors.bg_extra },
-    PmenuSbar = { fg = colors.blue2 },
-    PmenuSel = { bg = colors.blue3, bold = true },
+    PmenuSbar = { bg = colors.bg_extra, fg = colors.blue2 },
+    PmenuSel = { bg = colors.blue2, fg = colors.white3, bold = false },
     PmenuThumb = { bg = '#58657E' },
 
     NonText = { fg = colors.blue2 },
@@ -316,14 +316,7 @@ return {
     helpURL            = { fg = colors.blue, underline = true },
     helpCommand        = { bg = '#38424c' },
 
-
-
-    --- Python -- does not exist anymore
-    -- pythonTSField = { fg = '#95B2D6' },
-
-    --- Plugins
     -- Rainbow Parentheses
-
     rainbowcol1 = { fg = '#FEDB95' },
     rainbowcol2 = { fg = '#A3FE95' },
     rainbowcol3 = { fg = '#95F7FE' },
@@ -333,31 +326,33 @@ return {
     rainbowcol7 = { fg = '#A3FE95' },
 
     --- indent-blankline
-    IndentBlanklineContextChar  = { fg = '#4E5A65' },
-    IndentBlanklineContextStart = { sp = '#4E5A65', underline = true },
+    IndentBlanklineContextChar        = { fg = '#7b838a' },
+    IndentBlanklineContextStart       = { sp = '#909dab', underdotted = true },
+    IndentBlanklineSpaceCharBlankline = { link = 'NonText' },
+    IndentBlanklineSpaceChar          = { link = 'NonText' },
 
     --- nvim-cmp
-
-    CmpItemKindStruct        = { link = 'Structure' },
-    CmpItemKindFunction      = { link = 'Function' },
-    CmpItemKindValue         = { link = 'Number' },
     CmpItemAbbrDeprecated    = { strikethrough = true },
-    CmpItemKindClass         = { fg = colors.red },
-    CmpItemKindEnum          = { link = 'CmpItemKindClass' },
-    CmpItemKindInterface     = { link = 'CmpItemKindClass' },
-    CmpItemKindMethod        = { fg = '#8EB8E1' },
-    CmpItemKindUnit          = { link = 'CmpItemKindValue' },
-    CmpItemKindConstant      = { link = 'TSConstant' },
-    CmpItemKindField         = { link = 'TSField' },
-    CmpItemKindModule        = { link = 'TSInclude' },
-    CmpItemKindKeyword       = { link = 'TSKeyword' },
-    CmpItemKindEnumMember    = { link = 'TSLabel' },
-    CmpItemKindProperty      = { link = 'TSLabel' },
-    CmpItemKindOperator      = { link = 'TSOperator' },
-    CmpItemKindReference     = { link = 'TSSymbol' },
-    CmpItemKindSnippet       = { link = 'TSText' },
-    CmpItemKindTypeParameter = { link = 'TSType' },
-    CmpItemKindVariable      = { link = 'TSVariable' },
+    CmpItemKindStruct        = { fg = colors.orange },
+    CmpItemKindFunction      = { fg = colors.blue },
+    CmpItemKindText          = { fg = colors.white3 },
+    CmpItemKindClass         = { fg = colors.orange },
+    CmpItemKindValue         = { fg = colors.red2 },
+    CmpItemKindEnum          = { fg = colors.orange },
+    CmpItemKindInterface     = { fg = colors.orange },
+    CmpItemKindMethod        = { fg = colors.blue5 },
+    CmpItemKindUnit          = { fg = colors.red },
+    CmpItemKindConstant      = { fg = colors.white },
+    CmpItemKindField         = { fg = '#7999B9' },
+    CmpItemKindModule        = { fg = colors.orange },
+    CmpItemKindKeyword       = { fg = colors.pink },
+    CmpItemKindEnumMember    = { fg = '#7999B9' },
+    CmpItemKindProperty      = { fg = '#7999B9' },
+    CmpItemKindOperator      = { fg = colors.red2 },
+    CmpItemKindReference     = { fg = colors.white3 },
+    CmpItemKindSnippet       = { fg = colors.white },
+    CmpItemKindTypeParameter = { fg = colors.orange },
+    CmpItemKindVariable      = { fg = colors.white3 },
 
     --- Sneak.vim
     Sneak      = { link = 'Search' },
@@ -376,7 +371,6 @@ return {
     packerStatusSuccess = { fg = info },
 
     --- vim.lsp
-
     LspReferenceText  = {
         bg = colors.bg_extra, -- temporary, until a better highlight is found
         -- bg = '#38424c',
@@ -406,18 +400,14 @@ return {
     NvimTreeNormal       = { fg = colors.blue6, bg = '#22262A' },
     NvimTreeRootFolder   = { fg = foreground, bg = '#22262A', bold = true },
     NvimTreeIndentMarker = { fg = foreground, bg = '#22262A', bold = true },
-
-
     NvimTreeOpenedFolderName = { underdotted = true },
     NvimTreeFolderName       = { fg = colors.blue6 },
     NvimTreeEmptyFolderName  = { link = "Comment" },
     NvimTreeFolderIcon       = { fg = colors.blue6 },
     NvimTreeExecFile         = { fg = colors.green, bold = true },
-
     NvimTreeFileDeleted = { link = 'Comment' },
     NvimTreeFileNew = { fg = colors.white },
     NvimTreeSpecialFile = { fg = foreground },
-
     NvimTreeGitDirty   = { fg = danger },
     NvimTreeGitStaged  = { fg = info },
     NvimTreeGitRenamed = { fg = warn },
@@ -465,7 +455,6 @@ return {
     DevIconDockerfile    = { fg = colors.blue },
     DevIconDsStore       = { fg = colors.blue6 },
 
-
     -- Temporary native lsp semantic highlighting
     LspNamespace      = { link = 'TSNamespace' },
     LspType           = { link = 'TSType' },
@@ -491,8 +480,8 @@ return {
     LspOperator       = { link = 'TSOperator' },
     -- LspDeclaration   = { link = 'TSType' },
     -- LspDefinition    = {},
-    LspReadonly       = {fg = 'NONE', italic = true },
-    LspStatic         = {fg = 'NONE', italic = true },
+    LspReadonly       = { fg = 'NONE', italic = true },
+    LspStatic         = { fg = 'NONE', italic = true },
     LspDeprecated     = { strikethrough = true },
     -- LspAbstract      = {},
     LspAsync          = { bold = true },
