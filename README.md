@@ -89,6 +89,7 @@ require('nvim-treesitter.configs').setup {
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [fennel.vim](https://github.com/bakpakin/fennel.vim)
 - [nvim-semantic-tokens](https://github.com/theHamsta/nvim-semantic-tokens) - This is a temporary plugin which enables semantic token based highlighting.
+- [nvim-notify](https://github.com/rcarriga/nvim-notify)
 
 ## Alacritty Theme
 

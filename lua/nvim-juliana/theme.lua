@@ -68,7 +68,7 @@ return {
 
     -- Folds
     Folded = { fg = colors.blue6 },
-    FoldColumn = { bg = background },
+    FoldColumn = { link = 'Comment' },
 
     LineNr = { link = 'Visual' },
     LineNrAbove = { fg = colors.blue6 },
@@ -397,22 +397,22 @@ return {
     TroubleLocation = { bold = true },
 
     --- NvimTree
-    NvimTreeNormal       = { fg = colors.blue6, bg = '#22262A' },
-    NvimTreeRootFolder   = { fg = foreground, bg = '#22262A', bold = true },
-    NvimTreeIndentMarker = { fg = foreground, bg = '#22262A', bold = true },
+    NvimTreeNormal           = { fg = colors.blue6, bg = '#22262A' },
+    NvimTreeRootFolder       = { fg = foreground, bg = '#22262A', bold = true },
+    NvimTreeIndentMarker     = { fg = foreground, bg = '#22262A', bold = true },
     NvimTreeOpenedFolderName = { underdotted = true },
     NvimTreeFolderName       = { fg = colors.blue6 },
     NvimTreeEmptyFolderName  = { link = "Comment" },
     NvimTreeFolderIcon       = { fg = colors.blue6 },
     NvimTreeExecFile         = { fg = colors.green, bold = true },
-    NvimTreeFileDeleted = { link = 'Comment' },
-    NvimTreeFileNew = { fg = colors.white },
-    NvimTreeSpecialFile = { fg = foreground },
-    NvimTreeGitDirty   = { fg = danger },
-    NvimTreeGitStaged  = { fg = info },
-    NvimTreeGitRenamed = { fg = warn },
-    NvimTreeGitDeleted = { fg = danger },
-    NvimTreeSymlink    = { fg = hint },
+    NvimTreeFileDeleted      = { link = 'Comment' },
+    NvimTreeFileNew          = { fg = colors.white },
+    NvimTreeSpecialFile      = { fg = foreground },
+    NvimTreeGitDirty         = { fg = danger },
+    NvimTreeGitStaged        = { fg = info },
+    NvimTreeGitRenamed       = { fg = warn },
+    NvimTreeGitDeleted       = { fg = danger },
+    NvimTreeSymlink          = { fg = hint },
 
     --- nvim-notify
     NotifyERRORBorder = { fg = danger },
