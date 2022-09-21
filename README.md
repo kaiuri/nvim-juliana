@@ -1,31 +1,5 @@
 # nvim-juliana
 
-<!-- --- -->
-
-<!-- ### Notice 2022-08-28 -->
-<!---->
-<!-- There's been a [`breaking change`](https://github.com/neovim/neovim/issues/14090#issuecomment-1229436847) at Neovim relating to tree-sitter highlight groups, they've been unlinked from `nvim-treesitter` in favor of general ones like `@label`. This messes up languages like `json`, which, for this specific colorscheme, requires a different highlight than the one used by other languages for the same tree-sitter `query`. It can be solved by using language servers that include semantic token highlighting or additional vim-regex highlights. -->
-
----
-
-## Palette
-
-To get hold of the original SublimeText Mariana's palette do
-
-```lua
-require('nvim-juliana.colors')
---- or
-require('nvim-juliana').colors
-```
-
-![](./assets/palette.jpg)
-
-## Screenshots
-
-![](./assets/screenshot_1.png)
-
-<!-- ![](./assets/screenshot_2.png) -->
-
 ## Description
 
 Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support.
@@ -48,6 +22,30 @@ use 'kaiuri/nvim-juliana'
 use { 'kaiuri/nvim-juliana', branch = 'dev' }
 
 ```
+
+## Palette
+
+To get hold of the original SublimeText Mariana's palette do
+
+```lua
+require('nvim-juliana.colors')
+--- or
+require('nvim-juliana').colors
+```
+
+![](./assets/palette.jpg)
+
+## Screenshots
+
+### Master branch
+
+![](./assets/screenshot_1.png)
+
+<!-- ![](./assets/screenshot_2.png) -->
+
+### Dev branch
+
+![](https://github.com/kaiuri/nvim-juliana/blob/dev/assets/screenshot_1.png?raw=true)
 
 ## Usage
 
