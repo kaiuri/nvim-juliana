@@ -41,8 +41,6 @@ require('nvim-juliana').colors
 
 ![](./assets/screenshot_master.png)
 
-<!-- ![](./assets/screenshot_2.png) -->
-
 ### Dev branch
 
 ![](./assets/screenshot_dev.png)
