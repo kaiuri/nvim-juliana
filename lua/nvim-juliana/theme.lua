@@ -82,10 +82,12 @@ return {
     IncSearch = { link = 'Search' },
 
     SignColumn = { fg = foreground, bg = background },
-    SpellBad = { sp = colors.red, undercurl = true },
-    SpellCap = { sp = colors.orange, undercurl = true },
+
+    SpellBad   = { sp = colors.red, undercurl = true },
+    SpellCap   = { sp = colors.orange, undercurl = true },
     SpellLocal = { sp = colors.blue5, undercurl = true },
-    SpellRare = { sp = colors.pink, undercurl = true },
+    SpellRare  = { sp = colors.pink, undercurl = true },
+
     StatusLine = { fg = '#CBD3E2', bg = '#3D4752' },
     StatusLineNC = { fg = '#CBD3E2', bg = '#2B333B' },
     Substitute = { link = 'Visual' },
@@ -237,7 +239,7 @@ return {
     TSVariable = { fg = foreground },
     TSVariableBuiltin = { fg = colors.red, italic = true },
     TSWarning = { fg = colors.orange, bold = true },
-    TSLiteral = { italic = true },
+    TSLiteral = { fg = colors.pink },
 
     --- HTML
     htmlTagName = { link = 'Tag' },
