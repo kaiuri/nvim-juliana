@@ -42,6 +42,13 @@ Plug it with your favorite plugin manager.
 use 'kaiuri/nvim-juliana'
 ```
 
+- If you'd like to test out the new custom highlights - highly experimental.
+
+```lua
+use { 'kaiuri/nvim-juliana', branch = 'dev' }
+
+```
+
 ## Usage
 
 - Vimscript:
