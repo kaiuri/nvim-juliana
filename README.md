@@ -39,13 +39,13 @@ require('nvim-juliana').colors
 
 ### Master branch
 
-![](./assets/screenshot_1.png)
+![](./assets/screenshot_master.png)
 
 <!-- ![](./assets/screenshot_2.png) -->
 
 ### Dev branch
 
-![](https://github.com/kaiuri/nvim-juliana/blob/dev/assets/screenshot_1.png?raw=true)
+![](./assets/screenshot_dev.png)
 
 ## Usage
 
