@@ -1,10 +1,14 @@
 # nvim-juliana
 
-## Description
+Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support and custom highlights - `dev` branch.
 
-Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support.
+![](./assets/palette.jpg)
 
-## Installation
+---
+
+## Usage
+
+### Installation
 
 Requirements: `NVIM v0.8.0-dev`.
 
@@ -13,72 +17,32 @@ Plug it with your favorite plugin manager.
 - Packer:
 
 ```lua
-use 'kaiuri/nvim-juliana'
+use { 'kaiuri/nvim-juliana',
+    -- branch = 'dev' -- separate experimental branch with way better highlights
+}
+--- then
+vim.cmd 'colo juliana'
 ```
 
-- If you'd like to test out the new custom highlights - highly experimental.
+- Color palette
 
 ```lua
-use { 'kaiuri/nvim-juliana', branch = 'dev' }
-
-```
-
-## Palette
-
-To get hold of the original SublimeText Mariana's palette do
-
-```lua
-require('nvim-juliana.colors')
---- or
 require('nvim-juliana').colors
 ```
 
-![](./assets/palette.jpg)
+Note: `dev` uses custom Tree-sitter queries to better highlight code. I use it daily and update it frequently. Current languages with custom Tree-sitter highlight are `bash`, `json`, `lua`, `markdown`, `typescript` and `yaml`.
 
 ## Screenshots
 
-### Master branch
-
-![](./assets/screenshot_master.png)
-
-### Dev branch
+#### `dev` branch
 
 ![](./assets/screenshot_dev.png)
 
-## Usage
+#### `master` branch
 
-- Vimscript:
+![](./assets/screenshot_master.png)
 
-```vim
-colo juliana
-```
-
-- Lua:
-
-```lua
-vim.cmd('colo juliana')
-```
-
-## Configuration
-
-There's none, but I might add a `contrast` one if there's demand. One shouldn't spend too much time tinkering with their `.rc` files instead of writing code.
-
-### Suggestions
-
-If you're using tree-sitter's `typescript` you can get prettier highlights by modifying your `nvim-treesitter` settings to add additional `vim_regex_highlighting` for `typescript` _e.g._:
-
-```lua
-require('nvim-treesitter.configs').setup {
-    -- ...
-    highlight = {
-    -- ...
-      additional_vim_regex_highlighting = { 'typescript' },
-    -- ...
-    }
-    -- ...
-```
-
-## Plugin Support(Tested)
+## Plugin Support - non-exhaustive list
 
 - [vim-sneak](https://github.com/justinmk/vim-sneak)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
@@ -94,24 +58,17 @@ require('nvim-treesitter.configs').setup {
 - [nvim-semantic-tokens](https://github.com/theHamsta/nvim-semantic-tokens) - This is a temporary plugin which enables semantic token based highlighting.
 - [nvim-notify](https://github.com/rcarriga/nvim-notify)
 
-## Alacritty Theme
+## Extras
 
-There's a theme for [Alacritty](https://github.com/alacritty/alacritty/) available at [extras](./extras/juliana_alacritty.yml).
+- Alacritty: There's a theme for [Alacritty](https://github.com/alacritty/alacritty/) available at [extras](./extras/juliana_alacritty.yml).
 
-## Feature request
+## Contributing
 
-If any language is being poorly supported, please make a new issue attached with an image of how that language looks on Sublime-Text.
-
-If a plugin you use isn't rightly supported, please, make a new issue attached with a link to said plugin and I'll do my best to support it.
-
-### Important
-
+- If any language is being poorly supported, please make a new issue attached with an image of how that language looks on Sublime-Text.
+- If a plugin you use isn't rightly supported, please, make a new issue attached with a link to said plugin and I'll do my best to support it.
 - Issues that have been inactive for more than 10 days are considered stale and will be closed if they aren't bug related.
+- Use the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) style for your commits, that's it.
 
-## Pull Requests
-
-Use the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) style for your commits, that's it.
-
-# Credits
+## Credits
 
 - [Mariana - Sublime HQ Pty Ltd, Dmitri Voronianski](http://www.sublimetext.com/).
