@@ -1,495 +1,425 @@
----@class SublimeTextPalette
----@field black string: '#000000'
----@field blue string: '#5c99d6'
----@field blue2 string: '#46525c'
----@field blue3 string: '#303841'
----@field blue5 string: '#5fb4b4'
----@field blue6 string: '#a6acb8'
----@field gray string: '#333333'
----@field green string: '#99c794'
----@field orange string: '#f9ae58'
----@field orange3 string: '#fac761'
----@field pink string: '#cc8ec6'
----@field red string: '#ec5f66'
----@field red2 string: '#f97b58'
----@field white string: '#ffffff'
----@field white3 string: '#d5dee6'
-local colors = require('nvim-juliana.colors')
-
-colors.bg_extra = '#272e35'
-
-local background = colors.blue3
-local foreground = colors.white3
-local selection = colors.blue2
-
-local danger = colors.red
-local hint = colors.orange3
-local info = colors.blue5
-local warn = colors.orange
-local debug = colors.red2
-local trace = colors.pink
-
-return {
-
-    --- Modes
-    Normal = { fg = foreground, bg = background },
-    Visual = { bg = selection },
-
-    --- UI
-    NormalFloat = { bg = colors.bg_extra },
-    FloatBorder = { fg = '#7999B9', bg = background },
-
-    Pmenu = { bg = colors.bg_extra },
-    PmenuSbar = { bg = colors.bg_extra, fg = colors.blue2 },
-    PmenuSel = { bg = colors.blue2, fg = colors.white3, bold = false },
-    PmenuThumb = { bg = '#58657E' },
-
-    NonText = { fg = colors.blue2 },
-
-    ColorColumn = { fg = '#CBD3E2', bg = '#2B333B' },
-
-    Conceal = { fg = colors.blue6 },
-
-    CursorLine = { bg = '#38424c' },
-    CursorColumn = { link = 'CursorLine' },
-
-    CursorLineNr = { link = 'LineNr' },
-
-    DiffAdd    = { sp = colors.green, underline = true },
-    DiffChange = { sp = colors.red, underline = true },
-    DiffDelete = { fg = colors.blue6 },
-    DiffText   = { italic = true },
-
-    Directory = { fg = colors.blue5 },
-    EndOfBuffer = { fg = '#2B333B' },
-    Error = { fg = colors.red2 },
-    ErrorMsg = { fg = colors.red },
-    Exception = { fg = colors.pink },
-
-    -- Folds
-    Folded = { fg = colors.blue6 },
-    FoldColumn = { link = 'Comment' },
-
-    LineNr = { link = 'Visual' },
-    LineNrAbove = { fg = colors.blue6 },
-    LineNrBelow = { link = 'LineNrAbove' },
-
-    ModeMsg = { fg = '#DEE1E8' },
-    MoreMsg = { fg = '#DEE1E8', bold = true },
-    Question = { link = 'MoreMsg' },
-
-    Search = { fg = colors.black, bg = colors.orange },
-    IncSearch = { link = 'Search' },
-
-    SignColumn = { fg = foreground, bg = background },
-
-    SpellBad   = { sp = colors.red, undercurl = true },
-    SpellCap   = { sp = colors.orange, undercurl = true },
-    SpellLocal = { sp = colors.blue5, undercurl = true },
-    SpellRare  = { sp = colors.pink, undercurl = true },
-
-    StatusLine = { fg = '#CBD3E2', bg = '#3D4752' },
-    StatusLineNC = { fg = '#CBD3E2', bg = '#2B333B' },
-    Substitute = { link = 'Visual' },
-
-    TabLine = { fg = colors.blue6, bg = colors.blue2 },
-    TabLineFill = { fg = colors.blue6, bg = colors.blue2 },
-    TabLineSel = { fg = foreground, bg = background },
-
-    VertSplit = { fg = '#4E5A65' },
-    WarningMsg = { link = 'ErrorMsg' },
-    WildMenu = { link = 'Pmenu' },
-    Winseparator = { fg = '#4E5A65' },
-
-    -- Diagnostics
-
-    DiagnosticError = { fg = danger },
-    DiagnosticHint = { fg = hint },
-    DiagnosticInfo = { fg = info },
-    DiagnosticWarn = { fg = warn },
-    DiagnosticSignError = { fg = danger, bold = true },
-    DiagnosticSignHint = { fg = hint, bold = true },
-    DiagnosticSignInfo = { fg = info, bold = true },
-    DiagnosticSignWarn = { fg = warn, bold = true },
-
-    DiagnosticUnderlineError = { sp = danger, undercurl = true },
-    DiagnosticUnderlineHint = { sp = hint, undercurl = true },
-    DiagnosticUnderlineInfo = { sp = info, undercurl = true },
-    DiagnosticUnderlineWarn = { sp = warn, undercurl = true },
-
-    DiagnosticVirtualTextError = { bg = colors.bg_extra, fg = danger },
-    DiagnosticVirtualTextWarn = { bg = colors.bg_extra, fg = warn },
-    DiagnosticVirtualTextInfo = { bg = colors.bg_extra, fg = info },
-    DiagnosticVirtualTextHint = { bg = colors.bg_extra, fg = hint },
-
-    -- VimSyntax hl-groups
-
-    Boolean = { fg = colors.red, italic = true },
-    MatchParen = { bold = true },
-
-    Character = { fg = colors.green },
-
-    String = { fg = colors.green },
-    Comment = { fg = colors.blue6 },
-    Conditional = { fg = colors.pink },
-    Constant = { fg = colors.white },
-    Define = { fg = colors.pink, italic = true },
-
-    Delimiter = { fg = colors.blue6 },
-    Float = { link = 'Number' },
-    Function = { fg = colors.blue5 },
-    Identifier = { fg = foreground },
-    Include = { fg = '#7999B9' },
-
-    Keyword = { fg = colors.pink, italic = true },
-
-    Label = { fg = colors.pink },
-    Macro = { fg = '#8DADE7' },
-    Number = { fg = colors.orange },
-    Operator = { fg = colors.red2 },
-    PreCondit = { link = 'Include' },
-    PreProc = { fg = '#A7B4CD' },
-    Repeat = { fg = colors.pink },
-
-    Special = { fg = colors.blue5 },
-
-    SpecialChar = { fg = colors.blue5 },
-
-    SpecialComment = { fg = '#788797', underline = true },
-    SpecialKey = { fg = colors.blue5 },
-    Statement = { fg = colors.pink },
-    StorageClass = { fg = colors.red },
-    Structure = { link = 'StorageClass' },
-    Struct = { link = 'Structure' },
-    Tag = { fg = colors.red },
-    Title = { fg = foreground, bold = true },
-    Todo = { fg = colors.blue, bold = true },
-    Type = { fg = colors.orange },
-    Typedef = { link = 'Structure' },
-    Underlined = { underdotted = true },
-    Whitespace = { fg = '#5C75A3' },
-
-    -- TS-hl globals
-
-    TSPunctBracket = { fg = colors.white },
-    TSPunctDelimiter = { link = 'Delimiter' },
-    TSPunctSpecial = { fg = colors.blue5 },
-
-    TSConstant = { link = 'Constant' },
-    TSConstBuiltin = { fg = colors.red, italic = true },
-    TSConstMacro = { link = 'Define' },
-    TSString = { link = 'String' },
-
-    TSStringRegex = { fg = colors.blue5 },
-    TSStringEscape = { link = 'SpecialChar' },
-    TSStringSpecial = { link = 'SpecialChar' },
-
-    TSCharacter = { link = 'Character' },
-    TSCharacterSpecial = { link = 'SpecialChar' },
-
-    TSNumber = { link = 'Number' },
-    TSBoolean = { link = 'Boolean' },
-    TSFloat = { link = 'Float' },
-
-    TSFunction = { link = 'Function' },
-    TSFunctionCall = { fg = colors.blue },
-    TSFuncBuiltin = { fg = colors.blue, italic = true },
-    -- TSFuncMacro = { fg = colors.blue, italic = true },
-    TSFuncMacro = { fg = colors.blue },
-
-    TSParameter = { fg = colors.orange },
-    TSParameterReference = { link = 'TSParameter' },
-    TSMethod = { fg = '#5cb3d6' },
-    TSMethodCall = { link = 'TSMethod' },
-    TSField = { fg = '#95B2D6' },
-    TSComment = { link = 'Comment' },
-    TSDanger = { fg = colors.red, bold = true },
-    TSEmphasis = { italic = true },
-    TSEnum = { link = 'TSType' },
-    TSError = { fg = foreground },
-    TSInclude = { fg = colors.pink },
-    TSInterface = { link = 'TSType' },
-    TSKeyword = { fg = colors.red },
-    TSKeywordFunction = { fg = colors.pink, italic = true },
-
-    TSKeywordOperator = { fg = colors.red2 },
-
-    TSKeywordReturn = { link = 'TSKeyword' },
-    TSLabel = { fg = colors.blue5 },
-    TSNamespace = { fg = colors.orange },
-    TSNote = { fg = colors.green, bold = true },
-    TSOperator = { link = 'Operator' },
-    TSProperty = { fg = '#95B2D6' },
-    TSStrong = { bold = true },
-    TSSymbol = { fg = '#7EBFC4' },
-    TSTag = { link = 'Tag' },
-    TSTagAttribute = { fg = colors.pink },
-    TSTagDelimiter = { fg = colors.blue5 },
-    TSText = { fg = foreground },
-    TSTextReference = { fg = foreground, underdotted = true },
-
-    TSTitle = { link = 'Title' },
-
-    TSTodo = { link = 'Todo' },
-    TSType = { link = 'Type' },
-    TSTypeBuiltin = { fg = colors.blue, italic = true },
-    TSTypeQualifier = { fg = colors.red },
-    TSURI = { fg = colors.blue5, underdotted = true },
-    TSUnderline = { underline = true },
-    TSVariable = { fg = foreground },
-    TSVariableBuiltin = { fg = colors.red, italic = true },
-    TSWarning = { fg = colors.orange, bold = true },
-    TSLiteral = { fg = colors.pink },
-
-    --- HTML
-    htmlTagName = { link = 'Tag' },
-    -- git.vim
-
-    gitCommitSelectedFile = { italic = true },
-    gitCommitSummary = { bold = true },
-    gitCommitTrailerToken = { fg = colors.pink, italic = true },
-
-    --- health.vim
-    healthHelp = { fg = colors.orange3 },
-    healthSuccess = { fg = colors.green },
-
-    -- lua
-    luaTable = { link = 'TSPunctBracket' },
-
-    --- Markdown
-    markdownRule = { fg = colors.red, bold = true },
-    markdownLinkText = { fg = foreground },
-    markdownUrl = { fg = colors.blue, underline = true },
-    markdownLinkTextDelimiter = { fg = colors.blue5 },
-    markdownLinkDelimiter = { fg = colors.blue5 },
-    markdownH1Delimiter = { fg = colors.red },
-    markdownH2Delimiter = { fg = colors.red2 },
-    markdownH3Delimiter = { fg = colors.red2 },
-    markdownH4Delimiter = { fg = colors.red2 },
-    markdownH5Delimiter = { fg = colors.red2 },
-    markdownH6Delimiter = { fg = colors.red2 },
-    markdownCode = { bg = '#38424c' },
-    markdownListMarker = { fg = colors.orange3, bold = true },
-
-    --- quickfix.vim
-    qfFileName = { fg = colors.blue5 },
-    qfLineNr = { bold = true },
-
-    -- tmux
-
-    tmuxCommands = { fg = colors.pink },
-    tmuxFlags = { fg = colors.orange },
-    tmuxFormatString = { fg = colors.blue5 },
-
-    --- JavaScript
-    -- jsdocTSKeyword = { link = 'typescriptType' },
-    javaScriptReserved = { fg = colors.red },
-
-    --- fennelTS
-
-    fennelTSFuncMacro = { link = 'TSKeywordFunction' },
-    fennelTSField = { link = 'TSField' },
-    --- CSS
-    cssTSType = { fg = colors.blue5 },
-
-    -- fennel.vim
-    FennelStringDelimiter = { fg = colors.blue5 },
-    FennelParen = { link = 'TSPunctBracket' },
-    FennelSpecialForm = { fg = colors.pink, italic = true },
-    FennelKeyword = { link = 'TSKeyword' },
-    FennelTable = { link = 'TSConstructor' },
-
-    --- Data Serialization Languages
-    --- toml
-    tomlproperty = { fg = colors.blue5 },
-
-    --- yaml
-    yamlfield = { fg = colors.blue5 },
-
-    --- json
-    jsonKeyword = { fg = colors.blue5 },
-
-    --- help
-    helpHyperTextEntry = { link = 'TSURI' },
-    helpSectionDelim   = { fg = colors.red, bold = true },
-    helpHyperTextJump  = { fg = colors.blue, underdotted = true },
-    helpHeader         = { link = 'Title' },
-    helpExample        = { fg = colors.green },
-    helpURL            = { fg = colors.blue, underline = true },
-    helpCommand        = { bg = '#38424c' },
-
-    -- Rainbow Parentheses
-    rainbowcol1 = { fg = '#FEDB95' },
-    rainbowcol2 = { fg = '#A3FE95' },
-    rainbowcol3 = { fg = '#95F7FE' },
-    rainbowcol4 = { fg = '#B195FE' },
-    rainbowcol5 = { fg = '#FE95CD' },
-    rainbowcol6 = { fg = '#FEDB95' },
-    rainbowcol7 = { fg = '#A3FE95' },
-
-    --- indent-blankline
-    IndentBlanklineContextChar        = { fg = '#7b838a' },
-    IndentBlanklineContextStart       = { sp = '#909dab', underdotted = true },
-    IndentBlanklineSpaceCharBlankline = { link = 'NonText' },
-    IndentBlanklineSpaceChar          = { link = 'NonText' },
-
-    --- nvim-cmp
-    CmpItemAbbrDeprecated    = { strikethrough = true },
-    CmpItemKindStruct        = { fg = colors.orange },
-    CmpItemKindFunction      = { fg = colors.blue },
-    CmpItemKindText          = { fg = colors.white3 },
-    CmpItemKindClass         = { fg = colors.orange },
-    CmpItemKindValue         = { fg = colors.red2 },
-    CmpItemKindEnum          = { fg = colors.orange },
-    CmpItemKindInterface     = { fg = colors.orange },
-    CmpItemKindMethod        = { fg = colors.blue5 },
-    CmpItemKindUnit          = { fg = colors.red },
-    CmpItemKindConstant      = { fg = colors.white },
-    CmpItemKindField         = { fg = '#7999B9' },
-    CmpItemKindModule        = { fg = colors.orange },
-    CmpItemKindKeyword       = { fg = colors.pink },
-    CmpItemKindEnumMember    = { fg = '#7999B9' },
-    CmpItemKindProperty      = { fg = '#7999B9' },
-    CmpItemKindOperator      = { fg = colors.red2 },
-    CmpItemKindReference     = { fg = colors.white3 },
-    CmpItemKindSnippet       = { fg = colors.white },
-    CmpItemKindTypeParameter = { fg = colors.orange },
-    CmpItemKindVariable      = { fg = colors.white3 },
-
-    --- Sneak.vim
-    Sneak      = { link = 'Search' },
-    SneakLabel = { link = 'Search' },
-
-    --- gitsigns.nvim
-
-    GitSignsDelete = { fg = danger, bold = true },
-    GitSignsChange = { fg = hint, bold = true },
-    GitSignsAdd    = { fg = info, bold = true },
-
-    --- packer.nvim
-
-    packerHash          = { fg = colors.red },
-    packerString        = { bg = '#38424c' },
-    packerStatusSuccess = { fg = info },
-
-    --- vim.lsp
-    LspReferenceText  = {
-        bg = colors.bg_extra, -- temporary, until a better highlight is found
-        -- bg = '#38424c',
-    },
-    LspReferenceRead  = { link = 'LspReferenceText' },
-    LspReferenceWrite = { link = 'LspReferenceText' },
-
-    --- Telescope
-    TelescopeBorder         = { link = 'NonText' },
-    TelescopeTitle          = { fg = foreground, bold = true },
-    TelescopePromptCounter  = { fg = foreground },
-    TelescopeMatching       = { bg = background },
-    TelescopeSelectionCaret = { fg = foreground },
-    TelescopeSelection      = { link = 'Visual' },
-
-    --- dressing.nvim
-    FloatTitle = { link = 'Comment' },
-
-    ---  symbols-outline.nvim
-    FocusedSymbol = { link = 'Visual' },
-
-    -- Trouble
-    TroubleIndent   = { bg = colors.blue3 },
-    TroubleLocation = { bold = true },
-
-    --- NvimTree
-    NvimTreeNormal           = { fg = colors.blue6, bg = '#22262A' },
-    NvimTreeRootFolder       = { fg = foreground, bg = '#22262A', bold = true },
-    NvimTreeIndentMarker     = { fg = foreground, bg = '#22262A', bold = true },
-    NvimTreeOpenedFolderName = { underdotted = true },
-    NvimTreeFolderName       = { fg = colors.blue6 },
-    NvimTreeEmptyFolderName  = { link = "Comment" },
-    NvimTreeFolderIcon       = { fg = colors.blue6 },
-    NvimTreeExecFile         = { fg = colors.green, bold = true },
-    NvimTreeFileDeleted      = { link = 'Comment' },
-    NvimTreeFileNew          = { fg = colors.white },
-    NvimTreeSpecialFile      = { fg = foreground },
-    NvimTreeGitDirty         = { fg = danger },
-    NvimTreeGitStaged        = { fg = info },
-    NvimTreeGitRenamed       = { fg = warn },
-    NvimTreeGitDeleted       = { fg = danger },
-    NvimTreeSymlink          = { fg = hint },
-
-    --- nvim-notify
-    NotifyERRORBorder = { fg = danger },
-    NotifyWARNBorder  = { fg = warn },
-    NotifyINFOBorder  = { fg = info },
-    NotifyDEBUGBorder = { fg = debug },
-    NotifyTRACEBorder = { fg = trace },
-    NotifyERRORIcon   = { fg = danger },
-    NotifyWARNIcon    = { fg = warn },
-    NotifyINFOIcon    = { fg = info },
-    NotifyDEBUGIcon   = { fg = debug },
-    NotifyTRACEIcon   = { fg = trace },
-
-    NotifyERRORTitle = { fg = danger, bold = true },
-    NotifyWARNTitle  = { fg = warn, bold = true },
-    NotifyINFOTitle  = { fg = info, bold = true },
-    NotifyDEBUGTitle = { fg = debug, bold = true },
-    NotifyTRACETitle = { fg = trace, bold = true },
-
-    NotifyERRORBody = { link = 'TSText' },
-    NotifyWARNBody  = { link = 'TSText' },
-    NotifyINFOBody  = { link = 'TSText' },
-    NotifyDEBUGBody = { link = 'TSText' },
-    NotifyTRACEBody = { link = 'TSText' },
-
-    --- DevIcons
-    DevIconDropbox       = { fg = colors.blue },
-    DevIconGitCommit     = { fg = colors.red },
-    DevIconGitConfig     = { fg = colors.blue5 },
-    DevIconGitIgnore     = { fg = colors.red },
-    DevIconGitModules    = { fg = colors.blue5 },
-    DevIconGitAttributes = { fg = colors.blue5 },
-    DevIconToml          = { fg = colors.blue5 },
-    DevIconYaml          = { link = 'DevIconToml' },
-    DevIconYml           = { link = 'DevIconToml' },
-    DevIconJson          = { fg = colors.orange },
-    DevIconGo            = { fg = colors.blue },
-    DevIconTs            = { fg = colors.blue },
-    DevIconTsx           = { fg = colors.blue },
-    DevIconDockerfile    = { fg = colors.blue },
-    DevIconDsStore       = { fg = colors.blue6 },
-
-    -- Temporary native lsp semantic highlighting
-    LspNamespace      = { link = 'TSNamespace' },
-    LspType           = { link = 'TSType' },
-    LspClass          = { link = 'TSType' },
-    LspEnum           = { link = 'TSType' },
-    LspInterface      = { link = 'TSType' },
-    LspStruct         = { link = 'TSType' },
-    LspTypeParameter  = { link = 'TSType' },
-    LspParameter      = { link = 'TSParameter' },
-    LspVariable       = { link = 'TSVariable' },
-    LspProperty       = { link = 'TSProperty' },
-    LspEnumMember     = { link = 'TSField' },
-    -- LspEvent         = {},
-    LspFunction       = { link = 'TSFunction' },
-    LspMethod         = { link = 'TSMethod' },
-    LspMacro          = { link = 'Macro' },
-    LspKeyword        = { fg = colors.red2 },
-    -- LspModifier      = {},
-    LspComment        = { link = 'TSComment' },
-    LspString         = { link = 'TSString' },
-    LspNumber         = { link = 'TSNumber' },
-    LspRegexp         = { link = 'TSStringRegex' },
-    LspOperator       = { link = 'TSOperator' },
-    -- LspDeclaration   = { link = 'TSType' },
-    -- LspDefinition    = {},
-    LspReadonly       = { fg = 'NONE', italic = true },
-    LspStatic         = { fg = 'NONE', italic = true },
-    LspDeprecated     = { strikethrough = true },
-    -- LspAbstract      = {},
-    LspAsync          = { bold = true },
-    -- LspModification  = {},
-    -- LspDocumentation = {},
-    LspDefaultLibrary = { italic = true },
-
-
-}
+local palette = require('nvim-juliana.palette')
+
+local function Theme()
+    local c = palette.colors
+
+    local Foreground = {
+        surface = c.gray5,
+        muted = c.gray6,
+        default = c.gray7,
+        emphasis = c.gray8,
+    }
+    --- Background to make color more visible
+    local Shade = {
+        -- TODO: Add emphasis color
+        default = c.gray3,
+        emphasis = c.shadeemphasis,
+    }
+    local Background = {
+        emphasis = c.gray2,
+        default = c.gray4,
+        muted = c.gray5,
+    }
+    local Debug = c.red2
+    local Trace = c.pink
+    local Danger = c.red
+    local Hint = c.cyan
+    local Info = c.green
+    local Warn = c.orange2
+
+    ---@type HighlightDefMap[]
+    local hl = {}
+
+    hl.Normal = { fg = Foreground.default, bg = Background.default }
+    hl.Visual = { bg = Background.muted }
+
+    hl.NormalFloat = { bg = Background.emphasis }
+    hl.FloatBorder = { fg = Foreground.surface, bg = Background.default }
+
+    --- Note: We use links to Pmenu to preserve layout
+    hl.Pmenu = { bg = Background.emphasis }
+    hl.PmenuSel = { bg = Background.muted, fg = Foreground.emphasis, bold = false }
+    hl.PmenuSbar = { bg = hl.Pmenu.bg, fg = hl.PmenuSel.bg }
+    hl.PmenuThumb = { bg = hl.PmenuSel.bg }
+
+    hl.NonText = { fg = Foreground.surface }
+
+    hl.ColorColumn = { bg = Background.default }
+
+    hl.Conceal = { fg = Foreground.muted }
+
+    hl.CursorLine = { bg = Background.muted }
+    hl.CursorColumn = { bg = Background.muted }
+    hl.LineNr = { bg = Background.muted, fg = Foreground.emphasis }
+    hl.LineNrAbove = { fg = Foreground.muted }
+    hl.LineNrBelow = { fg = Foreground.muted }
+    hl.CursorLineNr = { link = 'LineNr' }
+
+    hl.DiffAdd = { sp = c.green, underline = true }
+    hl.DiffChange = { sp = c.red, underline = true }
+    hl.DiffDelete = { fg = Foreground.muted }
+    hl.DiffText = { italic = true }
+    hl.Directory = { fg = c.cyan }
+    hl.EndOfBuffer = { fg = Foreground.surface }
+    hl.Error = { fg = c.red2, bg = Shade.default }
+    hl.ErrorMsg = { fg = c.red, bg = Shade.default }
+    hl.Exception = { fg = c.pink, bg = Shade.default }
+    hl.Folded = { fg = c.gray6, bg = Shade.default }
+    hl.FoldColumn = { link = 'Comment' }
+
+    hl.ModeMsg = { fg = Foreground.default }
+    hl.MoreMsg = { fg = Foreground.default, bold = true }
+    hl.Question = { link = 'MoreMsg' }
+
+    hl.Search = { fg = c.gray1, bg = c.orange2 }
+    hl.IncSearch = { fg = c.gray1, bg = c.orange2 }
+
+    hl.SignColumn = { fg = Foreground.default, bg = Background.default }
+    hl.SpellBad = { sp = c.red, undercurl = true }
+    hl.SpellCap = { sp = c.orange2, undercurl = true }
+    hl.SpellLocal = { sp = c.cyan, undercurl = true }
+    hl.SpellRare = { sp = c.pink, undercurl = true }
+    hl.StatusLine = { fg = Foreground.default, bg = c.gray5 }
+    hl.StatusLineNC = { fg = Foreground.default, bg = c.gray2 }
+    hl.Substitute = { bg = Background.muted }
+    hl.TabLine = { fg = Foreground.muted, bg = Background.muted }
+    hl.TabLineFill = { fg = Foreground.muted, bg = Background.muted }
+    hl.TabLineSel = { fg = Foreground.default, bg = Shade.default }
+
+    -- hl.VertSplit = { fg = Foreground.surface } -- @deprecated
+
+    hl.WarningMsg = { link = 'ErrorMsg' }
+    hl.WildMenu = hl.Pmenu
+
+    hl.Winseparator = { fg = Foreground.surface }
+    hl.VertSplit = hl.Winseparator
+
+    hl.DiagnosticError = { fg = c.red }
+    hl.DiagnosticSignError = { fg = hl.DiagnosticError.fg, bold = true }
+    hl.DiagnosticUnderlineError = { sp = hl.DiagnosticError.fg, undercurl = true }
+    hl.DiagnosticVirtualTextError = { fg = hl.DiagnosticError.fg }
+
+    hl.DiagnosticHint = { fg = c.cyan }
+    hl.DiagnosticSignHint = { fg = hl.DiagnosticHint.fg, bold = true }
+    hl.DiagnosticUnderlineHint = { sp = hl.DiagnosticHint.fg, undercurl = true }
+    hl.DiagnosticVirtualTextHint = { fg = hl.DiagnosticHint.fg }
+
+    hl.DiagnosticInfo = { fg = c.green }
+    hl.DiagnosticSignInfo = { fg = hl.DiagnosticInfo.fg, bold = true }
+    hl.DiagnosticUnderlineInfo = { sp = hl.DiagnosticInfo.fg, undercurl = true }
+    hl.DiagnosticVirtualTextInfo = { fg = hl.DiagnosticInfo.fg }
+
+    hl.DiagnosticWarn = { fg = c.orange2 }
+    hl.DiagnosticSignWarn = { fg = hl.DiagnosticWarn.fg, bold = true }
+    hl.DiagnosticUnderlineWarn = { sp = hl.DiagnosticWarn.fg, undercurl = true }
+    hl.DiagnosticVirtualTextWarn = { fg = hl.DiagnosticWarn.fg }
+
+    hl.Boolean = { fg = c.red, italic = true, bg = Shade.default }
+    hl.MatchParen = { bold = true, bg = Shade.default }
+    hl.Character = { fg = c.green, bg = Shade.default }
+    hl.String = { fg = c.green, bg = Shade.default }
+    hl.Comment = { fg = Foreground.muted, bg = Shade.default }
+    hl.Conditional = { fg = c.pink, bg = Shade.default }
+    hl.Constant = { fg = c.gray9, bg = Shade.default }
+    hl.Define = { fg = c.pink, italic = true, bg = Shade.default }
+    hl.Delimiter = { fg = Foreground.muted, bg = Shade.emphasis }
+    hl.Number = { fg = c.yellow, bg = Shade.default }
+    hl.Float = hl.Number
+    hl.Function = { fg = c.cyan, bg = Shade.default }
+    hl.Identifier = { fg = Foreground.default, bg = Shade.default }
+    hl.Include = { fg = c.red, bg = Shade.default }
+    hl.PreCondit = { fg = c.red, bg = Shade.default }
+    hl.Keyword = { fg = c.pink, italic = true, bg = Shade.default }
+    hl.Label = { fg = c.pink, bg = Shade.default }
+    hl.Macro = { fg = c.cyan, bg = Shade.default }
+    hl.Operator = { fg = c.red2, bg = Shade.default }
+    hl.PreProc = { fg = c.cyan, bg = Shade.default }
+    hl.Repeat = { fg = c.pink, bg = Shade.default }
+    hl.Special = { fg = c.cyan, bg = Shade.default }
+    hl.SpecialChar = { fg = c.cyan, bg = Shade.default }
+    hl.SpecialComment = { fg = '#788797', underline = true, bg = Shade.default }
+    hl.SpecialKey = { fg = c.cyan, bg = Shade.default }
+    hl.Statement = { fg = c.pink, bg = Shade.default }
+    hl.StorageClass = { fg = c.red, bg = Shade.default }
+    hl.Structure = { fg = c.red, bg = Shade.default }
+    hl.Struct = { fg = c.red, bg = Shade.default }
+    hl.Typedef = { fg = c.red, bg = Shade.default }
+    hl.Tag = { fg = c.red, bg = Shade.default }
+    hl.Title = { fg = Foreground.default, bold = true, bg = Shade.default }
+    hl.Todo = { fg = c.blue0, bold = true, bg = Shade.default }
+    hl.Type = { fg = c.orange2, bg = Shade.default }
+    hl.Underlined = { underdotted = true }
+    hl.Whitespace = { fg = Foreground.surface }
+
+    hl.TSPunctBracket = { fg = Foreground.emphasis, bg = Shade.default }
+    hl.TSPunctDelimiter = { link = 'Delimiter', bg = Shade.emphasis }
+    hl.TSPunctSpecial = { fg = c.cyan, bg = Shade.default }
+    hl.TSConstant = hl.Constant
+    hl.TSConstBuiltin = { fg = c.red, italic = true, bg = Shade.default }
+    hl.TSConstMacro = hl.Define
+    hl.TSString = { fg = c.green, bg = Shade.default }
+    hl.TSStringRegex = { fg = c.cyan, bg = Shade.default }
+    hl.TSStringEscape = hl.SpecialChar
+    hl.TSStringSpecial = hl.SpecialChar
+    hl.TSCharacter = { fg = c.green, bg = Shade.default }
+    hl.TSCharacterSpecial = { link = 'SpecialChar' }
+    hl.TSNumber = hl.Number
+    hl.TSBoolean = hl.Boolean
+    hl.TSFloat = hl.Float
+    hl.TSFunction = hl.Function
+    hl.TSFunctionCall = { fg = c.blue0, bg = Shade.default }
+    hl.TSFuncBuiltin = { fg = c.blue0, italic = true, bg = Shade.default }
+    hl.TSFuncMacro = { fg = c.blue0, bg = Shade.default }
+    hl.TSParameter = { fg = c.gray7, bg = Shade.default }
+    hl.TSParameterReference = { fg = c.gray7, bg = Shade.default }
+    hl.TSMethod = { fg = c.cyan, bg = Shade.default }
+    hl.TSMethodCall = { fg = c.cyan, bg = Shade.default }
+    hl.TSField = { fg = c.blue1, bg = Shade.default }
+    hl.TSComment = { fg = Foreground.muted, bg = Shade.default }
+    hl.TSDanger = { fg = c.red, bold = true, bg = Shade.default }
+    hl.TSEmphasis = { italic = true }
+    hl.TSEnum = { link = 'TSType' }
+    hl.TSError = { fg = Foreground.default, bg = Shade.default }
+    hl.TSInclude = { fg = c.pink, bg = Shade.default }
+    hl.TSInterface = { link = 'TSType' }
+    hl.TSKeyword = { fg = c.red, bg = Shade.default }
+    hl.TSKeywordFunction = { fg = c.pink, italic = true, bg = Shade.default }
+    hl.TSKeywordOperator = { fg = c.red2, bg = Shade.default }
+    hl.TSKeywordReturn = { link = 'TSKeyword', bg = Shade.default }
+    hl.TSLabel = { fg = c.cyan, bg = Shade.default }
+    hl.TSNamespace = { fg = c.orange2, bg = Shade.default }
+    hl.TSNote = { fg = c.green, bold = true, bg = Shade.default }
+    hl.TSOperator = { link = 'Operator' }
+    hl.TSProperty = { fg = c.blue1, bg = Shade.default }
+    hl.TSStrong = { bold = true }
+    hl.TSSymbol = { fg = c.cyan, bg = Shade.default }
+    hl.TSTag = { link = 'Tag' }
+    hl.TSTagAttribute = { fg = c.pink, bg = Shade.default }
+    hl.TSTagDelimiter = { fg = c.cyan, bg = Shade.emphasis }
+    hl.TSText = { fg = Foreground.default, bg = Shade.default }
+
+    hl.TSTextReference = { fg = Foreground.default, underdotted = false }
+
+    hl.TSTitle = { fg = Foreground.default, bg = Shade.default }
+    hl.TSTodo = { link = 'Todo' }
+    hl.TSType = { link = 'Type' }
+    hl.TSTypeBuiltin = { fg = c.blue0, italic = true, bg = Shade.default }
+    hl.TSTypeQualifier = { fg = c.red, bg = Shade.default }
+    hl.TSURI = { fg = c.blue1, underdotted = true, bg = Shade.default }
+    hl.TSUnderline = { underline = true }
+    hl.TSVariable = { fg = Foreground.default, bg = Shade.default }
+    hl.TSVariableBuiltin = { fg = c.red, italic = true }
+    hl.TSWarning = { fg = c.orange2, bold = true, bg = Shade.default }
+    hl.TSLiteral = { fg = c.green, italic = true, bg = Shade.default }
+    hl.htmlTagName = { link = 'Tag' }
+    hl.gitCommitSelectedFile = { italic = true }
+    hl.gitCommitSummary = { bold = true }
+    hl.gitCommitTrailerToken = { fg = c.pink, italic = true }
+    hl.healthHelp = { fg = c.yellow, bg = Shade.default }
+    hl.healthSuccess = { fg = c.green, bg = Shade.default }
+    hl.luaTable = { link = 'TSPunctBracket' }
+
+    hl.markdownRule = { fg = c.red, bg = Shade.default }
+    hl.markdownLinkText = { fg = Foreground.default, bg = Shade.default }
+    hl.markdownUrl = { fg = c.blue0, underline = true, bg = Shade.default }
+    hl.markdownLinkDelimiter = { fg = c.cyan, bg = Shade.emphasis }
+    hl.markdownH1Delimiter = { fg = c.red2, bg = Shade.emphasis, bold = false }
+    hl.markdownH2Delimiter = { fg = c.red2, bg = Shade.emphasis, bold = false }
+    -- hl.markdownH3Delimiter = { fg = c.orange2, bg = Shade.emphasis, bold = false }
+    -- hl.markdownH4Delimiter = { fg = c.orange2, bg = Shade.emphasis, bold = false }
+    -- hl.markdownH5Delimiter = { fg = c.orange2, bg = Shade.emphasis, bold = false }
+    -- hl.markdownH6Delimiter = { fg = c.orange2, bg = Shade.emphasis, bold = false }
+    hl.markdownCode = { bg = c.gray5 }
+    hl.markdownCodeDelimiter = { fg = c.blue0, bg = Shade.emphasis }
+    hl.markdownListMarker = { fg = c.yellow, bg = Shade.default }
+
+    hl.qfFileName = { fg = c.cyan, bg = Shade.default }
+    hl.qfLineNr = { bold = true }
+    hl.tmuxCommands = { fg = c.pink }
+    hl.tmuxFlags = { fg = c.orange2 }
+    hl.tmuxFormatString = { fg = c.cyan }
+    hl.javaScriptReserved = { fg = c.red }
+    hl.fennelTSFuncMacro = { link = 'TSKeywordFunction' }
+    hl.fennelTSField = { link = 'TSField' }
+    hl.FennelStringDelimiter = { fg = c.cyan }
+    hl.FennelParen = { link = 'TSPunctBracket' }
+    hl.FennelSpecialForm = { fg = c.pink, italic = true }
+    hl.FennelKeyword = { link = 'TSKeyword' }
+    hl.FennelTable = { link = 'TSConstructor' }
+    hl.tomlproperty = { fg = c.cyan, bg = Shade.default }
+    hl.yamlfield = { fg = c.cyan, bg = Shade.default }
+    hl.jsonKeyword = { fg = c.cyan, bg = Shade.default }
+
+    hl.helpHyperTextEntry = { link = 'TSURI' }
+    hl.helpSectionDelim = { fg = c.red, bold = true, bg = Shade.default }
+    hl.helpHyperTextJump = { fg = c.blue0, underdotted = true, bg = Shade.default }
+    hl.helpHeader = hl.Title
+    hl.helpExample = { fg = c.green, bg = Shade.default }
+    hl.helpURL = { fg = c.blue0, underline = true, bg = Shade.default }
+    hl.helpCommand = { bg = c.gray5 }
+
+    hl.rainbowcol1 = { fg = c.gray7, bg = Shade.emphasis }
+    hl.rainbowcol2 = { fg = c.pink, bg = Shade.emphasis }
+    hl.rainbowcol3 = { fg = c.green, bg = Shade.emphasis }
+    hl.rainbowcol4 = { fg = c.red, bg = Shade.emphasis }
+    hl.rainbowcol5 = { fg = c.cyan, bg = Shade.emphasis }
+    hl.rainbowcol6 = { fg = c.yellow, bg = Shade.emphasis }
+    hl.rainbowcol7 = { fg = c.orange1, bg = Shade.emphasis }
+
+    hl.IndentBlanklineContextChar = { fg = c.gray6, bg = 'NONE' }
+    hl.IndentBlanklineContextStart = { sp = c.gray6, underdotted = true }
+    hl.IndentBlanklineSpaceCharBlankline = { link = 'NonText' }
+    hl.IndentBlanklineSpaceChar = { link = 'NonText' }
+
+    hl.CmpItemAbbrDeprecated = { strikethrough = true }
+    hl.CmpItemKindStruct = { fg = c.orange2 }
+    hl.CmpItemKindFunction = { fg = c.blue0 }
+    hl.CmpItemKindText = { fg = c.gray7 }
+    hl.CmpItemKindClass = { fg = c.orange2 }
+    hl.CmpItemKindValue = { fg = c.red2 }
+    hl.CmpItemKindEnum = { fg = c.orange2 }
+    hl.CmpItemKindInterface = { fg = c.orange2 }
+    hl.CmpItemKindMethod = { fg = c.cyan }
+    hl.CmpItemKindUnit = { fg = c.red }
+    hl.CmpItemKindConstant = { fg = c.gray9 }
+    hl.CmpItemKindField = { fg = c.blue0 }
+    hl.CmpItemKindModule = { fg = c.orange2 }
+    hl.CmpItemKindKeyword = { fg = c.pink }
+    hl.CmpItemKindEnumMember = { fg = c.blue1 }
+    hl.CmpItemKindProperty = { fg = c.blue0 }
+    hl.CmpItemKindOperator = { fg = c.red2 }
+    hl.CmpItemKindReference = { fg = c.gray7 }
+    hl.CmpItemKindSnippet = { fg = c.gray9 }
+    hl.CmpItemKindTypeParameter = { fg = c.orange2 }
+    hl.CmpItemKindVariable = { fg = c.gray7 }
+
+    hl.Sneak = { fg = c.gray1, bg = c.orange2 }
+    hl.SneakLabel = { fg = c.gray1, bg = c.orange2 }
+
+    hl.GitSignsDelete = { fg = c.red, bold = true }
+    hl.GitSignsChange = { fg = c.yellow, bold = true }
+    hl.GitSignsAdd = { fg = c.green, bold = true }
+
+    hl.packerHash = { fg = c.red }
+    hl.packerString = { fg = c.green }
+    hl.packerStatusSuccess = { fg = c.green }
+
+    hl.LspReferenceText = { bg = Background.emphasis }
+    hl.LspReferenceRead = { bg = Background.emphasis }
+    hl.LspReferenceWrite = { bg = Background.emphasis }
+
+    hl.TelescopeBorder = { fg = Foreground.surface }
+    hl.TelescopeTitle = { fg = Foreground.default, bold = true }
+    hl.TelescopePromptCounter = { fg = Foreground.default }
+    hl.TelescopeMatching = { bg = Background.default }
+    hl.TelescopeSelectionCaret = { fg = Foreground.default }
+    hl.TelescopeSelection = { bg = Background.muted }
+
+    hl.FloatTitle = { fg = Foreground.muted }
+    hl.FocusedSymbol = { bg = Background.muted }
+    hl.TroubleIndent = { bg = Background.default }
+    hl.TroubleLocation = { bold = true }
+
+    hl.NvimTreeNormal = { fg = Foreground.default, bg = Background.emphasis }
+    hl.NvimTreeRootFolder = { fg = Foreground.default, bg = Background.emphasis }
+    hl.NvimTreeIndentMarker = { fg = Foreground.default, bg = Background.emphasis }
+    hl.NvimTreeOpenedFolderName = { underdotted = true }
+    hl.NvimTreeFolderName = { fg = Foreground.default, bg = Shade.default }
+    hl.NvimTreeEmptyFolderName = { link = 'Comment' }
+    hl.NvimTreeFolderIcon = { fg = Foreground.muted }
+    hl.NvimTreeExecFile = { fg = c.green, bold = true, bg = Shade.default }
+    hl.NvimTreeFileDeleted = { link = 'Comment' }
+    hl.NvimTreeFileNew = { fg = Background.emphasis, bg = Shade.default }
+    hl.NvimTreeSpecialFile = { fg = Foreground.default, bg = Shade.default }
+
+    hl.NvimTreeGitDirty = { fg = c.red, bg = Shade.default }
+    hl.NvimTreeGitStaged = { fg = c.green, bg = Shade.default }
+    hl.NvimTreeGitRenamed = { fg = c.orange2, bg = Shade.default }
+    hl.NvimTreeGitDeleted = { fg = c.red, bg = Shade.default }
+    hl.NvimTreeSymlink = { fg = c.cyan, bg = Shade.default }
+
+    hl.NotifyERRORBorder = { fg = hl.DiagnosticError.fg }
+    hl.NotifyWARNBorder = { fg = hl.DiagnosticWarn.fg }
+    hl.NotifyINFOBorder = { fg = hl.DiagnosticInfo.fg }
+    hl.NotifyDEBUGBorder = { fg = Debug, bg = Shade.default }
+    hl.NotifyTRACEBorder = { fg = Trace, bg = Shade.default }
+    hl.NotifyERRORIcon = { fg = hl.DiagnosticError.fg }
+    hl.NotifyWARNIcon = { fg = hl.DiagnosticWarn.fg }
+    hl.NotifyINFOIcon = { fg = hl.DiagnosticInfo.fg }
+    hl.NotifyDEBUGIcon = { fg = Debug, bg = Shade.default }
+    hl.NotifyTRACEIcon = { fg = Trace, bg = Shade.default }
+    hl.NotifyERRORTitle = { fg = hl.DiagnosticError.fg, bold = true }
+    hl.NotifyWARNTitle = { fg = hl.DiagnosticWarn.fg, bold = true }
+    hl.NotifyINFOTitle = { fg = hl.DiagnosticInfo.fg, bold = true }
+    hl.NotifyDEBUGTitle = { fg = Debug, bold = true, bg = Shade.default }
+    hl.NotifyTRACETitle = { fg = Trace, bold = true, bg = Shade.default }
+    hl.NotifyERRORBody = { fg = Foreground.default, bg = Shade.default }
+    hl.NotifyWARNBody = { fg = Foreground.default, bg = Shade.default }
+    hl.NotifyINFOBody = { fg = Foreground.default, bg = Shade.default }
+    hl.NotifyDEBUGBody = { fg = Foreground.default, bg = Shade.default }
+    hl.NotifyTRACEBody = { fg = Foreground.default, bg = Shade.default }
+
+    hl.DevIconGitAttributes = { fg = c.cyan }
+    hl.DevIconGitCommit = { fg = c.red }
+    hl.DevIconGitConfig = { fg = c.cyan }
+    hl.DevIconGitIgnore = { fg = c.red }
+    hl.DevIconGitModules = { fg = c.cyan }
+    hl.DevIconDropbox = { fg = c.blue0 }
+    hl.DevIconToml = { fg = c.cyan }
+    hl.DevIconYaml = { link = 'DevIconToml' }
+    hl.DevIconJson = { fg = c.orange2 }
+    hl.DevIconYml = { link = 'DevIconToml' }
+    hl.DevIconMd = { fg = c.gray9 }
+    hl.DevIconGo = { fg = c.blue0 }
+    hl.DevIconTs = { fg = c.blue0 }
+    hl.DevIconTsx = { fg = c.blue0 }
+    hl.DevIconDsStore = { fg = c.gray6 }
+    hl.DevIconDockerfile = { fg = c.blue0 }
+    hl.DevIconScheme = { fg = c.gray9 }
+
+    hl.LspNamespace = { link = 'TSNamespace' }
+    hl.LspType = { link = 'TSType' }
+    hl.LspClass = { link = 'TSType' }
+    hl.LspEnum = { link = 'TSType' }
+    hl.LspInterface = { link = 'TSType' }
+    hl.LspStruct = { link = 'TSType' }
+    hl.LspTypeParameter = { link = 'TSType' }
+    hl.LspParameter = { link = 'TSParameter' }
+    hl.LspVariable = { link = 'TSVariable' }
+    hl.LspProperty = { link = 'TSProperty' }
+    hl.LspEnumMember = { link = 'TSField' }
+    -- hl.LspEvent   = {}
+    hl.LspFunction = { link = 'TSFunctionCall' }
+    hl.LspMethod = hl.TSMethod
+    hl.LspMacro = { link = 'Macro' }
+    hl.LspKeyword = { fg = c.red2 }
+    -- LspModifier   = {}
+    hl.LspComment = { link = 'TSComment' }
+    hl.LspString = { link = 'TSString' }
+    hl.LspNumber = { link = 'TSNumber' }
+    hl.LspRegexp = { link = 'TSStringRegex' }
+    -- LspDeclaration = { link = 'TSType' }
+    -- LspDefinition  = {}
+    -- hl.LspOperator = { link = 'TSOperator' }
+    hl.LspReadonly = { fg = 'NONE', bg = 'NONE', italic = true }
+    hl.LspStatic = { fg = 'NONE', bg = 'NONE', italic = true }
+    hl.LspDeprecated = { strikethrough = true }
+    -- LspAbstract = {}
+    -- LspAsync = { bold = true }
+    -- LspModification  = {}
+    -- LspDocumentation = {}
+    hl.LspDefaultLibrary = { italic = true }
+    --- FzfLua
+    hl.FzfLuaNormal = { fg = Foreground.default, bg = Background.default }
+    hl.FzfLuaBorder = { fg = Foreground.surface, bg = Background.default }
+    hl.FzfLuaCursor = { fg = Foreground.default, bg = Background.default }
+    hl.FzfLuaSearch = hl.Search
+    hl.FzfLuaTitle = { fg = Foreground.default, bold = true }
+    hl.FzfLuaCursorLine = hl.CursorLine
+    hl.FzfLuaCursorLineNr = hl.CursorLineNr
+
+    return hl
+
+end
+
+return { Theme = Theme }

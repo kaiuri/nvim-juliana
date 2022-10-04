@@ -10,7 +10,7 @@ Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tr
 
 ### Installation
 
-Requirements: `NVIM v0.8.0-dev`.
+Requirements: `NVIM v0.9.0-dev`.
 
 Plug it with your favorite plugin manager.
 

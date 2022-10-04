@@ -1,4 +1,6 @@
-local theme = require('nvim-juliana.theme')
+local Theme = require('nvim-juliana.theme').Theme
+
+local colors = require('nvim-juliana.palette').colors
 
 ---@param tbl {[string]: HighlightDefMap}
 local function set_hl(tbl)
@@ -17,12 +19,10 @@ local load = function()
     vim.cmd('set t_Co=256')
     vim.g.colors_name = 'juliana'
 
-    set_hl(theme)
+    set_hl(Theme())
 end
 
 return {
-    ---@type function
     load = load,
-    ---@type SublimeTextPalette
-    colors = require('nvim-juliana.colors')
+    colors = colors
 }
