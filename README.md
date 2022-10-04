@@ -30,7 +30,7 @@ vim.cmd 'colo juliana'
 require('nvim-juliana').colors
 ```
 
-Note: `dev` uses custom Tree-sitter queries to better highlight code. I use it daily and update it frequently. Current languages with custom Tree-sitter highlight are `bash`, `json`, `lua`, `markdown`, `typescript` and `yaml`.
+Note: `dev` uses custom Tree-sitter queries to better highlight code. I use it daily and update it frequently. Check `after/queries/` for a list of languages with custom highlights.
 
 ## Screenshots
 
