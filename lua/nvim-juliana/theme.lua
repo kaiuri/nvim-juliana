@@ -9,11 +9,9 @@ local function Theme()
         default = c.gray7,
         emphasis = c.gray8,
     }
-    --- Background to make color more visible
     local Shade = {
-        -- TODO: Add emphasis color
         default = c.gray3,
-        emphasis = c.shadeemphasis,
+        emphasis = c.gray1,
     }
     local Background = {
         emphasis = c.gray2,
@@ -36,7 +34,6 @@ local function Theme()
     hl.NormalFloat = { bg = Background.emphasis }
     hl.FloatBorder = { fg = Foreground.surface, bg = Background.default }
 
-    --- Note: We use links to Pmenu to preserve layout
     hl.Pmenu = { bg = Background.emphasis }
     hl.PmenuSel = { bg = Background.muted, fg = Foreground.emphasis, bold = false }
     hl.PmenuSbar = { bg = hl.Pmenu.bg, fg = hl.PmenuSel.bg }
@@ -71,8 +68,8 @@ local function Theme()
     hl.MoreMsg = { fg = Foreground.default, bold = true }
     hl.Question = { link = 'MoreMsg' }
 
-    hl.Search = { fg = c.gray1, bg = c.orange2 }
-    hl.IncSearch = { fg = c.gray1, bg = c.orange2 }
+    hl.Search = { fg = c.gray0, bg = c.orange2 }
+    hl.IncSearch = { fg = c.gray0, bg = c.orange2 }
 
     hl.SignColumn = { fg = Foreground.default, bg = Background.default }
     hl.SpellBad = { sp = c.red, undercurl = true }
@@ -293,8 +290,8 @@ local function Theme()
     hl.CmpItemKindTypeParameter = { fg = c.orange2 }
     hl.CmpItemKindVariable = { fg = c.gray7 }
 
-    hl.Sneak = { fg = c.gray1, bg = c.orange2 }
-    hl.SneakLabel = { fg = c.gray1, bg = c.orange2 }
+    hl.Sneak = { fg = c.gray0, bg = c.orange2 }
+    hl.SneakLabel = { fg = c.gray0, bg = c.orange2 }
 
     hl.GitSignsDelete = { fg = c.red, bold = true }
     hl.GitSignsChange = { fg = c.yellow, bold = true }

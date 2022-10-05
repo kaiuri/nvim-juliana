@@ -9,27 +9,27 @@ return {
         c = { bg = active_bg, fg = active_fg },
     },
     insert = {
-        a = { bg = colors.green, fg = colors.gray1, gui = 'bold' },
+        a = { bg = colors.green, fg = colors.gray0, gui = 'bold' },
         b = { bg = active_bg, fg = active_fg },
         c = { bg = active_bg, fg = active_fg },
     },
     visual = {
-        a = { bg = colors.cyan, fg = colors.gray1, gui = 'bold' },
+        a = { bg = colors.cyan, fg = colors.gray0, gui = 'bold' },
         b = { bg = active_bg, fg = active_fg },
         c = { bg = active_bg, fg = active_fg },
     },
     replace = {
-        a = { bg = colors.red, fg = colors.gray1, gui = 'bold' },
+        a = { bg = colors.red, fg = colors.gray0, gui = 'bold' },
         b = { bg = active_bg, fg = active_fg },
         c = { bg = active_bg, fg = active_fg },
     },
     command = {
-        a = { bg = colors.yellow, fg = colors.gray1, gui = 'bold' },
+        a = { bg = colors.yellow, fg = colors.gray0, gui = 'bold' },
         b = { bg = active_bg, fg = active_fg },
         c = { bg = active_bg, fg = active_fg },
     },
     terminal = {
-        a = { bg = colors.pink, fg = colors.gray1, gui = 'bold' },
+        a = { bg = colors.pink, fg = colors.gray0, gui = 'bold' },
         b = { bg = active_bg, fg = active_fg },
         c = { bg = active_bg, fg = active_fg },
     },
