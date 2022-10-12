@@ -1,10 +1,10 @@
+**NOTICE**: Branch `dev` has been moved to its own repository at [**onigiri.nvim**](https://github.com/kaiuri/onigiri.nvim).
+
 # nvim-juliana
 
-Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support and custom highlights - `dev` branch.
+Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support.
 
-![](./assets/palette.jpg)
-
----
+## ![](./assets/palette.jpg)
 
 ## Usage
 
@@ -17,9 +17,7 @@ Plug it with your favorite plugin manager.
 - Packer:
 
 ```lua
-use { 'kaiuri/nvim-juliana',
-    -- branch = 'dev' -- separate experimental branch with way better highlights
-}
+use { 'kaiuri/nvim-juliana' }
 --- then
 vim.cmd 'colo juliana'
 ```
@@ -30,17 +28,14 @@ vim.cmd 'colo juliana'
 require('nvim-juliana').colors
 ```
 
-Note: `dev` uses custom Tree-sitter queries to better highlight code. I use it daily and update it frequently. Check `after/queries/` for a list of languages with custom highlights.
-
 ## Screenshots
 
-#### `dev` branch
-
-![](./assets/screenshot_dev.png)
-
-#### `master` branch
-
-![](./assets/screenshot_master.png)
+|                                  `master`                                   |
+| :-------------------------------------------------------------------------: |
+|                     ![](./assets/screenshot_master.png)                     |
+|                                                                             |
+| `dev` ⇒ moved to [**onigiri.nvim**](https://github.com/kaiuri/onigiri.nvim) |
+|                      ![](./assets/screenshot_dev.png)                       |
 
 ## Plugin Support - non-exhaustive list
 
