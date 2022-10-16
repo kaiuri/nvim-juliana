@@ -1,5 +1,7 @@
 **NOTICE**: Branch `dev` has been moved to its own repository at [**onigiri.nvim**](https://github.com/kaiuri/onigiri.nvim).
 
+**NOTICE**: BREAKING CHANGE [#3656](https://github.com/nvim-treesitter/nvim-treesitterque) needs to be addressed, until then highlights might not work properly.
+
 # nvim-juliana
 
 Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support.
