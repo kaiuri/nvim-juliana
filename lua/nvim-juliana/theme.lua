@@ -79,17 +79,14 @@ local function Theme()
     hl.StatusLine = { fg = Foreground.default, bg = c.gray5 }
     hl.StatusLineNC = { fg = Foreground.default, bg = c.gray2 }
     hl.Substitute = { bg = Background.muted }
-    hl.TabLine = { fg = Foreground.muted, bg = Background.muted }
-    hl.TabLineFill = { fg = Foreground.muted, bg = Background.muted }
-    hl.TabLineSel = { fg = Foreground.default, bg = Shade.default }
 
-    -- hl.VertSplit = { fg = Foreground.surface } -- @deprecated
-
+    hl.TabLine = { fg = Foreground.default, bg = Background.muted }
+    hl.TabLineFill = { fg = Foreground.default, bg = Background.muted }
+    hl.TabLineSel = { fg = Foreground.default, bg = Background.default }
     hl.WarningMsg = { link = 'ErrorMsg' }
-    hl.WildMenu = hl.Pmenu
-
-    hl.Winseparator = { fg = Foreground.surface }
-    hl.VertSplit = hl.Winseparator
+    hl.WildMenu = { link = 'Pmenu' }
+    hl.WinSeparator = { fg = Foreground.surface }
+    hl.VertSplit = { link = 'WinSeparator' }
 
     hl.DiagnosticError = { fg = c.red }
     hl.DiagnosticSignError = { fg = hl.DiagnosticError.fg, bold = true }
@@ -148,73 +145,104 @@ local function Theme()
     hl.Underlined = { underdotted = true }
     hl.Whitespace = { fg = Foreground.surface }
 
-    hl.TSPunctBracket = { fg = Foreground.emphasis, bg = Shade.default }
-    hl.TSPunctDelimiter = { link = 'Delimiter', bg = Shade.emphasis }
-    hl.TSPunctSpecial = { fg = c.cyan, bg = Shade.default }
-    hl.TSConstant = hl.Constant
-    hl.TSConstBuiltin = { fg = c.red, italic = true, bg = Shade.default }
-    hl.TSConstMacro = hl.Define
-    hl.TSString = { fg = c.green, bg = Shade.default }
-    hl.TSStringRegex = { fg = c.cyan, bg = Shade.default }
-    hl.TSStringEscape = hl.SpecialChar
-    hl.TSStringSpecial = hl.SpecialChar
-    hl.TSCharacter = { fg = c.green, bg = Shade.default }
-    hl.TSCharacterSpecial = { link = 'SpecialChar' }
-    hl.TSNumber = hl.Number
-    hl.TSBoolean = hl.Boolean
-    hl.TSFloat = hl.Float
-    hl.TSFunction = hl.Function
-    hl.TSFunctionCall = { fg = c.blue0, bg = Shade.default }
-    hl.TSFuncBuiltin = { fg = c.blue0, italic = true, bg = Shade.default }
-    hl.TSFuncMacro = { fg = c.blue0, bg = Shade.default }
-    hl.TSParameter = { fg = c.gray7, bg = Shade.default }
-    hl.TSParameterReference = { fg = c.gray7, bg = Shade.default }
-    hl.TSMethod = { fg = c.cyan, bg = Shade.default }
-    hl.TSMethodCall = { fg = c.cyan, bg = Shade.default }
-    hl.TSField = { fg = c.blue1, bg = Shade.default }
-    hl.TSComment = { fg = Foreground.muted, bg = Shade.default }
-    hl.TSDanger = { fg = c.red, bold = true, bg = Shade.default }
-    hl.TSEmphasis = { italic = true }
-    hl.TSEnum = { link = 'TSType' }
-    hl.TSError = { fg = Foreground.default, bg = Shade.default }
-    hl.TSInclude = { fg = c.pink, bg = Shade.default }
-    hl.TSInterface = { link = 'TSType' }
-    hl.TSKeyword = { fg = c.red, bg = Shade.default }
-    hl.TSKeywordFunction = { fg = c.pink, italic = true, bg = Shade.default }
-    hl.TSKeywordOperator = { fg = c.red2, bg = Shade.default }
-    hl.TSKeywordReturn = { link = 'TSKeyword', bg = Shade.default }
-    hl.TSLabel = { fg = c.cyan, bg = Shade.default }
-    hl.TSNamespace = { fg = c.orange2, bg = Shade.default }
-    hl.TSNote = { fg = c.green, bold = true, bg = Shade.default }
-    hl.TSOperator = { link = 'Operator' }
-    hl.TSProperty = { fg = c.blue1, bg = Shade.default }
-    hl.TSStrong = { bold = true }
-    hl.TSSymbol = { fg = c.cyan, bg = Shade.default }
-    hl.TSTag = { link = 'Tag' }
-    hl.TSTagAttribute = { fg = c.pink, bg = Shade.default }
-    hl.TSTagDelimiter = { fg = c.cyan, bg = Shade.emphasis }
-    hl.TSText = { fg = Foreground.default, bg = Shade.default }
+    -- hl.TSDanger = { fg = c.red, bold = true, bg = Shade.default }
+    -- hl.TSError = { fg = Foreground.default, bg = Shade.default }
+    -- hl.TSNote = { fg = c.green, bold = true, bg = Shade.default }
+    -- hl['@conditional.bash'] = { fg = v.Colors.Error, bg = v.Shade.default }
+    -- hl['@punctuation.delimiter.lua'] = { fg = v.Colors.Hint, bg = v.Shade.emphasis }
+    -- hl['@repeat.bash'] = { fg = v.Colors.Error, bg = v.Shade.default }
+    hl['@boolean'] = { link = 'Boolean' }
+    hl['@character'] = { fg = c.green, bg = Shade.default }
+    hl['@character.special'] = { link = 'SpecialChar' }
+    hl['@comment'] = { fg = Foreground.muted, bg = Shade.default }
+    hl['@conditional'] = { fg = c.pink, bg = Shade.default }
+    hl['@constant'] = { link = 'Constant' }
+    hl['@constant.builtin'] = { fg = c.red, italic = true, bg = Shade.default }
+    hl['@constant.macro'] = { link = 'Define' }
+    hl['@constructor.lua'] = { fg = Foreground.emphasis, bg = Shade.default }
+    hl['@enum'] = { link = '@type' }
+    hl['@field'] = { fg = c.blue1, bg = Shade.default }
+    hl['@field.toml'] = { fg = c.red, bg = Shade.default }
+    hl['@field.yaml'] = { fg = c.cyan, bg = Shade.default }
+    hl['@float'] = { link = 'Float' }
+    hl['@function'] = { link = 'Function' }
+    hl['@function.builtin'] = { fg = c.blue0, italic = true, bg = Shade.default }
+    hl['@function.call'] = { fg = c.blue0, bg = Shade.default }
+    hl['@function.macro'] = { fg = c.blue0, bg = Shade.default }
+    hl['@function.macro.fennel'] = { link = '@keyword.function' }
+    hl['@include'] = { fg = c.pink, bg = Shade.default }
+    hl['@interface'] = { link = '@type' }
+    hl['@keyword'] = { fg = c.red, bg = Shade.default }
+    hl['@keyword.function'] = { fg = c.pink, italic = true, bg = Shade.default }
+    hl['@keyword.json'] = { fg = c.cyan, bg = Shade.default }
+    hl['@keyword.operator'] = { fg = c.red2, bg = Shade.default }
+    hl['@keyword.return'] = { fg = c.red, bg = Shade.default }
+    hl['@label'] = { fg = c.cyan, bg = Shade.default }
+    hl['@label.json'] = { fg = c.cyan, bg = Shade.default }
+    hl['@label.toml'] = { fg = c.cyan, bg = Shade.default }
+    hl['@literal'] = { fg = c.green, italic = true, bg = Shade.default }
+    hl['@method'] = { fg = c.cyan, bg = Shade.default }
+    hl['@method.call'] = { fg = c.cyan, bg = Shade.default }
+    hl['@namespace'] = { fg = c.orange2, bg = Shade.default }
+    hl['@number'] = { link = 'Number' }
+    hl['@number.bash'] = { fg = c.orange2, bg = Shade.default }
+    hl['@operator'] = { link = 'Operator' }
+    hl['@parameter'] = { fg = c.gray7, bg = Shade.default }
+    hl['@parameter.bash'] = { fg = Foreground.default, bg = Shade.default }
+    hl['@parameter.reference'] = { fg = c.gray7, bg = Shade.default }
+    hl['@preproc'] = { fg = c.cyan, bg = Shade.default }
+    hl['@property'] = { fg = c.blue1, bg = Shade.default }
+    hl['@property.toml'] = { fg = c.cyan, bg = Shade.default }
+    hl['@punctuation.bracket'] = { fg = Foreground.emphasis, bg = Shade.default }
+    hl['@punctuation.bracket.bash'] = { fg = c.blue0, bg = Shade.default }
+    hl['@punctuation.bracket.toml'] = { fg = c.red, bg = Shade.default }
+    hl['@punctuation.bracket.yaml'] = { fg = c.blue0, bg = Shade.default }
+    hl['@punctuation.delimiter'] = { link = 'Delimiter', bg = Shade.emphasis }
+    hl['@punctuation.delimiter.yaml'] = { fg = c.blue0, bg = Shade.emphasis }
+    hl['@punctuation.special'] = { fg = c.cyan, bg = Shade.default }
+    hl['@punctuation.special.markdown'] = {
+        fg = c.red2, bg = Shade.emphasis, bold = false
+    }
+    hl['@punctuation.delimiter.markdown'] = {
+        fg = c.blue0, bg = Shade.emphasis, bold = false
+    }
+    hl['@repeat'] = { fg = c.pink, bg = Shade.default }
+    hl['@string'] = { fg = c.green, bg = Shade.default }
+    hl['@string.escape'] = { link = 'SpecialChar' }
+    hl['@string.regex'] = { fg = c.cyan, bg = Shade.default }
+    hl['@string.special'] = { link = 'SpecialChar' }
+    hl['@symbol'] = { fg = c.cyan, bg = Shade.default }
+    hl['@tag'] = { link = 'Tag' }
+    hl['@tag.attribute'] = { fg = c.pink, bg = Shade.default }
+    hl['@tag.delimiter'] = { fg = c.cyan, bg = Shade.emphasis }
+    hl['@tag.delimiter.markdown'] = { fg = c.blue0, bg = Shade.default }
+    hl['@tag.delimiter.markdown_inline'] = { fg = c.blue0, bg = Shade.default }
+    hl['@text'] = { fg = Foreground.default, bg = Shade.default }
+    hl['@text.emphasis'] = { italic = true }
+    hl['@text.literal'] = { fg = c.green, italic = true, bg = Shade.default }
+    hl['@text.reference'] = { fg = Foreground.default, underdotted = false }
+    hl['@text.reference.markdown'] = { fg = c.cyan, underdotted = true }
+    hl['@text.reference.markdown_inline'] = { fg = c.cyan, underdotted = true }
+    hl['@text.uri'] = { fg = c.blue0, underdotted = false, bg = Shade.default }
+    hl['@text.uri.markdown'] = { fg = c.blue0, underdotted = false, bg = Shade.default }
+    hl['@text.uri.markdown_inline'] = { fg = c.blue0, underdotted = false, bg = Shade.default }
 
-    hl.TSTextReference = { fg = Foreground.default, underdotted = false }
+    hl['@text.strong'] = { bold = true }
+    hl['@text.title'] = { fg = Foreground.emphasis, bg = Shade.default, bold = false }
+    hl['@text.underline'] = { underline = true }
+    hl['@type'] = { fg = c.orange1, bg = Shade.default }
+    hl['@type.builtin'] = { fg = c.blue0, italic = true, bg = Shade.default }
+    hl['@type.qualifier'] = { fg = c.red, bg = Shade.default }
+    hl['@variable'] = { fg = Foreground.default, bg = Shade.default }
+    hl['@variable.builtin'] = { fg = c.red, italic = true }
+    -- hl['@warning'] = { fg = c.orange2, bold = true, bg = Shade.default }
 
-    hl.TSTitle = { fg = Foreground.default, bg = Shade.default }
-    hl.TSTodo = { link = 'Todo' }
-    hl.TSType = { link = 'Type' }
-    hl.TSTypeBuiltin = { fg = c.blue0, italic = true, bg = Shade.default }
-    hl.TSTypeQualifier = { fg = c.red, bg = Shade.default }
-    hl.TSURI = { fg = c.blue1, underdotted = true, bg = Shade.default }
-    hl.TSUnderline = { underline = true }
-    hl.TSVariable = { fg = Foreground.default, bg = Shade.default }
-    hl.TSVariableBuiltin = { fg = c.red, italic = true }
-    hl.TSWarning = { fg = c.orange2, bold = true, bg = Shade.default }
-    hl.TSLiteral = { fg = c.green, italic = true, bg = Shade.default }
     hl.htmlTagName = { link = 'Tag' }
     hl.gitCommitSelectedFile = { italic = true }
     hl.gitCommitSummary = { bold = true }
     hl.gitCommitTrailerToken = { fg = c.pink, italic = true }
     hl.healthHelp = { fg = c.yellow, bg = Shade.default }
     hl.healthSuccess = { fg = c.green, bg = Shade.default }
-    hl.luaTable = { link = 'TSPunctBracket' }
 
     hl.markdownRule = { fg = c.red, bg = Shade.default }
     hl.markdownLinkText = { fg = Foreground.default, bg = Shade.default }
@@ -236,18 +264,13 @@ local function Theme()
     hl.tmuxFlags = { fg = c.orange2 }
     hl.tmuxFormatString = { fg = c.cyan }
     hl.javaScriptReserved = { fg = c.red }
-    hl.fennelTSFuncMacro = { link = 'TSKeywordFunction' }
-    hl.fennelTSField = { link = 'TSField' }
     hl.FennelStringDelimiter = { fg = c.cyan }
-    hl.FennelParen = { link = 'TSPunctBracket' }
+    hl.FennelParen = { link = '@punctuation.bracket' }
     hl.FennelSpecialForm = { fg = c.pink, italic = true }
-    hl.FennelKeyword = { link = 'TSKeyword' }
-    hl.FennelTable = { link = 'TSConstructor' }
-    hl.tomlproperty = { fg = c.cyan, bg = Shade.default }
-    hl.yamlfield = { fg = c.cyan, bg = Shade.default }
-    hl.jsonKeyword = { fg = c.cyan, bg = Shade.default }
+    hl.FennelKeyword = { link = '@keyword' }
+    hl.FennelTable = { link = '@constructor' }
 
-    hl.helpHyperTextEntry = { link = 'TSURI' }
+    hl.helpHyperTextEntry = { link = '@text.uri' }
     hl.helpSectionDelim = { fg = c.red, bold = true, bg = Shade.default }
     hl.helpHyperTextJump = { fg = c.blue0, underdotted = true, bg = Shade.default }
     hl.helpHeader = hl.Title
@@ -374,38 +397,38 @@ local function Theme()
     hl.DevIconDockerfile = { fg = c.blue0 }
     hl.DevIconScheme = { fg = c.gray9 }
 
-    hl.LspNamespace = { link = 'TSNamespace' }
-    hl.LspType = { link = 'TSType' }
-    hl.LspClass = { link = 'TSType' }
-    hl.LspEnum = { link = 'TSType' }
-    hl.LspInterface = { link = 'TSType' }
-    hl.LspStruct = { link = 'TSType' }
-    hl.LspTypeParameter = { link = 'TSType' }
-    hl.LspParameter = { link = 'TSParameter' }
-    hl.LspVariable = { link = 'TSVariable' }
-    hl.LspProperty = { link = 'TSProperty' }
-    hl.LspEnumMember = { link = 'TSField' }
-    -- hl.LspEvent   = {}
-    hl.LspFunction = { link = 'TSFunctionCall' }
-    hl.LspMethod = hl.TSMethod
-    hl.LspMacro = { link = 'Macro' }
+    hl.LspNamespace = { link = '@namespace' }
+    hl.LspType = { link = '@type' }
+    hl.LspClass = { link = '@type' }
+    hl.LspEnum = { link = '@type' }
+    hl.LspInterface = { link = '@type' }
+    hl.LspStruct = { link = '@type' }
+    hl.LspTypeParameter = { link = '@type' }
+    hl.LspParameter = { link = '@parameter' }
+    hl.LspVariable = { link = '@variable' }
+    hl.LspProperty = { link = '@property' }
+    hl.LspEnumMember = { link = '@field' }
+    -- hl.LspEvent = {}
+    hl.LspFunction = { link = '@function.call' }
+    hl.LspMethod = { link = '@method' }
+    hl.LspMacro = { link = '@macro' }
     hl.LspKeyword = { fg = c.red2 }
-    -- LspModifier   = {}
-    hl.LspComment = { link = 'TSComment' }
-    hl.LspString = { link = 'TSString' }
-    hl.LspNumber = { link = 'TSNumber' }
-    hl.LspRegexp = { link = 'TSStringRegex' }
+    -- LspModifier = {}
+    hl.LspComment = { link = '@comment' }
+    hl.LspString = { link = '@string' }
+    hl.LspNumber = { link = '@number' }
+    hl.LspRegexp = { link = '@string.regex' }
     -- LspDeclaration = { link = 'TSType' }
     -- LspDefinition  = {}
-    -- hl.LspOperator = { link = 'TSOperator' }
-    hl.LspReadonly = { fg = 'NONE', bg = 'NONE', italic = true }
-    hl.LspStatic = { fg = 'NONE', bg = 'NONE', italic = true }
+    hl.LspOperator = { link = '@operator' }
+    -- hl.LspReadonly = { fg = 'NONE', bg = 'NONE', italic = true }
+    -- hl.LspStatic = { fg = 'NONE', bg = 'NONE', italic = true }
     hl.LspDeprecated = { strikethrough = true }
     -- LspAbstract = {}
     -- LspAsync = { bold = true }
     -- LspModification  = {}
     -- LspDocumentation = {}
-    hl.LspDefaultLibrary = { italic = true }
+    -- hl.LspDefaultLibrary = { italic = true }
     --- FzfLua
     hl.FzfLuaNormal = { fg = Foreground.default, bg = Background.default }
     hl.FzfLuaBorder = { fg = Foreground.surface, bg = Background.default }
