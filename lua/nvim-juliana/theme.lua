@@ -160,7 +160,7 @@ local function Theme()
     hl['@constant.builtin'] = { fg = c.red, italic = true, bg = Shade.default }
     hl['@constant.macro'] = { link = 'Define' }
     hl['@constructor.lua'] = { fg = Foreground.emphasis, bg = Shade.default }
-    hl['@enum'] = { link = '@type' }
+    hl['@enum'] = { fg = c.orange2, bg = Shade.default }
     hl['@field'] = { fg = c.blue1, bg = Shade.default }
     hl['@field.toml'] = { fg = c.red, bg = Shade.default }
     hl['@field.yaml'] = { fg = c.cyan, bg = Shade.default }
@@ -173,9 +173,11 @@ local function Theme()
     hl['@function.macro.commonlisp'] = { fg = c.red, bg = Shade.default }
 
     hl['@include'] = { fg = c.pink, bg = Shade.default }
-    hl['@interface'] = { link = '@type' }
+    hl['@include.clojure'] = { fg = c.red, bg = Shade.default }
+    hl['@interface'] = { fg = c.orange2, bg = Shade.default }
     hl['@keyword'] = { fg = c.red, bg = Shade.default }
     hl['@keyword.function'] = { fg = c.pink, italic = true, bg = Shade.default }
+    hl['@keyword.function.clojure'] = { fg = c.red, italic = true, bg = Shade.default }
     hl['@keyword.json'] = { fg = c.cyan, bg = Shade.default }
     hl['@keyword.operator'] = { fg = c.red2, bg = Shade.default }
     hl['@keyword.return'] = { fg = c.red, bg = Shade.default }
@@ -232,7 +234,7 @@ local function Theme()
     hl['@text.strong'] = { bold = true }
     hl['@text.title'] = { fg = Foreground.emphasis, bg = Shade.default, bold = false }
     hl['@text.underline'] = { underline = true }
-    hl['@type'] = { fg = c.orange1, bg = Shade.default }
+    hl['@type'] = { fg = c.orange2, bg = Shade.default }
     hl['@type.builtin'] = { fg = c.blue0, italic = true, bg = Shade.default }
     hl['@type.qualifier'] = { fg = c.red, bg = Shade.default }
     hl['@variable'] = { fg = Foreground.default, bg = Shade.default }
