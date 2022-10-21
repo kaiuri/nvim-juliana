@@ -170,6 +170,8 @@ local function Theme()
     hl['@function.call'] = { fg = c.blue0, bg = Shade.default }
     hl['@function.macro'] = { fg = c.blue0, bg = Shade.default }
     hl['@function.macro.fennel'] = { link = '@keyword.function' }
+    hl['@function.macro.commonlisp'] = { fg = c.red, bg = Shade.default }
+
     hl['@include'] = { fg = c.pink, bg = Shade.default }
     hl['@interface'] = { link = '@type' }
     hl['@keyword'] = { fg = c.red, bg = Shade.default }
@@ -235,6 +237,10 @@ local function Theme()
     hl['@type.qualifier'] = { fg = c.red, bg = Shade.default }
     hl['@variable'] = { fg = Foreground.default, bg = Shade.default }
     hl['@variable.builtin'] = { fg = c.red, italic = true }
+    hl['@variable.builtin.clojure'] = { fg = c.gray9, bg = Shade.default }
+    hl['@variable.builtin.javascript'] = {
+        fg = c.orange2, italic = true, bg = Shade.default
+    }
     -- hl['@warning'] = { fg = c.orange2, bold = true, bg = Shade.default }
 
     hl.htmlTagName = { link = 'Tag' }
@@ -437,6 +443,9 @@ local function Theme()
     hl.FzfLuaTitle = { fg = Foreground.default, bold = true }
     hl.FzfLuaCursorLine = hl.CursorLine
     hl.FzfLuaCursorLineNr = hl.CursorLineNr
+    --- editor config, etc
+    hl.dosiniLabel  = { fg = c.cyan, bg = Shade.default }
+    hl.dosiniHeader = { fg = c.red, bg = Shade.default }
 
     return hl
 
