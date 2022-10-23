@@ -1,7 +1,5 @@
 **NOTICE**: Branch `dev` has been moved to its own repository at [**onigiri.nvim**](https://github.com/kaiuri/onigiri.nvim).
 
-**NOTICE**: BREAKING CHANGE [#3656](https://github.com/nvim-treesitter/nvim-treesitterque) needs to be addressed, until then highlights might not work properly.
-
 # nvim-juliana
 
 Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support.
@@ -30,14 +28,18 @@ vim.cmd 'colo juliana'
 require('nvim-juliana').colors
 ```
 
-## Screenshots
+<!--
+TODO: Add newer screenshorts
 
-|                                  `master`                                   |
-| :-------------------------------------------------------------------------: |
-|                     ![](./assets/screenshot_master.png)                     |
-|                                                                             |
-| `dev` ⇒ moved to [**onigiri.nvim**](https://github.com/kaiuri/onigiri.nvim) |
-|                      ![](./assets/screenshot_dev.png)                       |
+## Screenshots (TO-DO)
+
+     |                                  `master`                                   |
+     | :-------------------------------------------------------------------------: |
+     |                     ![](./assets/screenshot_master.png)                     |
+     |                                                                             |
+     | `dev` ⇒ moved to [**onigiri.nvim**](https://github.com/kaiuri/onigiri.nvim) |
+     |                      ![](./assets/screenshot_dev.png)                       |
+-->
 
 ## Plugin Support - non-exhaustive list
 
