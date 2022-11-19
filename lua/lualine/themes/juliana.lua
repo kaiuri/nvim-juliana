@@ -1,41 +1,69 @@
-local palette = require 'nvim-juliana.palette'
-local colors = palette.colors
-local active_fg = colors.gray7
-local active_bg = colors.gray5
+local v = {
+    Background = {
+        default  = '#303841',
+        emphasis = '#2e353e',
+        muted    = '#3b454e'
+    },
+    Colors = {
+        Accent    = '#95b2d6',
+        Caution   = '#f9ae58',
+        Danger    = '#f97b58',
+        Error     = '#ec5f66',
+        Hint      = '#5fb4b4',
+        Important = '#fac761',
+        Info      = '#99c794',
+        Note      = '#5c99d6',
+        Trace     = '#cc8ec6',
+        Warn      = '#ee932b'
+    },
+    Foreground = {
+        default  = '#d8dee9',
+        emphasis = '#f7f7f7',
+        muted    = '#a6acb8',
+        surface  = '#46525c'
+    },
+    Shade = {
+        default  = '#2f373f',
+        emphasis = '#2e363e'
+    }
+}
+local fg = v.Foreground.default
+local bg = v.Background.muted
+
 return {
     normal = {
-        a = { bg = colors.gray4, fg = colors.gray9 --[[ , gui = "bold" ]] },
-        b = { bg = active_bg, fg = active_fg },
-        c = { bg = active_bg, fg = active_fg },
+        a = { bg = v.Background.default, fg = v.Foreground.emphasis, gui = 'bold' },
+        b = { bg = bg, fg = fg },
+        c = { bg = bg, fg = fg },
     },
     insert = {
-        a = { bg = colors.green, fg = colors.gray0, gui = 'bold' },
-        b = { bg = active_bg, fg = active_fg },
-        c = { bg = active_bg, fg = active_fg },
+        a = { bg = v.Colors.Info, fg = v.Background.emphasis, gui = 'bold' },
+        b = { bg = bg, fg = fg },
+        c = { bg = bg, fg = fg },
     },
     visual = {
-        a = { bg = colors.cyan, fg = colors.gray0, gui = 'bold' },
-        b = { bg = active_bg, fg = active_fg },
-        c = { bg = active_bg, fg = active_fg },
+        a = { bg = v.Colors.Hint, fg = v.Background.emphasis, gui = 'bold' },
+        b = { bg = bg, fg = fg },
+        c = { bg = bg, fg = fg },
     },
     replace = {
-        a = { bg = colors.red, fg = colors.gray0, gui = 'bold' },
-        b = { bg = active_bg, fg = active_fg },
-        c = { bg = active_bg, fg = active_fg },
+        a = { bg = v.Colors.Danger, fg = v.Background.emphasis, gui = 'bold' },
+        b = { bg = bg, fg = fg },
+        c = { bg = bg, fg = fg },
     },
     command = {
-        a = { bg = colors.yellow, fg = colors.gray0, gui = 'bold' },
-        b = { bg = active_bg, fg = active_fg },
-        c = { bg = active_bg, fg = active_fg },
+        a = { bg = v.Colors.Warn, fg = v.Background.emphasis, gui = 'bold' },
+        b = { bg = bg, fg = fg },
+        c = { bg = bg, fg = fg },
     },
     terminal = {
-        a = { bg = colors.pink, fg = colors.gray0, gui = 'bold' },
-        b = { bg = active_bg, fg = active_fg },
-        c = { bg = active_bg, fg = active_fg },
+        a = { bg = v.Colors.Trace, fg = v.Background.emphasis, gui = 'bold' },
+        b = { bg = bg, fg = fg },
+        c = { bg = bg, fg = fg },
     },
     inactive = {
-        a = { bg = colors.gray5, fg = colors.gray7 },
-        b = { bg = active_bg, fg = active_fg },
-        c = { bg = active_bg, fg = active_fg },
+        a = { bg = v.Background.muted, fg = v.Foreground.default },
+        b = { bg = bg, fg = fg },
+        c = { bg = bg, fg = fg },
     },
 }
