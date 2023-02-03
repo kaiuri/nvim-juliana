@@ -5,7 +5,6 @@ local load = function()
         vim.cmd('hi clear')
     end
 
-    vim.cmd('highlight clear')
     vim.cmd('set t_Co=256')
     vim.g.colors_name = 'juliana'
 

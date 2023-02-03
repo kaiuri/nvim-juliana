@@ -1,5 +1,3 @@
-**NOTICE**: Branch `dev` has been moved to its own repository at [**onigiri.nvim**](https://github.com/kaiuri/onigiri.nvim).
-
 # nvim-juliana
 
 Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support.
@@ -28,34 +26,23 @@ vim.cmd 'colo juliana'
 require('nvim-juliana').colors
 ```
 
-<!--
-TODO: Add newer screenshorts
-
-## Screenshots (TO-DO)
-
-     |                                  `master`                                   |
-     | :-------------------------------------------------------------------------: |
-     |                     ![](./assets/screenshot_master.png)                     |
-     |                                                                             |
-     | `dev` ⇒ moved to [**onigiri.nvim**](https://github.com/kaiuri/onigiri.nvim) |
-     |                      ![](./assets/screenshot_dev.png)                       |
--->
-
 ## Plugin Support - non-exhaustive list
 
-- [vim-sneak](https://github.com/justinmk/vim-sneak)
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
-- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
-- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
-- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
-- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
-- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
-- [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
-- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [coc-nvim](https://github.com/neoclide/coc.nvim)
 - [fennel.vim](https://github.com/bakpakin/fennel.vim)
-- [nvim-semantic-tokens](https://github.com/theHamsta/nvim-semantic-tokens) - This is a temporary plugin which enables semantic token based highlighting.
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim)
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- [nvim-semantic-tokens](https://github.com/theHamsta/nvim-semantic-tokens)
+- [nvim-tree.lua](https://github.com/kyazdani42/nvim-tree.lua)
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [nvim-ts-rainbow](https://github.com/p00f/nvim-ts-rainbow)
+- [nvim-web-devicons](https://github.com/kyazdani42/nvim-web-devicons)
+- [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [vim-sneak](https://github.com/justinmk/vim-sneak)
+- and more...
 
 ## Extras
 
@@ -71,3 +58,9 @@ TODO: Add newer screenshorts
 ## Credits
 
 - [Mariana - Sublime HQ Pty Ltd, Dmitri Voronianski](http://www.sublimetext.com/).
+
+---
+
+# NOTICE
+
+Branch `dev` has been moved to its own repository at [**onigiri.nvim**](https://github.com/kaiuri/onigiri.nvim).

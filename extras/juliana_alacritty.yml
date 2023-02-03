@@ -1,24 +1,22 @@
 colors:
   primary:
-    # hard contrast: background = '#303841'
-    background: "0x303841"
-    # soft contrast: background = '#32302f'
+    background: "0x2e363e"
     foreground: "0xd8dee9"
   normal:
-    black: "0x46525c"
+    black: "0x3b454e"
     red: "0xec5f66"
     green: "0x99c794"
-    yellow: "0xee932b"
-    blue: "0x62adff"
+    yellow: "0xf9ae58"
+    blue: "0x95B2D6"
     magenta: "0xedacfd"
     cyan: "0x5fb4b4"
     white: "0xf7f7f7"
   bright:
-    black: "0xa6acb8"
+    black: "0x46525c"
     red: "0xf97b58"
     green: "0x99c794"
     yellow: "0xfac761"
-    blue: "0x62adff"
+    blue: "0x95B2D6"
     magenta: "0xcc8ec6"
     cyan: "0x5fb4b4"
     white: "0xffffff"
