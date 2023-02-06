@@ -1,8 +1,13 @@
+
+<img src="https://user-images.githubusercontent.com/19148108/216947306-96371fa0-61be-4f3b-832a-60efcadc8859.jpg" width="98%">
+
 # nvim-juliana
 
 Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support.
 
-## ![](./assets/palette.jpg)
+## Screenshots
+
+<img src="https://user-images.githubusercontent.com/19148108/216946234-54587fc1-d4cc-460e-b207-bab421b60a23.png" width="98%">
 
 ## Usage
 
