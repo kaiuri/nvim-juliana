@@ -402,21 +402,39 @@ return function(C)
   hl.DevIconDockerfile = { fg = C.blue2 }
   hl.DevIconScheme = { fg = C.fg1 }
 
-  hl.LspType = { fg = C.yellow2 }
-  hl.LspClass = { fg = C.yellow2 }
-  hl.LspDecorator = { fg = C.magenta }
-  hl.LspEnumMember = { fg = C.fg1 }
-  hl.LspMacro = { fg = C.blue2 }
-  hl.LspMethod = { fg = C.cyan }
-  hl.LspNamespace = { fg = C.yellow2 }
-  hl.LspProperty = { fg = C.blue1 }
-  hl.LspRegexp = { fg = C.cyan }
-  hl.LspModifier = { fg = C.red }
-  hl.LspStruct = { fg = C.yellow2 }
-  hl.LspTypeParameter = { fg = C.yellow2 }
-  hl.LspVariable = { fg = C.fg2 }
-  hl.LspFunction = { fg = C.blue2 }
-  hl.LspKeyword = { italic = true }
+  hl['@lsp.type.type'] = { fg = C.yellow2 }
+  hl['@lsp.typemod.type.defaultLibrary'] = { fg = C.blue2, italic = true }
+  hl['@lsp.typemod.type.documentation'] = { fg = C.yellow2 }
+  hl['@lsp.type.enum'] = { fg = C.yellow2 }
+  hl['@lsp.typemod.enum.defaultLibrary'] = { fg = C.blue2, italic = true }
+  hl['@lsp.type.interface'] = { fg = C.yellow2 }
+  hl['@lsp.typemod.interface.defaultLibrary'] = { fg = C.blue2, italic = true }
+  hl['@lsp.type.class'] = { fg = C.yellow2 }
+  hl['@lsp.typemod.class.defaultLibrary'] = { fg = C.yellow2, italic = true }
+  hl['@lsp.type.struct'] = { fg = C.yellow2 }
+  hl['@lsp.typemod.struct.defaultLibrary'] = { fg = C.blue2, italic = true }
+  hl['@lsp.type.macro'] = { fg = C.yellow2 }
+  hl['@lsp.typemod.function.definition'] = { fg = C.cyan }
+  hl['@lsp.type.function'] = { fg = C.blue2, nocombine = true }
+  hl['@lsp.typemod.function.declaration'] = { fg = C.cyan }
+  hl['@lsp.typemod.function.modification'] = { fg = C.cyan }
+  hl['@lsp.typemod.function.defaultLibrary'] = { italic = true }
+  hl['@lsp.typemod.function.documentation'] = { fg = C.blue2 }
+  hl['@lsp.type.method'] = { fg = C.cyan }
+  hl['@lsp.typemod.method.definition'] = { fg = C.cyan }
+  hl['@lsp.type.property'] = { fg = C.blue1 }
+  hl['@lsp.type.variable'] = { fg = C.fg2 }
+  hl['@lsp.type.decorator'] = { fg = C.cyan, bold = true }
+  hl['@lsp.typemod.decorator.defaultLibrary'] = { fg = C.cyan, bold = true, italic = true }
+  hl['@lsp.type.namespace'] = { fg = C.yellow2 }
+  hl['@lsp.typemod.namespace.defaultLibrary'] = { fg = C.yellow2, italic = true }
+  hl['@lsp.type.parameter'] = { fg = C.fg2 }
+  hl['@lsp.type.enumMember'] = { fg = C.blue1 }
+  hl['@lsp.type.typeParameter'] = { fg = C.yellow2 }
+  hl['@lsp.mod.defaultLibrary'] = { italic = true }
+  hl['@lsp.mod.deprecated'] = { strikethrough = true }
+  hl['@lsp.mod.declaration'] = {}
+  hl['@lsp.typemod.variable.global.lua'] = { fg = C.fg1, italic = true }
 
   --- FzfLua
   hl.FzfLuaNormal = { fg = C.fg2, bg = C.bg2 }
