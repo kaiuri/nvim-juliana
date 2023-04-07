@@ -1,4 +1,3 @@
-
 <img src="https://user-images.githubusercontent.com/19148108/216947306-96371fa0-61be-4f3b-832a-60efcadc8859.jpg" width="98%">
 
 # nvim-juliana
@@ -17,18 +16,79 @@ Requirements: `NVIM v0.9.0-dev`.
 
 Plug it with your favorite plugin manager.
 
-- Packer:
+- [Packer](https://github.com/wbthomason/packer.nvim):
 
 ```lua
-use { 'kaiuri/nvim-juliana' }
+use {
+  'kaiuri/nvim-juliana',
+  config = function()
+    require('nvim-juliana').setup {
+      colors = {
+        black1  = '#303841',
+        black2  = '#2f373f',
+        black3  = '#2e363e',
+        black4  = '#2e353e',
+        blue1   = '#95b2d6',
+        blue2   = '#5c99d6',
+        cyan    = '#5fb4b4',
+        green   = '#99c794',
+        grey1   = '#a6acb8',
+        grey2   = '#46525c',
+        grey3   = '#3b454e',
+        magenta = '#cc8ec6',
+        orange  = '#f97b58',
+        red     = '#ec5f66',
+        white1  = '#f7f7f7',
+        white2  = '#d8dee9',
+        yellow1 = '#fac761',
+        yellow2 = '#f9ae58',
+        yellow3 = '#ee932b',
+      }
+
+    }
+  end,
+}
 --- then
 vim.cmd 'colo juliana'
 ```
 
-- Color palette
+- [Lazy](https://github.com/folke/lazy.nvim)
 
 ```lua
-require('nvim-juliana').colors
+{
+  'kaiuri/nvim-juliana',
+  lazy = false,
+  opts = {
+    colors = {
+      black1  = '#303841',
+      black2  = '#2f373f',
+      black3  = '#2e363e',
+      black4  = '#2e353e',
+      blue1   = '#95b2d6',
+      blue2   = '#5c99d6',
+      cyan    = '#5fb4b4',
+      green   = '#99c794',
+      grey1   = '#a6acb8',
+      grey2   = '#46525c',
+      grey3   = '#3b454e',
+      magenta = '#cc8ec6',
+      orange  = '#f97b58',
+      red     = '#ec5f66',
+      white1  = '#f7f7f7',
+      white2  = '#d8dee9',
+      yellow1 = '#fac761',
+      yellow2 = '#f9ae58',
+      yellow3 = '#ee932b',
+    }
+  },
+  config = true,
+}
+```
+
+- Palette
+
+```lua
+require('nvim-juliana').colors()
 ```
 
 ## Plugin Support - non-exhaustive list
