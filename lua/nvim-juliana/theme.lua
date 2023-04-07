@@ -142,6 +142,7 @@ return function(C)
   hl['@constructor.javascript'] = { fg = C.yellow2 }
   hl['@constructor.lua'] = { fg = C.fg1 }
   hl['@constructor.typescript'] = { fg = C.yellow2 }
+  hl['@conditional.ternary.typescript'] = { fg = C.orange }
   hl['@enum'] = { fg = C.yellow2 }
   hl['@exception.rust'] = { fg = C.blue2 }
   hl['@field'] = { fg = C.blue1 }
@@ -201,7 +202,7 @@ return function(C)
   hl['@text'] = { fg = C.fg2 }
   hl['@text.emphasis'] = { italic = true, bold = true }
   hl['@text.literal'] = { fg = C.green, italic = true }
-  hl['@text.literal.markdown_inline'] = { bg = C.bg1, fg = C.green }
+  hl['@text.literal.markdown_inline'] = { bg = C.bg1, fg = C.fg2 }
   hl['@text.reference'] = { fg = C.cyan, underdotted = false }
   hl['@text.strong'] = { bold = true }
   hl['@text.title'] = { fg = C.fg2, bold = true }
