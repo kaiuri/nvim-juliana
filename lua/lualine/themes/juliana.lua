@@ -1,69 +1,32 @@
-local v = {
-    Background = {
-        default  = '#303841',
-        emphasis = '#2e353e',
-        muted    = '#3b454e'
-    },
-    Colors = {
-        Accent    = '#95b2d6',
-        Caution   = '#f9ae58',
-        Danger    = '#f97b58',
-        Error     = '#ec5f66',
-        Hint      = '#5fb4b4',
-        Important = '#fac761',
-        Info      = '#99c794',
-        Note      = '#5c99d6',
-        Trace     = '#cc8ec6',
-        Warn      = '#ee932b'
-    },
-    Foreground = {
-        default  = '#d8dee9',
-        emphasis = '#f7f7f7',
-        muted    = '#a6acb8',
-        surface  = '#46525c'
-    },
-    Shade = {
-        default  = '#2f373f',
-        emphasis = '#2e363e'
-    }
-}
-local fg = v.Foreground.default
-local bg = v.Background.muted
+local v = require 'nvim-juliana'.colors()
+local rest = { fg = v.fg2, bg = v.bg1 }
+
+--- Creates a table conforming to the lualine theme specification
+---@private
+---@param color string
+local function highlight(color)
+  return {
+    a = { bg = color, fg = v.bg3, gui = 'bold' },
+    b = rest,
+    c = rest,
+  }
+end
 
 return {
-    normal = {
-        a = { bg = v.Background.default, fg = v.Foreground.emphasis, gui = 'bold' },
-        b = { bg = bg, fg = fg },
-        c = { bg = bg, fg = fg },
-    },
-    insert = {
-        a = { bg = v.Colors.Info, fg = v.Background.emphasis, gui = 'bold' },
-        b = { bg = bg, fg = fg },
-        c = { bg = bg, fg = fg },
-    },
-    visual = {
-        a = { bg = v.Colors.Hint, fg = v.Background.emphasis, gui = 'bold' },
-        b = { bg = bg, fg = fg },
-        c = { bg = bg, fg = fg },
-    },
-    replace = {
-        a = { bg = v.Colors.Danger, fg = v.Background.emphasis, gui = 'bold' },
-        b = { bg = bg, fg = fg },
-        c = { bg = bg, fg = fg },
-    },
-    command = {
-        a = { bg = v.Colors.Warn, fg = v.Background.emphasis, gui = 'bold' },
-        b = { bg = bg, fg = fg },
-        c = { bg = bg, fg = fg },
-    },
-    terminal = {
-        a = { bg = v.Colors.Trace, fg = v.Background.emphasis, gui = 'bold' },
-        b = { bg = bg, fg = fg },
-        c = { bg = bg, fg = fg },
-    },
-    inactive = {
-        a = { bg = v.Background.muted, fg = v.Foreground.default },
-        b = { bg = bg, fg = fg },
-        c = { bg = bg, fg = fg },
-    },
+  normal = highlight(v.fg1),
+  insert = highlight(v.green),
+  visual = highlight(v.cyan),
+  replace = highlight(v.orange),
+  command = highlight(v.yellow3),
+  terminal = highlight(v.magenta),
+  active = {
+    a = { bg = v.bg2, fg = v.fg2, gui = 'bold' },
+    b = rest,
+    c = rest,
+  },
+  inactive = {
+    a = { bg = v.bg1, fg = v.fg2 },
+    b = rest,
+    c = rest,
+  },
 }
