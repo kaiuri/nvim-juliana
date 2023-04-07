@@ -19,34 +19,10 @@ Plug it with your favorite plugin manager.
 - [Packer](https://github.com/wbthomason/packer.nvim):
 
 ```lua
-use {
-  'kaiuri/nvim-juliana',
+use { 'kaiuri/nvim-juliana',
   config = function()
-    require('nvim-juliana').setup {
-      colors = {
-        bg1 = '#3b454e',
-        bg2 = '#303841',
-        bg3 = '#2e353e',
-        fg1 = '#ffffff',
-        fg2 = '#d8dee9',
-        fg3 = '#a6acb8',
-        fg4 = '#46525c',
-        shade1 = '#2f373f',
-        shade2 = '#2e363e',
-        blue1 = '#95b2d6',
-        blue2 = '#5c99d6',
-        cyan = '#5fb4b4',
-        green = '#99c794',
-        magenta = '#cc8ec6',
-        orange = '#f97b58',
-        red = '#ec5f66',
-        yellow1 = '#fac761',
-        yellow2 = '#f9ae58',
-        yellow3 = '#ee932b',
-      }
-
-    }
-  end,
+    require 'nvim-juliana'.setup { --[=[ configuration --]=] }
+  end
 }
 --- then
 vim.cmd 'colo juliana'
@@ -58,30 +34,36 @@ vim.cmd 'colo juliana'
 {
   'kaiuri/nvim-juliana',
   lazy = false,
-  opts = {
-    colors = {
-      bg1 = '#3b454e',
-      bg2 = '#303841',
-      bg3 = '#2e353e',
-      fg1 = '#ffffff',
-      fg2 = '#d8dee9',
-      fg3 = '#a6acb8',
-      fg4 = '#46525c',
-      shade1 = '#2f373f',
-      shade2 = '#2e363e',
-      blue1 = '#95b2d6',
-      blue2 = '#5c99d6',
-      cyan = '#5fb4b4',
-      green = '#99c794',
-      magenta = '#cc8ec6',
-      orange = '#f97b58',
-      red = '#ec5f66',
-      yellow1 = '#fac761',
-      yellow2 = '#f9ae58',
-      yellow3 = '#ee932b',
-    }
-  },
+  opts = { --[=[ configuration --]=] },
   config = true,
+}
+```
+
+### Configuration
+
+```lua
+require 'nvim-juliana'.setup {
+  colors = {
+    bg1 = '#3b454e',
+    bg2 = '#303841',
+    bg3 = '#2e353e',
+    fg1 = '#ffffff',
+    fg2 = '#d8dee9',
+    fg3 = '#a6acb8',
+    fg4 = '#46525c',
+    shade1 = '#2f373f',
+    shade2 = '#2e363e',
+    blue1 = '#95b2d6',
+    blue2 = '#5c99d6',
+    cyan = '#5fb4b4',
+    green = '#99c794',
+    magenta = '#cc8ec6',
+    orange = '#f97b58',
+    red = '#ec5f66',
+    yellow1 = '#fac761',
+    yellow2 = '#f9ae58',
+    yellow3 = '#ee932b',
+  }
 }
 ```
 
@@ -123,9 +105,3 @@ require('nvim-juliana').colors()
 ## Credits
 
 - [Mariana - Sublime HQ Pty Ltd, Dmitri Voronianski](http://www.sublimetext.com/).
-
----
-
-# NOTICE
-
-Branch `dev` has been moved to its own repository at [**onigiri.nvim**](https://github.com/kaiuri/onigiri.nvim).
