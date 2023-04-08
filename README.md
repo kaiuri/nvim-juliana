@@ -112,7 +112,7 @@ require('nvim-juliana').colors()
 ## Credits
 
 - [Mariana - Sublime HQ Pty Ltd, Dmitri Voronianski](http://www.sublimetext.com/).
-- [twolfson/sublime-files](https://github.com/twolfson/sublime-files)
+- [Todd Wolfson](https://github.com/twolfson/sublime-files) for the initial color palette.
 
 ## Screenshot
 
