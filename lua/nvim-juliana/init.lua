@@ -5,6 +5,7 @@ local theme = require('nvim-juliana.theme')
 local DEFAULT = {
   ---@class Colors
   colors = {
+    -- suggested Visual highlight #4b5864
     bg1 = '#3b454e',
     bg2 = '#303841',
     bg3 = '#2e353e',
