@@ -1,6 +1,5 @@
-column_width = 100
-line_endings = "Unix"
-indent_type = "Spaces"
+column_width = 80
 indent_width = 4
-quote_style = "AutoPreferSingle"
-call_parentheses = "NoSingleTable"
+call_parentheses = "None"
+collapse_simple_statement = "Always"
+
