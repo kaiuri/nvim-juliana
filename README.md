@@ -1,16 +1,23 @@
-<img src="https://user-images.githubusercontent.com/19148108/216947306-96371fa0-61be-4f3b-832a-60efcadc8859.jpg" width="98%">
-
 # nvim-juliana
 
 Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support.
 
-## Screenshots
+## Palette
 
-<img src="https://user-images.githubusercontent.com/19148108/216946234-54587fc1-d4cc-460e-b207-bab421b60a23.png" width="98%">
+|                                                          |  name  |    hex    |                                                          |  name   |    hex    |
+| :------------------------------------------------------: | :----: | :-------: | :------------------------------------------------------: | :-----: | :-------: |
+| ![#2e363e](https://placehold.co/15x15/2e363e/2e363e.png) | shade2 | `#2e363e` | ![#95b2d6](https://placehold.co/15x15/95b2d6/95b2d6.png) |  blue1  | `#95b2d6` |
+| ![#2f373f](https://placehold.co/15x15/2f373f/2f373f.png) | shade1 | `#2f373f` | ![#5c99d6](https://placehold.co/15x15/5c99d6/5c99d6.png) |  blue2  | `#5c99d6` |
+| ![#2e353e](https://placehold.co/15x15/2e353e/2e353e.png) |  bg3   | `#2e353e` | ![#5fb4b4](https://placehold.co/15x15/5fb4b4/5fb4b4.png) |  cyan   | `#5fb4b4` |
+| ![#303841](https://placehold.co/15x15/303841/303841.png) |  bg2   | `#303841` | ![#99c794](https://placehold.co/15x15/99c794/99c794.png) |  green  | `#99c794` |
+| ![#3b454e](https://placehold.co/15x15/3b454e/3b454e.png) |  bg1   | `#3b454e` | ![#cc8ec6](https://placehold.co/15x15/cc8ec6/cc8ec6.png) | magenta | `#cc8ec6` |
+| ![#46525c](https://placehold.co/15x15/46525c/46525c.png) |  fg4   | `#46525c` | ![#f97b58](https://placehold.co/15x15/f97b58/f97b58.png) | orange  | `#f97b58` |
+| ![#a6acb8](https://placehold.co/15x15/a6acb8/a6acb8.png) |  fg3   | `#a6acb8` | ![#ec5f66](https://placehold.co/15x15/ec5f66/ec5f66.png) |   red   | `#ec5f66` |
+| ![#d8dee9](https://placehold.co/15x15/d8dee9/d8dee9.png) |  fg2   | `#d8dee9` | ![#fac761](https://placehold.co/15x15/fac761/fac761.png) | yellow1 | `#fac761` |
+| ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) |  fg1   | `#ffffff` | ![#f9ae58](https://placehold.co/15x15/f9ae58/f9ae58.png) | yellow2 | `#f9ae58` |
+|                                                          |        |           | ![#ee932b](https://placehold.co/15x15/ee932b/ee932b.png) | yellow3 | `#ee932b` |
 
-## Usage
-
-### Installation
+## Installation
 
 Requirements: `NVIM v0.9.0-dev`.
 
@@ -39,7 +46,7 @@ vim.cmd 'colo juliana'
 }
 ```
 
-### Configuration
+## Configuration
 
 ```lua
 require 'nvim-juliana'.setup {
@@ -105,3 +112,8 @@ require('nvim-juliana').colors()
 ## Credits
 
 - [Mariana - Sublime HQ Pty Ltd, Dmitri Voronianski](http://www.sublimetext.com/).
+- [twolfson/sublime-files](https://github.com/twolfson/sublime-files)
+
+## Screenshot
+
+<img src="https://user-images.githubusercontent.com/19148108/216946234-54587fc1-d4cc-460e-b207-bab421b60a23.png" width="98%">
