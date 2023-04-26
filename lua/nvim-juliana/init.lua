@@ -23,7 +23,7 @@ function M:load(func)
     vim.cmd('hi clear')
   end
   vim.cmd('set t_Co=256')
-  vim.g.colors_name = 'kaiurin'
+  vim.g.colors_name = 'juliana'
 
   local colorscheme = func(self.config.colors)
   local nvim_set_hl = vim.api.nvim_set_hl
