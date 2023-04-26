@@ -153,6 +153,7 @@ return function(C)
     { '@include',                              text_magenta_italic },
     { '@interface',                            { fg = C.yellow2 } },
     { '@keyword',                              text_magenta_italic },
+    { '@keyword.lua',                          text_red },
     { '@keyword.function',                     text_magenta_italic },
     { '@keyword.function.python',              { fg = C.red2, italic = true } },
     { '@keyword.operator',                     text_orange },
