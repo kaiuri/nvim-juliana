@@ -86,6 +86,10 @@ require 'nvim-juliana'.setup {
 require('nvim-juliana').colors()
 ```
 
+### Examples
+
+Check the [wiki](https://github.com/kaiuri/nvim-juliana/wiki/Wiki#configuration-examples).
+
 ## Plugin Support - non-exhaustive list
 
 - [coc-nvim](https://github.com/neoclide/coc.nvim)
