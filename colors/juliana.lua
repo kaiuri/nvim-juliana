@@ -1,1 +1,1 @@
-require('nvim-juliana').load()
+require('nvim-juliana'):load()
