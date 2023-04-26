@@ -1,31 +1,31 @@
-local v = require 'nvim-juliana'.colors()
-local rest = { fg = v.fg2, bg = v.bg1 }
+---@type Colors
+local colors = require 'nvim-juliana'.colors()
+local rest = { fg = colors.fg2, bg = colors.bg3 }
 
 --- Creates a table conforming to the lualine theme specification
 ---@private
 ---@param color string
 local function highlight(color)
   return {
-    a = { bg = color, fg = v.bg3, gui = 'bold' },
+    a = { fg = color, bg = colors.bg2, gui = 'bold' },
     b = rest,
     c = rest,
   }
 end
-
 return {
-  normal = highlight(v.fg1),
-  insert = highlight(v.green),
-  visual = highlight(v.cyan),
-  replace = highlight(v.orange),
-  command = highlight(v.yellow3),
-  terminal = highlight(v.magenta),
+  normal = highlight(colors.fg1),
+  insert = highlight(colors.green),
+  visual = highlight(colors.cyan2),
+  replace = highlight(colors.red2),
+  command = highlight(colors.yellow2),
+  terminal = highlight(colors.magenta),
   active = {
-    a = { bg = v.bg2, fg = v.fg2, gui = 'bold' },
+    a = { bg = colors.bg3, fg = colors.fg2, gui = 'bold' },
     b = rest,
     c = rest,
   },
   inactive = {
-    a = { bg = v.bg1, fg = v.fg2 },
+    a = { bg = colors.bg2, fg = colors.fg3 },
     b = rest,
     c = rest,
   },
