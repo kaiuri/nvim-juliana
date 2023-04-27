@@ -2,7 +2,10 @@
 
 Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support.
 
-## Palette
+<details>
+<summary><h2>📸 Screenshot</h2></summary>
+<img src="https://user-images.githubusercontent.com/19148108/216946234-54587fc1-d4cc-460e-b207-bab421b60a23.png" width="80%"/>
+</details>
 
 |                                                          |  name  |    hex    |                                                          |  name   |    hex    |
 | :------------------------------------------------------: | :----: | :-------: | :------------------------------------------------------: | :-----: | :-------: |
@@ -17,13 +20,16 @@ Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tr
 | ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) |  fg1   | `#ffffff` | ![#f9ae58](https://placehold.co/15x15/f9ae58/f9ae58.png) | yellow2 | `#f9ae58` |
 |                                                          |        |           | ![#ee932b](https://placehold.co/15x15/ee932b/ee932b.png) | yellow3 | `#ee932b` |
 
-## Installation
+## ⚡️ Requirements
 
-Requirements: `NVIM v0.9.0-dev`.
+- `NVIM v0.10.0-dev`.
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter) - For better syntax highlighting.
+
+## 📦 Installation
 
 Plug it with your favorite plugin manager.
 
-- [Packer](https://github.com/wbthomason/packer.nvim):
+- [Packer](https://github.com/wbthomason/packer.nvim)
 
 ```lua
 use { 'kaiuri/nvim-juliana',
@@ -46,10 +52,10 @@ vim.cmd 'colo juliana'
 }
 ```
 
-## Configuration
+## 🛠 Configuration
 
 ```lua
-require 'nvim-juliana'.setup {
+{
   colors = {
     bg1          = '#444e59',
     bg2          = '#303841',
@@ -80,17 +86,67 @@ require 'nvim-juliana'.setup {
 }
 ```
 
-- Palette
+To get the theme's palette, you can use the `colors()` function:
 
 ```lua
 require('nvim-juliana').colors()
 ```
 
-### Examples
+## 🎨 Examples
 
-Check the [wiki](https://github.com/kaiuri/nvim-juliana/wiki/Wiki#configuration-examples).
+You can also set it to use other palettes like, for example:
 
-## Plugin Support - non-exhaustive list
+<details><summary><h4>Gruvbox</h4></summary>
+
+```lua
+---@generic K: "light" | "dark"
+---@param mode K
+local gruvbox = function(mode)
+  ---@param tbl table<`K`, string>
+  ---@return string
+  local function pick(tbl)
+    return tbl[mode]
+  end
+  return {
+    bg1          = pick { light = '#fff7d5', dark = '#32302e' },
+    bg2          = pick { light = '#fff5cb', dark = '#282828' },
+    bg3          = pick { light = '#fff2bc', dark = '#242424' },
+    blue1        = pick { light = '#076578', dark = '#83a598' },
+    blue2        = pick { light = '#074f78', dark = '#458588' },
+    cyan1        = pick { light = '#689d69', dark = '#8ec07c' },
+    cyan2        = pick { light = '#23693e', dark = '#689d6a' },
+    diff_add     = pick { light = '#c6bd89', dark = '#343427' },
+    diff_change  = pick { light = '#cdd3c3', dark = '#3e3428' },
+    diff_remove  = pick { light = '#eac4a9', dark = '#3c2828' },
+    diff_text    = pick { light = '#ffe789', dark = '#32302e' },
+    fg1          = pick { light = '#282828', dark = '#fff5cb' },
+    fg2          = pick { light = '#353535', dark = '#ebdbb2' },
+    fg3          = pick { light = '#797467', dark = '#928374' },
+    fg4          = pick { light = '#938e80', dark = '#665c54' },
+    green        = pick { light = '#228b22', dark = '#a8a920' },
+    magenta      = pick { light = '#8f3f71', dark = '#c2748f' },
+    orange       = pick { light = '#f71d05', dark = '#fb4834' },
+    red1         = pick { light = '#cc241d', dark = '#d44333' },
+    red2         = pick { light = '#9d0006', dark = '#cc231d' },
+    selection_bg = pick { light = '#ffeda3', dark = '#423d39' },
+    text_fg      = pick { light = '#282828', dark = '#eadbb5' },
+    yellow1      = pick { light = '#cba200', dark = '#fabd2f' },
+    yellow2      = pick { light = '#ab7b1a', dark = '#e8ab28' },
+    yellow3      = pick { light = '#996814', dark = '#d79a21' },
+  }
+end
+
+require('nvim-juliana').setup (
+  { colors = gruvbox('dark') }
+)
+vim.cmd.colorscheme 'juliana'
+```
+
+</details>
+
+<img src="https://user-images.githubusercontent.com/19148108/234592580-8e51c824-66be-4072-a4fa-99e1897203cc.png" width="50%" />
+
+## 🧩 Plugin Support
 
 - [coc-nvim](https://github.com/neoclide/coc.nvim)
 - [fennel.vim](https://github.com/bakpakin/fennel.vim)
@@ -108,11 +164,11 @@ Check the [wiki](https://github.com/kaiuri/nvim-juliana/wiki/Wiki#configuration-
 - [vim-sneak](https://github.com/justinmk/vim-sneak)
 - and more...
 
-## Extras
+## 🛒 Extras
 
 - Alacritty: There's a theme for [Alacritty](https://github.com/alacritty/alacritty/) available at [extras](./extras/juliana_alacritty.yml).
 
-## Contributing
+## 📜 Contributing
 
 - If any language is being poorly supported, please make a new issue attached with an image of how that language looks on Sublime-Text.
 - If a plugin you use isn't rightly supported, please, make a new issue attached with a link to said plugin and I'll do my best to support it.
@@ -122,8 +178,4 @@ Check the [wiki](https://github.com/kaiuri/nvim-juliana/wiki/Wiki#configuration-
 ## Credits
 
 - [Mariana - Sublime HQ Pty Ltd, Dmitri Voronianski](http://www.sublimetext.com/).
-- [Todd Wolfson](https://github.com/twolfson/sublime-files) for the initial palette.
-
-## Screenshot
-
-<img src="https://user-images.githubusercontent.com/19148108/216946234-54587fc1-d4cc-460e-b207-bab421b60a23.png" width="98%">
+- [Todd Wolfson](https://github.com/twolfson/sublime-files) for the initial [palette](https://github.com/twolfson/sublime-files/blob/master/Packages/Color%20Scheme%20-%20Default/Mariana.sublime-color-scheme).
