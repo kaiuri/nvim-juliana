@@ -4,10 +4,28 @@ Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tr
 
 <details>
 <summary><h2>📸 Screenshot</h2></summary>
-<img src="https://user-images.githubusercontent.com/19148108/216946234-54587fc1-d4cc-460e-b207-bab421b60a23.png" width="80%"/>
+
+<img src="https://user-images.githubusercontent.com/19148108/235299782-66a8165d-3390-4b74-b0ed-67df308e3f3e.png" width="70%" alt="mariana" />
+<!--
+<table>
+  <tbody>
+    <tr class="mariana">
+      <img src="https://user-images.githubusercontent.com/19148108/235299782-66a8165d-3390-4b74-b0ed-67df308e3f3e.png"
+        width="50%" alt="mariana" />
+    </tr>
+    <tr class="breakers">
+      <img
+          src="https://user-images.githubusercontent.com/19148108/235299774-9d19818e-c41f-4f1b-b3b4-35505f392975.png"
+          width="50%" alt="breakers" />
+    </tr>
+  </tbody>
+</table>
+-->
+
 </details>
 
-<!--#region: palette-->
+<details>
+<summary><h2>🎨 Palette</h2></summary>
 
 | name        |                           hex                            | name         |                           hex                            |
 | :---------- | :------------------------------------------------------: | :----------- | :------------------------------------------------------: |
@@ -24,7 +42,7 @@ Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tr
 | blue1       | ![#95b2d6](https://placehold.co/15x15/95b2d6/95b2d6.png) | blue2        | ![#5c99d6](https://placehold.co/15x15/5c99d6/5c99d6.png) |
 | cyan1       | ![#87c7c7](https://placehold.co/15x15/87c7c7/87c7c7.png) | cyan2        | ![#5fb4b4](https://placehold.co/15x15/5fb4b4/5fb4b4.png) |
 
-<!--#endregion-->
+</details>
 
 ## ⚡️ Requirements
 
@@ -58,7 +76,8 @@ vim.cmd 'colo juliana'
 }
 ```
 
-## 🛠 Configuration
+<details>
+<summary><h2>🛠 Configuration</h2></summary>
 
 ```lua
 {
@@ -98,11 +117,17 @@ To get the theme's palette, you can use the `colors()` function:
 require('nvim-juliana').colors()
 ```
 
+</details>
+
 ## 🎨 Examples
 
 You can also set it to use other palettes like, for example:
 
-<details><summary><h4>Gruvbox</h4></summary>
+<details><summary><h3>Gruvbox</h3></summary>
+
+<details>
+
+<summary>snippet</summary>
 
 ```lua
 ---@generic K: "light" | "dark"
@@ -150,9 +175,23 @@ vim.cmd.colorscheme 'juliana'
 
 </details>
 
-<img src="https://user-images.githubusercontent.com/19148108/234592580-8e51c824-66be-4072-a4fa-99e1897203cc.png" width="50%" />
+<table>
+  <tbody>
+    <tr class="gruvbox_dark">
+      <img src="https://user-images.githubusercontent.com/19148108/235299780-fac5d700-8f00-49f5-877f-c327815114f5.png"
+        alt="gruvbox_dark" width="50%" />
+    </tr>
+    <tr class="gruvbox_light">
+      <img src="https://user-images.githubusercontent.com/19148108/235299781-dfc4d41f-7603-43ee-865a-0eb7d446d1bd.png"
+        alt="gruvbox_light" width="50%" />
+    </tr>
+  </tbody>
+</table>
 
-## 🧩 Plugin Support
+</details>
+
+<details>
+<summary><h2>🧩 Plugin Support</h2></summary>
 
 - [coc-nvim](https://github.com/neoclide/coc.nvim)
 - [fennel.vim](https://github.com/bakpakin/fennel.vim)
@@ -169,6 +208,8 @@ vim.cmd.colorscheme 'juliana'
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
 - [vim-sneak](https://github.com/justinmk/vim-sneak)
 - and more...
+
+</details>
 
 ## 🛒 Extras
 
