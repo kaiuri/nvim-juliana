@@ -7,18 +7,24 @@ Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tr
 <img src="https://user-images.githubusercontent.com/19148108/216946234-54587fc1-d4cc-460e-b207-bab421b60a23.png" width="80%"/>
 </details>
 
-|                                                          |  name  |    hex    |                                                          |  name   |    hex    |
-| :------------------------------------------------------: | :----: | :-------: | :------------------------------------------------------: | :-----: | :-------: |
-| ![#2e363e](https://placehold.co/15x15/2e363e/2e363e.png) | shade2 | `#2e363e` | ![#95b2d6](https://placehold.co/15x15/95b2d6/95b2d6.png) |  blue1  | `#95b2d6` |
-| ![#2f373f](https://placehold.co/15x15/2f373f/2f373f.png) | shade1 | `#2f373f` | ![#5c99d6](https://placehold.co/15x15/5c99d6/5c99d6.png) |  blue2  | `#5c99d6` |
-| ![#2e353e](https://placehold.co/15x15/2e353e/2e353e.png) |  bg3   | `#2e353e` | ![#5fb4b4](https://placehold.co/15x15/5fb4b4/5fb4b4.png) |  cyan   | `#5fb4b4` |
-| ![#303841](https://placehold.co/15x15/303841/303841.png) |  bg2   | `#303841` | ![#99c794](https://placehold.co/15x15/99c794/99c794.png) |  green  | `#99c794` |
-| ![#3b454e](https://placehold.co/15x15/3b454e/3b454e.png) |  bg1   | `#3b454e` | ![#cc8ec6](https://placehold.co/15x15/cc8ec6/cc8ec6.png) | magenta | `#cc8ec6` |
-| ![#46525c](https://placehold.co/15x15/46525c/46525c.png) |  fg4   | `#46525c` | ![#f97b58](https://placehold.co/15x15/f97b58/f97b58.png) | orange  | `#f97b58` |
-| ![#a6acb8](https://placehold.co/15x15/a6acb8/a6acb8.png) |  fg3   | `#a6acb8` | ![#ec5f66](https://placehold.co/15x15/ec5f66/ec5f66.png) |   red   | `#ec5f66` |
-| ![#d8dee9](https://placehold.co/15x15/d8dee9/d8dee9.png) |  fg2   | `#d8dee9` | ![#fac761](https://placehold.co/15x15/fac761/fac761.png) | yellow1 | `#fac761` |
-| ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) |  fg1   | `#ffffff` | ![#f9ae58](https://placehold.co/15x15/f9ae58/f9ae58.png) | yellow2 | `#f9ae58` |
-|                                                          |        |           | ![#ee932b](https://placehold.co/15x15/ee932b/ee932b.png) | yellow3 | `#ee932b` |
+<!--#region: palette-->
+
+|                           hex                            | name        |                           hex                            | name         |
+| :------------------------------------------------------: | :---------- | :------------------------------------------------------: | :----------- |
+| ![#ffffff](https://placehold.co/15x15/ffffff/ffffff.png) | fg1         | ![#d8dee9](https://placehold.co/15x15/d8dee9/d8dee9.png) | fg2          |
+| ![#a6acb9](https://placehold.co/15x15/a6acb9/a6acb9.png) | fg3         | ![#46525c](https://placehold.co/15x15/46525c/46525c.png) | fg4          |
+| ![#444e59](https://placehold.co/15x15/444e59/444e59.png) | bg1         | ![#3f4750](https://placehold.co/15x15/3f4750/3f4750.png) | selection_bg |
+| ![#303841](https://placehold.co/15x15/303841/303841.png) | bg2         | ![#2e353e](https://placehold.co/15x15/2e353e/2e353e.png) | bg3          |
+| ![#373f48](https://placehold.co/15x15/373f48/373f48.png) | diff_text   | ![#585249](https://placehold.co/15x15/585249/585249.png) | diff_change  |
+| ![#4f434a](https://placehold.co/15x15/4f434a/4f434a.png) | diff_remove | ![#d9d9d9](https://placehold.co/15x15/d9d9d9/d9d9d9.png) | text_fg      |
+| ![#fac761](https://placehold.co/15x15/fac761/fac761.png) | yellow1     | ![#f9ae58](https://placehold.co/15x15/f9ae58/f9ae58.png) | yellow2      |
+| ![#ee932b](https://placehold.co/15x15/ee932b/ee932b.png) | yellow3     | ![#99c794](https://placehold.co/15x15/99c794/99c794.png) | green        |
+| ![#c695c6](https://placehold.co/15x15/c695c6/c695c6.png) | magenta     | ![#f97b58](https://placehold.co/15x15/f97b58/f97b58.png) | orange       |
+| ![#c76b70](https://placehold.co/15x15/c76b70/c76b70.png) | red1        | ![#ec5f66](https://placehold.co/15x15/ec5f66/ec5f66.png) | red2         |
+| ![#95b2d6](https://placehold.co/15x15/95b2d6/95b2d6.png) | blue1       | ![#5c99d6](https://placehold.co/15x15/5c99d6/5c99d6.png) | blue2        |
+| ![#87c7c7](https://placehold.co/15x15/87c7c7/87c7c7.png) | cyan1       | ![#5fb4b4](https://placehold.co/15x15/5fb4b4/5fb4b4.png) | cyan2        |
+
+<!--#endregion-->
 
 ## ⚡️ Requirements
 
