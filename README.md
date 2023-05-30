@@ -5,7 +5,7 @@ Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tr
 <details>
 <summary><h2>📸 Screenshot</h2></summary>
 
-<img src="https://user-images.githubusercontent.com/19148108/235299782-66a8165d-3390-4b74-b0ed-67df308e3f3e.png" width="70%" alt="mariana" />
+<img src="https://github.com/kaiuri/nvim-juliana/assets/19148108/e287e3da-661b-4aef-aacd-dd823021aae6" width="70%" alt="mariana" />
 <!--
 <table>
   <tbody>
