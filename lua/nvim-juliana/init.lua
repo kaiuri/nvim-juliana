@@ -1,6 +1,12 @@
+local DEFAULT = require 'nvim-juliana.defaults'
 local theme = require('nvim-juliana.theme')
 
-local DEFAULT = require 'nvim-juliana.defaults'
+local nvim_set_hl = vim.api.nvim_set_hl
+---@param group string
+---@param style table<string, any>
+local highlight = function(group, style)
+  nvim_set_hl(0, group, style)
+end
 
 ---@class Juliana
 local M = setmetatable({ config = DEFAULT }, {})
@@ -14,23 +20,14 @@ M.setup = function(config)
 end
 
 --- Loads the theme
----@param func? fun(theme: Colors): {[string]: table<string, any>?} # Function that returns a table of highlight<br> groups and their respective definitions
 ---@return nil
-function M:load(func)
-  func = func or theme
-
+function M:load()
   if vim.g.colors_name then
     vim.cmd('hi clear')
   end
   vim.cmd('set t_Co=256')
   vim.g.colors_name = 'juliana'
-
-  local colorscheme = func(self.config.colors)
-  local nvim_set_hl = vim.api.nvim_set_hl
-
-  for _, v in ipairs(colorscheme) do
-    nvim_set_hl(0, v[1], v[2])
-  end
+  local colorscheme = theme(self.config.colors, highlight)
 end
 
 ---@return Colors

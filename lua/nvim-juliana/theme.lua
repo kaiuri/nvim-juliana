@@ -1,8 +1,9 @@
 --- Generates a table of Highlight groups and their respective definitions
 ---@private
 ---@param C Colors
----@return {[1]: string, [2]: table<string, any>? }[]
-return function(C)
+---@param highlight fun(group: string, style: table<string, any>): nil
+---@return nil
+return function(C, highlight)
   local default             = { fg = C.fg2, bg = C.bg2 }
   local floatingWindow      = { bg = C.bg3 }
   local muted               = { fg = C.fg3 }
@@ -24,505 +25,503 @@ return function(C)
   local current_line        = { fg = C.fg1, bg = C.selection_bg }
   local search              = { fg = C.bg3, bg = C.yellow1, bold = true }
   local text_blue           = { fg = C.blue2 }
-  return {
-    { 'Normal',                                default },
-    { 'Visual',                                selection },
-    { 'NormalFloat',                           floatingWindow },
-    { 'FloatBorder',                           text_faded },
-    { 'Pmenu',                                 floatingWindow },
-    { 'PmenuSel',                              ui_select },
-    { 'PmenuSbar',                             ui_thumb },
-    { 'PmenuThumb',                            text_selected },
-    { 'NonText',                               text_faded },
-    { 'Whitespace',                            text_faded },
-    { 'Conceal',                               text_faded },
-    { 'WinSeparator',                          text_faded },
-    { 'VertSplit',                             text_faded },
-    { 'CursorLineNr',                          current_line },
-    { 'CursorLine',                            selection },
-    { 'CursorColumn',                          selection },
-    { 'ColorColumn',                           selection },
-    { 'SignColumn',                            default },
-    { 'CursorLineFold',                        default },
-    { 'LineNr',                                current_line },
-    { 'LineNrAbove',                           muted },
-    { 'LineNrBelow',                           muted },
-    { 'DiffAdd',                               { fg = 'NONE', bg = C.diff_add } },
-    { 'DiffChange',                            { fg = 'NONE', bg = C.diff_change } },
-    { 'DiffDelete',                            { fg = 'NONE', bg = C.diff_remove } },
-    { 'DiffText',                              { fg = 'NONE', bg = C.diff_text } },
-    { 'Directory',                             text_cyan },
-    { 'EndOfBuffer',                           text_faded },
-    { 'Error',                                 text_orange },
-    { 'ErrorMsg',                              text_red },
-    { 'Folded',                                muted },
-    { 'FoldColumn',                            muted },
-    { 'ModeMsg',                               { fg = C.fg2 } },
-    { 'MoreMsg',                               text_emphasis },
-    { 'Question',                              { fg = C.magenta } },
-    { 'Search',                                search },
-    { 'IncSearch',                             search },
-    { 'Substitute',                            search },
-    { 'SpellBad',                              { sp = C.red2, undercurl = true } },
-    { 'SpellCap',                              { sp = C.yellow2, undercurl = true } },
-    { 'SpellLocal',                            { sp = C.cyan2, undercurl = true } },
-    { 'SpellRare',                             { sp = C.magenta, undercurl = true } },
-    { 'StatusLine',                            { fg = C.fg2, bg = C.bg1 } },
-    { 'StatusLineNC',                          { fg = C.fg2, bg = C.bg3 } },
-    { 'TabLine',                               { fg = C.fg2, bg = C.bg1 } },
-    { 'TabLineFill',                           { fg = C.fg3, bg = C.bg1 } },
-    { 'TabLineSel',                            default },
-    { 'WarningMsg',                            { fg = C.yellow3, bg = C.bg3 } },
-    { 'WildMenu',                              floatingWindow },
-    { 'MatchParen',                            { bold = true } },
-    { 'DiagnosticError',                       { fg = C.red1, bg = 'NONE' } },
-    { 'DiagnosticSignError',                   { fg = C.red1, bold = true, bg = 'NONE' } },
-    { 'DiagnosticUnderlineError',              {} },
-    { 'DiagnosticVirtualTextError',            { fg = C.red1, bg = 'NONE' } },
-    { 'DiagnosticHint',                        { fg = C.cyan1, bg = 'NONE' } },
-    { 'DiagnosticSignHint',                    { fg = C.cyan1, bold = true, bg = 'NONE' } },
-    { 'DiagnosticUnderlineHint',               {} },
-    { 'DiagnosticVirtualTextHint',             { fg = C.cyan1, bg = 'NONE' } },
-    { 'DiagnosticInfo',                        { fg = C.green, bg = 'NONE' } },
-    { 'DiagnosticSignInfo',                    { fg = C.green, bold = true, bg = 'NONE' } },
-    { 'DiagnosticUnderlineInfo',               {} },
-    { 'DiagnosticVirtualTextInfo',             { fg = C.green, bg = 'NONE' } },
-    { 'DiagnosticWarn',                        { fg = C.yellow1, bg = 'NONE' } },
-    { 'DiagnosticSignWarn',                    { fg = C.yellow1, bold = true, bg = 'NONE' } },
-    { 'DiagnosticUnderlineWarn',               {} },
-    { 'DiagnosticVirtualTextWarn',             { fg = C.yellow1, bg = 'NONE' } },
-    { 'Boolean',                               { fg = C.red2, italic = true } },
-    { 'Character',                             text_green },
-    { 'Comment',                               muted },
-    { 'SpecialComment',                        muted },
-    { 'Conditional',                           text_magenta_italic },
-    { 'Constant',                              text_red },
-    { 'Define',                                text_magenta_italic },
-    { 'Delimiter',                             muted },
-    { 'Float',                                 { fg = C.yellow1 } },
-    { 'Function',                              text_magenta_italic },
-    { 'Identifier',                            { fg = C.fg2 } },
-    { 'Include',                               text_red },
-    { 'Keyword',                               text_magenta_italic },
-    { 'Label',                                 text_cyan },
-    { 'Macro',                                 text_cyan },
-    { 'Number',                                { fg = C.yellow1 } },
-    { 'Operator',                              text_orange },
-    { 'PreCondit',                             text_red },
-    { 'PreProc',                               text_cyan },
-    { 'Repeat',                                text_magenta_italic },
-    { 'Special',                               text_cyan },
-    { 'SpecialChar',                           text_cyan },
-    { 'SpecialKey',                            text_cyan },
-    { 'Statement',                             { fg = C.fg2 } },
-    { 'StorageClass',                          text_red },
-    { 'String',                                { fg = C.green, italic = true } },
-    { 'Exception',                             text_magenta_italic },
-    { 'Struct',                                text_red },
-    { 'Structure',                             text_yellow },
-    { 'Tag',                                   text_red },
-    { 'Title',                                 ui_title },
-    { 'Todo',                                  { fg = C.blue2, bold = true } },
-    { 'Type',                                  text_yellow },
-    { 'Typedef',                               text_yellow },
-    { 'Underlined',                            { underdotted = true } },
-    { '@boolean',                              { fg = C.red2, italic = true } },
-    { '@character',                            text_cyan },
-    { '@character.special',                    text_cyan },
-    { '@comment',                              muted },
-    { '@conditional',                          text_magenta_italic },
-    { '@constant',                             text_emphasis },
-    { '@constant.builtin',                     { fg = C.fg2, italic = true } },
-    { '@constant.macro',                       text_magenta_italic },
-    { '@constructor.javascript',               { fg = C.yellow2 } },
-    { '@constructor.lua',                      text_emphasis },
-    { '@constructor.typescript',               { fg = C.yellow2 } },
-    { '@conditional.ternary.typescript',       text_orange },
-    { '@enum',                                 { fg = C.yellow2 } },
-    { '@exception.rust',                       text_blue },
-    { '@field',                                { fg = C.blue1 } },
-    { '@field.toml',                           text_red },
-    { '@field.yaml',                           text_cyan },
-    { '@float',                                { fg = C.yellow1 } },
-    { '@function',                             text_cyan },
-    { '@function.builtin',                     { fg = C.blue2, italic = true } },
-    { '@function.call',                        text_blue },
-    { '@function.css',                         text_blue },
-    { '@function.macro',                       text_blue },
-    { '@function.macro.commonlisp',            text_red },
-    { '@include',                              text_magenta_italic },
-    { '@interface',                            { fg = C.yellow2 } },
-    { '@keyword',                              text_magenta_italic },
-    { '@keyword.lua',                          text_red },
-    { '@keyword.function',                     text_magenta_italic },
-    { '@keyword.function.python',              { fg = C.red2, italic = true } },
-    { '@keyword.operator',                     text_orange },
-    { '@keyword.return',                       text_magenta_italic },
-    { '@keyword.coroutine',                    text_red },
-    { '@label',                                text_cyan },
-    { '@label.json',                           text_cyan },
-    { '@label.toml',                           text_cyan },
-    { '@label.vim',                            { fg = C.blue1 } },
-    { '@method',                               text_cyan },
-    { '@method.call',                          text_blue },
-    { '@namespace',                            { fg = C.yellow2 } },
-    { '@number',                               { fg = C.yellow1 } },
-    { '@number.bash',                          { fg = C.yellow2 } },
-    { '@operator',                             text_orange },
-    { '@parameter',                            { fg = C.fg2 } },
-    { '@parameter.bash',                       { fg = C.fg2 } },
-    { '@parameter.reference',                  { fg = C.fg2 } },
-    { '@preproc',                              text_cyan },
-    { '@property',                             { fg = C.blue1 } },
-    { '@property.toml',                        text_cyan },
-    { '@punctuation.delimiter',                text_cyan },
-    { '@punctuation.bracket',                  { fg = C.fg2 } },
-    { '@punctuation.delimiter.python',         text_emphasis },
-    { '@punctuation.delimiter.yaml',           text_blue },
-    { '@punctuation.special',                  text_cyan },
-    { '@punctuation.special.markdown',         { fg = C.orange, bold = false } },
-    { '@repeat',                               text_magenta_italic },
-    { '@repeat.python',                        text_red },
-    { '@storageclass',                         text_red },
-    { '@storageclass.lifetime',                text_cyan },
-    { '@string',                               { fg = C.green, italic = true } },
-    { '@string.delimiter',                     text_cyan },
-    { '@string.escape',                        text_cyan },
-    { '@string.regex',                         text_cyan },
-    { '@string.special',                       text_cyan },
-    { '@symbol',                               text_cyan },
-    { '@tag',                                  text_red },
-    { '@tag.attribute',                        text_magenta },
-    { '@tag.delimiter',                        text_cyan },
-    { '@tag.delimiter.markdown',               text_blue },
-    { '@tag.delimiter.markdown_inline',        text_blue },
-    { '@tag.rust',                             text_cyan },
-    { '@tag.rust.lua',                         text_cyan },
-    { '@text',                                 { fg = C.text_fg } },
-    { '@text.emphasis',                        { italic = true, bold = true } },
-    { '@text.literal',                         { fg = C.green, italic = true } },
-    { '@text.literal.markdown_inline',         { bg = C.bg1, fg = C.fg2 } },
-    { '@text.reference',                       { fg = C.cyan2, underdotted = false } },
-    { '@text.strong',                          { bold = true } },
-    { '@text.title',                           ui_title },
-    { '@text.underline',                       { underline = true } },
-    { '@text.uri',                             { fg = C.blue2, underdotted = true } },
-    { '@type',                                 { fg = C.yellow2 } },
-    { '@type.builtin',                         { fg = C.blue2, italic = true } },
-    { '@type.definition',                      { fg = C.yellow2 } },
-    { '@type.qualifier',                       text_red },
-    { '@variable',                             { fg = C.fg2 } },
-    { '@variable.builtin',                     { fg = C.fg2, italic = true } },
-    { '@variable.builtin.clojure',             { fg = C.fg2, italic = true } },
-    { '@variable.builtin.javascript',          { fg = C.fg2, italic = true } },
-    { 'gitCommitSelectedFile',                 { italic = true } },
-    { 'gitCommitSummary',                      { bold = true } },
-    { 'gitCommitTrailerToken',                 text_magenta_italic },
-    { 'gitconfigVariable',                     { fg = C.blue1 } },
-    { 'gitcommitFirstLine',                    { bold = true } },
-    { 'justBody',                              { fg = C.fg2 } },
-    { 'justInterpolationDelim',                text_blue },
-    { 'justParameter',                         text_orange },
-    { 'justAssignment',                        text_emphasis },
-    { 'justBuiltInFunctions',                  { italic = true, fg = C.blue2 } },
-    { 'justRecipeName',                        { fg = C.yellow3 } },
-    { 'justFunction',                          text_cyan },
-    { 'vimContinue',                           text_faded },
-    { 'manSectionHeading',                     { fg = C.fg1, bold = true } },
-    { 'healthHelp',                            { fg = C.yellow1 } },
-    { 'healthSuccess',                         text_green },
-    { 'markdownRule',                          text_red },
-    { 'markdownLinkText',                      { fg = C.fg2 } },
-    { 'markdownUrl',                           { fg = C.blue2, underline = true } },
-    { 'markdownLinkDelimiter',                 text_cyan },
-    { 'markdownH1Delimiter',                   { fg = C.orange, bold = false } },
-    { 'markdownH2Delimiter',                   { fg = C.orange, bold = false } },
-    { 'markdownCode',                          text_selected },
-    { 'markdownCodeDelimiter',                 text_blue },
-    { 'markdownListMarker',                    { fg = C.yellow1 } },
-    { 'htmlTagName',                           text_red },
-    { 'qfFileName',                            text_cyan },
-    { 'qfLineNr',                              { bold = true } },
-    { 'tmuxCommands',                          text_magenta_italic },
-    { 'tmuxFlags',                             { fg = C.yellow2 } },
-    { 'tmuxFormatString',                      text_cyan },
-    { 'FennelStringDelimiter',                 text_cyan },
-    { 'FennelParen',                           text_emphasis },
-    { 'FennelSpecialForm',                     text_magenta_italic },
-    { 'FennelKeyword',                         text_red },
-    { 'luaFunc',                               text_blue },
-    { 'luaTable',                              { fg = C.fg2 } },
-    { 'luaStringDelimiter',                    text_blue },
-    { 'helpHyperTextEntry',                    { fg = C.blue2, underdotted = true } },
-    { 'helpSectionDelim',                      { fg = C.red2, bold = true } },
-    { 'helpHyperTextJump',                     { fg = C.blue2, underdotted = true } },
-    { 'helpHeader',                            { fg = C.fg2, bold = true } },
-    { 'helpExample',                           text_green },
-    { 'helpURL',                               { fg = C.blue2, underline = true } },
-    { 'helpCommand',                           { bg = C.bg1, italic = true } },
-    { 'rainbowcol1',                           text_magenta },
-    { 'rainbowcol2',                           text_orange },
-    { 'rainbowcol3',                           text_green },
-    { 'rainbowcol4',                           text_red },
-    { 'rainbowcol5',                           text_cyan },
-    { 'rainbowcol6',                           { fg = C.yellow1 } },
-    { 'rainbowcol7',                           { fg = C.yellow3 } },
-    { 'IndentBlanklineChar',                   { fg = C.fg4, bg = 'NONE', nocombine = true } },
-    { 'IndentBlanklineSpaceChar',              { fg = 'NONE', bg = 'NONE', nocombine = true } },
-    { 'IndentBlanklineSpaceCharBlankline',     { fg = 'NONE', bg = 'NONE', nocombine = true } },
-    { 'IndentBlanklineContextChar',            { fg = C.fg3, bg = 'NONE', nocombine = true } },
-    { 'IndentBlanklineContextSpaceChar',       { fg = 'NONE', bg = 'NONE', nocombine = true } },
-    { 'IndentBlanklineContextStart',           { fg = 'NONE', bg = 'NONE', sp = C.fg3, underdotted = true } },
-    { 'CmpItemAbbrDeprecated',                 { strikethrough = true } },
-    { 'CmpItemKindStruct',                     { fg = C.yellow2 } },
-    { 'CmpItemKindFunction',                   text_blue },
-    { 'CmpItemKindText',                       { fg = C.fg2 } },
-    { 'CmpItemKindClass',                      { fg = C.yellow2 } },
-    { 'CmpItemKindValue',                      text_orange },
-    { 'CmpItemKindEnum',                       { fg = C.yellow2 } },
-    { 'CmpItemKindInterface',                  { fg = C.yellow2 } },
-    { 'CmpItemKindMethod',                     text_cyan },
-    { 'CmpItemKindUnit',                       text_red },
-    { 'CmpItemKindConstant',                   text_emphasis },
-    { 'CmpItemKindField',                      text_blue },
-    { 'CmpItemKindModule',                     { fg = C.yellow2 } },
-    { 'CmpItemKindKeyword',                    text_magenta_italic },
-    { 'CmpItemKindEnumMember',                 text_emphasis },
-    { 'CmpItemKindProperty',                   text_blue },
-    { 'CmpItemKindOperator',                   text_orange },
-    { 'CmpItemKindReference',                  { fg = C.fg2 } },
-    { 'CmpItemKindSnippet',                    text_emphasis },
-    { 'CmpItemKindTypeParameter',              { fg = C.yellow2 } },
-    { 'CmpItemKindVariable',                   { fg = C.fg2 } },
-    { 'LeapMatch',                             { fg = C.bg3, bg = C.orange, bold = true } },
-    { 'LeapLabelPrimary',                      { fg = C.bg3, bg = C.yellow2, bold = true } },
-    { 'LeapLabelSecondary',                    { fg = C.bg3, bg = C.yellow3, bold = true } },
-    { 'LeapLabelSelected',                     { fg = C.bg3, bg = C.yellow1, bold = true } },
-    { 'LeapBackdrop',                          { fg = 'NONE', bg = C.bg3 } },
-    { 'Sneak',                                 { fg = C.bg3, bg = C.yellow2, bold = true } },
-    { 'SneakLabel',                            { fg = C.bg3, bg = C.yellow2, bold = true } },
-    { 'GitSignsDelete',                        text_red },
-    { 'GitSignsChange',                        { fg = C.yellow2 } },
-    { 'GitSignsAdd',                           text_green },
-    { 'packerHash',                            text_red },
-    { 'packerString',                          text_green },
-    { 'packerStatusSuccess',                   text_green },
-    { 'LspReferenceText',                      { underline = true, sp = C.fg3, bg = 'NONE', fg = 'NONE' } },
-    { 'LspReferenceRead',                      { underline = true, sp = C.fg3, bg = 'NONE', fg = 'NONE' } },
-    { 'LspReferenceWrite',                     { underline = true, sp = C.fg3, bg = 'NONE', fg = 'NONE' } },
-    { 'TelescopeBorder',                       text_faded },
-    { 'TelescopeTitle',                        ui_title },
-    { 'TelescopePromptCounter',                { fg = C.fg2 } },
-    { 'TelescopeMatching',                     { bg = C.bg2 } },
-    { 'TelescopeSelectionCaret',               { fg = C.fg2 } },
-    { 'TelescopeSelection',                    text_selected },
-    { 'FloatTitle',                            ui_title },
-    { 'FocusedSymbol',                         text_selected },
-    { 'TroubleIndent',                         { bg = C.bg2 } },
-    { 'TroubleLocation',                       { bold = true } },
-    { 'NvimTreeNormal',                        { fg = C.fg2, bg = C.bg3 } },
-    { 'NvimTreeRootFolder',                    { fg = C.fg2 } },
-    { 'NvimTreeIndentMarker',                  { fg = C.fg3 } },
-    { 'NvimTreeOpenedFolderName',              { underdotted = true } },
-    { 'NvimTreeOpenedFile',                    text_selected },
-    { 'NvimTreeFolderName',                    { fg = C.fg2 } },
-    { 'NvimTreeEmptyFolderName',               muted },
-    { 'NvimTreeFolderIcon',                    muted },
-    { 'NvimTreeExecFile',                      { fg = C.green, bold = true } },
-    { 'NvimTreeFileDeleted',                   muted },
-    { 'NvimTreeFileNew',                       { fg = C.bg3 } },
-    { 'NvimTreeSpecialFile',                   { fg = C.fg2 } },
-    { 'NvimTreeGitDirty',                      text_red },
-    { 'NvimTreeGitStaged',                     text_green },
-    { 'NvimTreeGitRenamed',                    { fg = C.yellow2 } },
-    { 'NvimTreeGitDeleted',                    text_red },
-    { 'NvimTreeSymlink',                       { fg = C.cyan2, bg = C.bg3 } },
-    { 'NotifyERRORBorder',                     { fg = C.red1 } },
-    { 'NotifyWARNBorder',                      { fg = C.yellow1 } },
-    { 'NotifyINFOBorder',                      text_green },
-    { 'NotifyDEBUGBorder',                     text_orange },
-    { 'NotifyTRACEBorder',                     text_magenta },
-    { 'NotifyERRORIcon',                       text_red },
-    { 'NotifyWARNIcon',                        text_yellow },
-    { 'NotifyINFOIcon',                        text_green },
-    { 'NotifyDEBUGIcon',                       text_orange },
-    { 'NotifyTRACEIcon',                       text_magenta },
-    { 'NotifyERRORTitle',                      { fg = C.red1, bold = true } },
-    { 'NotifyWARNTitle',                       { fg = C.yellow1, bold = true } },
-    { 'NotifyINFOTitle',                       { fg = C.green, bold = true } },
-    { 'NotifyDEBUGTitle',                      { fg = C.orange, bold = true } },
-    { 'NotifyTRACETitle',                      { fg = C.magenta, bold = true } },
-    { 'NotifyERRORBody',                       { fg = C.fg2 } },
-    { 'NotifyWARNBody',                        { fg = C.fg2 } },
-    { 'NotifyINFOBody',                        { fg = C.fg2 } },
-    { 'NotifyDEBUGBody',                       { fg = C.fg2 } },
-    { 'NotifyTRACEBody',                       { fg = C.fg2 } },
-    { 'DevIconGitAttributes',                  text_cyan },
-    { 'DevIconGitCommit',                      text_red },
-    { 'DevIconGitConfig',                      text_cyan },
-    { 'DevIconGitIgnore',                      text_red },
-    { 'DevIconGitModules',                     text_cyan },
-    { 'DevIconDropbox',                        text_blue },
-    { 'DevIconToml',                           text_cyan },
-    { 'DevIconYaml',                           text_cyan },
-    { 'DevIconJson',                           { fg = C.yellow2 } },
-    { 'DevIconYml',                            text_cyan },
-    { 'DevIconMd',                             text_emphasis },
-    { 'DevIconGo',                             text_blue },
-    { 'DevIconTs',                             text_blue },
-    { 'DevIconTsx',                            text_blue },
-    { 'DevIconDsStore',                        muted },
-    { 'DevIconDockerfile',                     text_blue },
-    { 'DevIconScheme',                         text_emphasis },
-    { '@lsp.type.type',                        text_yellow },
-    { '@lsp.typemod.type.defaultLibrary',      { fg = C.blue2, italic = true } },
-    { '@lsp.typemod.type.documentation',       text_yellow },
-    { '@lsp.type.enum',                        text_yellow },
-    { '@lsp.typemod.enum.defaultLibrary',      { fg = C.blue2, italic = true } },
-    { '@lsp.type.interface',                   text_yellow },
-    { '@lsp.typemod.interface.defaultLibrary', { fg = C.blue2, italic = true } },
-    { '@lsp.type.class',                       text_yellow },
-    { '@lsp.typemod.class.defaultLibrary',     text_yellow_italic },
-    { '@lsp.type.struct',                      { fg = C.yellow2 } },
-    { '@lsp.typemod.struct.defaultLibrary',    { fg = C.blue2, italic = true } },
-    { '@lsp.type.macro',                       { fg = C.yellow2 } },
-    { '@lsp.typemod.function.definition',      text_cyan },
-    { '@lsp.type.function',                    { fg = C.blue2, nocombine = true } },
-    { '@lsp.typemod.function.declaration',     text_cyan },
-    { '@lsp.typemod.function.modification',    text_cyan },
-    { '@lsp.typemod.function.defaultLibrary',  { italic = true } },
-    { '@lsp.typemod.function.documentation',   text_blue },
-    { '@lsp.type.method',                      text_cyan },
-    { '@lsp.typemod.method.definition',        text_cyan },
-    { '@lsp.type.property',                    { fg = C.blue1 } },
-    { '@lsp.type.variable',                    { fg = C.fg2 } },
-    { '@lsp.type.decorator',                   { fg = C.cyan2, bold = true } },
-    { '@lsp.typemod.decorator.defaultLibrary', { fg = C.cyan2, bold = true, italic = true } },
-    { '@lsp.type.namespace',                   { fg = C.yellow2 } },
-    { '@lsp.typemod.namespace.defaultLibrary', { fg = C.yellow2, italic = true } },
-    { '@lsp.type.parameter',                   { fg = C.fg2 } },
-    { '@lsp.type.enumMember',                  { fg = C.blue1 } },
-    { '@lsp.type.typeParameter',               { fg = C.yellow2 } },
-    { '@lsp.mod.defaultLibrary',               { italic = true } },
-    { '@lsp.mod.deprecated',                   { strikethrough = true } },
-    { '@lsp.mod.declaration',                  {} },
-    { '@lsp.typemod.variable.global.lua',      { fg = C.fg1, italic = true } },
-    { 'FzfLuaNormal',                          default },
-    { 'FzfLuaBorder',                          text_faded },
-    { 'FzfLuaCursor',                          default },
-    { 'FzfLuaSearch',                          search },
-    { 'FzfLuaTitle',                           ui_title },
-    { 'FzfLuaCursorLine',                      ui_select },
-    { 'FzfLuaCursorLineNr',                    ui_select },
-    { 'dosiniLabel',                           text_cyan },
-    { 'dosiniHeader',                          text_red },
-    { 'CopilotSuggestion',                     { bg = C.bg3, fg = C.fg3 } },
-    { 'NoiceCursor',                           { fg = C.fg2 } },
-    { 'CocCodeLens',                           { fg = C.fg3, bg = C.bg3 } },
-    { 'CocDisabled',                           { fg = C.fg3, bg = C.bg3 } },
-    { 'CocGitAddedSign',                       { fg = C.cyan1 } },
-    { 'CocGitChangedSign',                     { fg = C.yellow1 } },
-    { 'CocGitRemovedSign',                     { fg = C.red1 } },
-    { 'CocGitTopRemovedSign',                  { fg = C.red1 } },
-    { 'CocGitChangeRemovedSign',               text_red },
-    { 'CocCursorRange',                        { fg = C.bg3, bg = C.yellow1, bold = true } },
-    { 'CocSelectedRange',                      { fg = C.bg3, bg = C.yellow1, bold = true } },
-    { 'CocListsDesc',                          muted },
-    { 'CocFloatActive',                        { bg = C.bg1, fg = C.fg1, bold = false } },
-    { 'CocFloatDividin',                       text_faded },
-    { 'CocFloatSbar',                          ui_thumb },
-    { 'CocFloatThumb',                         text_selected },
-    { 'CocFadeOut',                            muted },
-    { 'CocPumVirtualText',                     muted },
-    { 'CocHighlightRead',                      { underline = true, bg = 'NONE', fg = 'NONE' } },
-    { 'CocHighlightText',                      { underline = true, bg = 'NONE', fg = 'NONE' } },
-    { 'CocHighlightWrite',                     { underline = true, bg = 'NONE', fg = 'NONE' } },
-    { 'CocHintFloat',                          { bold = true, bg = 'NONE', fg = 'NONE' } },
-    { 'CocInlayHint',                          { fg = C.fg3, bg = 'NONE' } },
-    { 'CocHoverRange',                         { underline = true, bg = 'NONE', sp = 'NONE' } },
-    { 'CocInlayHintType',                      { fg = C.fg3, bg = 'NONE' } },
-    { 'CocInlayHintParameter',                 { fg = C.fg3, bg = 'NONE' } },
-    { 'CocListLine',                           { bg = C.bg1, fg = C.fg1, bold = false } },
-    { 'CocListPath',                           { fg = C.fg2 } },
-    { 'CocListMode',                           { fg = C.fg2 } },
-    { 'CocListFgGreen',                        { fg = C.green, bg = 'NONE' } },
-    { 'CocListFgRed',                          { fg = C.red2, bg = 'NONE' } },
-    { 'CocListFgBlue',                         { fg = C.blue2, bg = 'NONE' } },
-    { 'CocListFgCyan',                         { fg = C.cyan2, bg = 'NONE' } },
-    { 'CocListFgGrey',                         { fg = C.fg3, bg = 'NONE' } },
-    { 'CocListFgWhite',                        { fg = C.fg1, bg = 'NONE' } },
-    { 'CocListFgYellow',                       { fg = C.yellow2, bg = 'NONE' } },
-    { 'CocListFgMagenta',                      { fg = C.magenta, bg = 'NONE' } },
-    { 'CocListBgGreen',                        { fg = 'NONE', bg = C.green } },
-    { 'CocListBgRed',                          { fg = 'NONE', bg = C.red2 } },
-    { 'CocListBgBlue',                         { fg = 'NONE', bg = C.blue2 } },
-    { 'CocListBgCyan',                         { fg = 'NONE', bg = C.cyan2 } },
-    { 'CocListBgGrey',                         { fg = 'NONE', bg = C.fg3 } },
-    { 'CocListBgWhite',                        { fg = 'NONE', bg = C.fg1 } },
-    { 'CocListBgYellow',                       { fg = 'NONE', bg = C.yellow2 } },
-    { 'CocListBgMagenta',                      { fg = 'NONE', bg = C.magenta } },
-    { 'CocSemType',                            { fg = C.yellow2 } },
-    { 'CocSemClass',                           { fg = C.yellow2 } },
-    { 'CocSemDecorator',                       { fg = C.magenta } },
-    { 'CocSemEnumMember',                      text_emphasis },
-    { 'CocSemMacro',                           text_blue },
-    { 'CocSemMethod',                          text_cyan },
-    { 'CocSemNamespace',                       { fg = C.yellow2 } },
-    { 'CocSemProperty',                        { fg = C.blue1 } },
-    { 'CocSemRegexp',                          text_cyan },
-    { 'CocSemModifier',                        text_red },
-    { 'CocSemStruct',                          { fg = C.yellow2 } },
-    { 'CocSemTypeParameter',                   { fg = C.fg2 } },
-    { 'CocSemVariable',                        { fg = C.fg2 } },
-    { 'CocSemFunction',                        text_blue },
-    { 'CocSemMacroBang',                       text_orange },
-    { 'CocSemFormatSpecifier',                 text_cyan },
-    { 'CocSemBuiltinAttribute',                { fg = C.magenta } },
-    { 'CocSemColon',                           text_red },
-    { 'CocSemAngle',                           text_orange },
-    { 'CocSemCharacter',                       text_cyan },
-    { 'CocSemKeyword',                         { italic = true } },
-    { 'CocSemComment',                         { fg = 'NONE' } },
-    { 'CocSemReadonlyVariable',                { italic = true } },
-    { 'CocSemStaticVariable',                  { italic = true } },
-    { 'CocSemCallableVariable',                text_blue },
-    { 'CocSemDeclarationFunction',             text_cyan },
-    { 'CocSemDefinitionFunction',              text_cyan },
-    { 'CocSemReferenceMethod',                 text_blue },
-    { 'CocSemDeclarationMethod',               text_cyan },
-    { 'CocSemDefaultLibraryMethod',            { fg = C.blue2, italic = true } },
-    { 'CocSemDeclarationSelfKeyword',          text_red },
-    { 'CocSemDeclarationMacro',                text_cyan },
-    { 'CocSemDefaultLibrary',                  { italic = true } },
-    { 'CocSemDocumentationKeyword',            text_orange },
-    { 'CocSemDocumentationType',               { fg = C.yellow2 } },
-    { 'CocSemDocumentationDecorator',          { fg = C.magenta } },
-    { 'CocSemDocumentationEnumMember',         text_emphasis },
-    { 'CocSemDocumentationMacro',              text_blue },
-    { 'CocSemDocumentationMethod',             text_cyan },
-    { 'CocSemDocumentationNamespace',          { fg = C.yellow2 } },
-    { 'CocSemDocumentationProperty',           { fg = C.blue1 } },
-    { 'CocSemDocumentationRegexp',             text_cyan },
-    { 'CocSemDocumentationModifier',           text_red },
-    { 'CocSemDocumentationStruct',             text_yellow },
-    { 'CocSemDocumentationTypeParameter',      { fg = C.fg2 } },
-    { 'CocSemDocumentationVariable',           { fg = C.fg2 } },
-    { 'CocSemDocumentationFunction',           text_blue },
-    { 'CocSymbolEnum',                         text_yellow },
-    { 'CocSymbolStruct',                       text_yellow },
-    { 'CocSymbolText',                         { fg = C.fg2 } },
-    { 'CocSymbolField',                        { fg = C.blue1 } },
-    { 'CocSymbolProperty',                     { fg = C.blue1 } },
-    { 'CocSymbolEnumMember',                   text_emphasis },
-    { 'CocSymbolVariable',                     text_yellow },
-    { 'CocSymbolFunction',                     text_blue },
-    { 'CocTreeTitle',                          ui_title },
-    { 'CocTreeDescription',                    { fg = C.fg2 } },
-    { 'CocTreeSelected',                       text_selected },
-    { 'CocTreeOpenClose',                      { bold = true } },
-    { 'CocTreeDescription',                    muted },
-    { 'fzf1',                                  { fg = C.red2, bg = C.bg3 } },
-    { 'fzf2',                                  { fg = C.red2, bg = C.bg3 } },
-    { 'fzf3',                                  { fg = C.red2, bg = C.bg3 } },
-  }
+  highlight('Normal', default)
+  highlight('Visual', selection)
+  highlight('NormalFloat', floatingWindow)
+  highlight('FloatBorder', text_faded)
+  highlight('Pmenu', floatingWindow)
+  highlight('PmenuSel', ui_select)
+  highlight('PmenuSbar', ui_thumb)
+  highlight('PmenuThumb', text_selected)
+  highlight('NonText', text_faded)
+  highlight('Whitespace', text_faded)
+  highlight('Conceal', text_faded)
+  highlight('WinSeparator', text_faded)
+  highlight('VertSplit', text_faded)
+  highlight('CursorLineNr', current_line)
+  highlight('CursorLine', selection)
+  highlight('CursorColumn', selection)
+  highlight('ColorColumn', selection)
+  highlight('SignColumn', default)
+  highlight('CursorLineFold', default)
+  highlight('LineNr', current_line)
+  highlight('LineNrAbove', muted)
+  highlight('LineNrBelow', muted)
+  highlight('DiffAdd', { fg = 'NONE', bg = C.diff_add })
+  highlight('DiffChange', { fg = 'NONE', bg = C.diff_change })
+  highlight('DiffDelete', { fg = 'NONE', bg = C.diff_remove })
+  highlight('DiffText', { fg = 'NONE', bg = C.diff_text })
+  highlight('Directory', text_cyan)
+  highlight('EndOfBuffer', text_faded)
+  highlight('Error', text_orange)
+  highlight('ErrorMsg', text_red)
+  highlight('Folded', muted)
+  highlight('FoldColumn', muted)
+  highlight('ModeMsg', { fg = C.fg2 })
+  highlight('MoreMsg', text_emphasis)
+  highlight('Question', { fg = C.magenta })
+  highlight('Search', search)
+  highlight('IncSearch', search)
+  highlight('Substitute', search)
+  highlight('SpellBad', { sp = C.red2, undercurl = true })
+  highlight('SpellCap', { sp = C.yellow2, undercurl = true })
+  highlight('SpellLocal', { sp = C.cyan2, undercurl = true })
+  highlight('SpellRare', { sp = C.magenta, undercurl = true })
+  highlight('StatusLine', { fg = C.fg2, bg = C.bg1 })
+  highlight('StatusLineNC', { fg = C.fg2, bg = C.bg3 })
+  highlight('TabLine', { fg = C.fg2, bg = C.bg1 })
+  highlight('TabLineFill', { fg = C.fg3, bg = C.bg1 })
+  highlight('TabLineSel', default)
+  highlight('WarningMsg', { fg = C.yellow3, bg = C.bg3 })
+  highlight('WildMenu', floatingWindow)
+  highlight('MatchParen', { bold = true })
+  highlight('DiagnosticError', { fg = C.red1, bg = 'NONE' })
+  highlight('DiagnosticSignError', { fg = C.red1, bold = true, bg = 'NONE' })
+  highlight('DiagnosticUnderlineError', {})
+  highlight('DiagnosticVirtualTextError', { fg = C.red1, bg = 'NONE' })
+  highlight('DiagnosticHint', { fg = C.cyan1, bg = 'NONE' })
+  highlight('DiagnosticSignHint', { fg = C.cyan1, bold = true, bg = 'NONE' })
+  highlight('DiagnosticUnderlineHint', {})
+  highlight('DiagnosticVirtualTextHint', { fg = C.cyan1, bg = 'NONE' })
+  highlight('DiagnosticInfo', { fg = C.green, bg = 'NONE' })
+  highlight('DiagnosticSignInfo', { fg = C.green, bold = true, bg = 'NONE' })
+  highlight('DiagnosticUnderlineInfo', {})
+  highlight('DiagnosticVirtualTextInfo', { fg = C.green, bg = 'NONE' })
+  highlight('DiagnosticWarn', { fg = C.yellow1, bg = 'NONE' })
+  highlight('DiagnosticSignWarn', { fg = C.yellow1, bold = true, bg = 'NONE' })
+  highlight('DiagnosticUnderlineWarn', {})
+  highlight('DiagnosticVirtualTextWarn', { fg = C.yellow1, bg = 'NONE' })
+  highlight('Boolean', { fg = C.red2, italic = true })
+  highlight('Character', text_green)
+  highlight('Comment', muted)
+  highlight('SpecialComment', muted)
+  highlight('Conditional', text_magenta_italic)
+  highlight('Constant', text_red)
+  highlight('Define', text_magenta_italic)
+  highlight('Delimiter', muted)
+  highlight('Float', { fg = C.yellow1 })
+  highlight('Function', text_magenta_italic)
+  highlight('Identifier', { fg = C.fg2 })
+  highlight('Include', text_red)
+  highlight('Keyword', text_magenta_italic)
+  highlight('Label', text_cyan)
+  highlight('Macro', text_cyan)
+  highlight('Number', { fg = C.yellow1 })
+  highlight('Operator', text_orange)
+  highlight('PreCondit', text_red)
+  highlight('PreProc', text_cyan)
+  highlight('Repeat', text_magenta_italic)
+  highlight('Special', text_cyan)
+  highlight('SpecialChar', text_cyan)
+  highlight('SpecialKey', text_cyan)
+  highlight('Statement', { fg = C.fg2 })
+  highlight('StorageClass', text_red)
+  highlight('String', { fg = C.green, italic = true })
+  highlight('Exception', text_magenta_italic)
+  highlight('Struct', text_red)
+  highlight('Structure', text_yellow)
+  highlight('Tag', text_red)
+  highlight('Title', ui_title)
+  highlight('Todo', { fg = C.blue2, bold = true })
+  highlight('Type', text_yellow)
+  highlight('Typedef', text_yellow)
+  highlight('Underlined', { underdotted = true })
+  highlight('@boolean', { fg = C.red2, italic = true })
+  highlight('@character', text_cyan)
+  highlight('@character.special', text_cyan)
+  highlight('@comment', muted)
+  highlight('@conditional', text_magenta_italic)
+  highlight('@constant', text_emphasis)
+  highlight('@constant.builtin', { fg = C.fg2, italic = true })
+  highlight('@constant.macro', text_magenta_italic)
+  highlight('@constructor.javascript', { fg = C.yellow2 })
+  highlight('@constructor.lua', text_emphasis)
+  highlight('@constructor.typescript', { fg = C.yellow2 })
+  highlight('@conditional.ternary.typescript', text_orange)
+  highlight('@enum', { fg = C.yellow2 })
+  highlight('@exception.rust', text_blue)
+  highlight('@field', { fg = C.blue1 })
+  highlight('@field.toml', text_red)
+  highlight('@field.yaml', text_cyan)
+  highlight('@float', { fg = C.yellow1 })
+  highlight('@function', text_cyan)
+  highlight('@function.builtin', { fg = C.blue2, italic = true })
+  highlight('@function.call', text_blue)
+  highlight('@function.css', text_blue)
+  highlight('@function.macro', text_blue)
+  highlight('@function.macro.commonlisp', text_red)
+  highlight('@include', text_magenta_italic)
+  highlight('@interface', { fg = C.yellow2 })
+  highlight('@keyword', text_magenta_italic)
+  highlight('@keyword.lua', text_red)
+  highlight('@keyword.function', text_magenta_italic)
+  highlight('@keyword.function.python', { fg = C.red2, italic = true })
+  highlight('@keyword.operator', text_orange)
+  highlight('@keyword.return', text_magenta_italic)
+  highlight('@keyword.coroutine', text_red)
+  highlight('@label', text_cyan)
+  highlight('@label.json', text_cyan)
+  highlight('@label.toml', text_cyan)
+  highlight('@label.vim', { fg = C.blue1 })
+  highlight('@method', text_cyan)
+  highlight('@method.call', text_blue)
+  highlight('@namespace', { fg = C.yellow2 })
+  highlight('@number', { fg = C.yellow1 })
+  highlight('@number.bash', { fg = C.yellow2 })
+  highlight('@operator', text_orange)
+  highlight('@parameter', { fg = C.fg2 })
+  highlight('@parameter.bash', { fg = C.fg2 })
+  highlight('@parameter.reference', { fg = C.fg2 })
+  highlight('@preproc', text_cyan)
+  highlight('@property', { fg = C.blue1 })
+  highlight('@property.toml', text_cyan)
+  highlight('@punctuation.delimiter', text_cyan)
+  highlight('@punctuation.bracket', { fg = C.fg2 })
+  highlight('@punctuation.delimiter.python', text_emphasis)
+  highlight('@punctuation.delimiter.yaml', text_blue)
+  highlight('@punctuation.special', text_cyan)
+  highlight('@punctuation.special.markdown', { fg = C.orange, bold = false })
+  highlight('@repeat', text_magenta_italic)
+  highlight('@repeat.python', text_red)
+  highlight('@storageclass', text_red)
+  highlight('@storageclass.lifetime', text_cyan)
+  highlight('@string', { fg = C.green, italic = true })
+  highlight('@string.delimiter', text_cyan)
+  highlight('@string.escape', text_cyan)
+  highlight('@string.regex', text_cyan)
+  highlight('@string.special', text_cyan)
+  highlight('@symbol', text_cyan)
+  highlight('@tag', text_red)
+  highlight('@tag.attribute', text_magenta)
+  highlight('@tag.delimiter', text_cyan)
+  highlight('@tag.delimiter.markdown', text_blue)
+  highlight('@tag.delimiter.markdown_inline', text_blue)
+  highlight('@tag.rust', text_cyan)
+  highlight('@tag.rust.lua', text_cyan)
+  highlight('@text', { fg = C.text_fg })
+  highlight('@text.emphasis', { italic = true, bold = true })
+  highlight('@text.literal', { fg = C.green, italic = true })
+  highlight('@text.literal.markdown_inline', { bg = C.bg1, fg = C.fg2 })
+  highlight('@text.reference', { fg = C.cyan2, underdotted = false })
+  highlight('@text.strong', { bold = true })
+  highlight('@text.title', ui_title)
+  highlight('@text.underline', { underline = true })
+  highlight('@text.uri', { fg = C.blue2, underdotted = true })
+  highlight('@type', { fg = C.yellow2 })
+  highlight('@type.builtin', { fg = C.blue2, italic = true })
+  highlight('@type.definition', { fg = C.yellow2 })
+  highlight('@type.qualifier', text_red)
+  highlight('@variable', { fg = C.fg2 })
+  highlight('@variable.builtin', { fg = C.fg2, italic = true })
+  highlight('@variable.builtin.clojure', { fg = C.fg2, italic = true })
+  highlight('@variable.builtin.javascript', { fg = C.fg2, italic = true })
+  highlight('gitCommitSelectedFile', { italic = true })
+  highlight('gitCommitSummary', { bold = true })
+  highlight('gitCommitTrailerToken', text_magenta_italic)
+  highlight('gitconfigVariable', { fg = C.blue1 })
+  highlight('gitcommitFirstLine', { bold = true })
+  highlight('justBody', { fg = C.fg2 })
+  highlight('justInterpolationDelim', text_blue)
+  highlight('justParameter', text_orange)
+  highlight('justAssignment', text_emphasis)
+  highlight('justBuiltInFunctions', { italic = true, fg = C.blue2 })
+  highlight('justRecipeName', { fg = C.yellow3 })
+  highlight('justFunction', text_cyan)
+  highlight('vimContinue', text_faded)
+  highlight('manSectionHeading', { fg = C.fg1, bold = true })
+  highlight('healthHelp', { fg = C.yellow1 })
+  highlight('healthSuccess', text_green)
+  highlight('markdownRule', text_red)
+  highlight('markdownLinkText', { fg = C.fg2 })
+  highlight('markdownUrl', { fg = C.blue2, underline = true })
+  highlight('markdownLinkDelimiter', text_cyan)
+  highlight('markdownH1Delimiter', { fg = C.orange, bold = false })
+  highlight('markdownH2Delimiter', { fg = C.orange, bold = false })
+  highlight('markdownCode', text_selected)
+  highlight('markdownCodeDelimiter', text_blue)
+  highlight('markdownListMarker', { fg = C.yellow1 })
+  highlight('htmlTagName', text_red)
+  highlight('qfFileName', text_cyan)
+  highlight('qfLineNr', { bold = true })
+  highlight('tmuxCommands', text_magenta_italic)
+  highlight('tmuxFlags', { fg = C.yellow2 })
+  highlight('tmuxFormatString', text_cyan)
+  highlight('FennelStringDelimiter', text_cyan)
+  highlight('FennelParen', text_emphasis)
+  highlight('FennelSpecialForm', text_magenta_italic)
+  highlight('FennelKeyword', text_red)
+  highlight('luaFunc', text_blue)
+  highlight('luaTable', { fg = C.fg2 })
+  highlight('luaStringDelimiter', text_blue)
+  highlight('helpHyperTextEntry', { fg = C.blue2, underdotted = true })
+  highlight('helpSectionDelim', { fg = C.red2, bold = true })
+  highlight('helpHyperTextJump', { fg = C.blue2, underdotted = true })
+  highlight('helpHeader', { fg = C.fg2, bold = true })
+  highlight('helpExample', text_green)
+  highlight('helpURL', { fg = C.blue2, underline = true })
+  highlight('helpCommand', { bg = C.bg1, italic = true })
+  highlight('rainbowcol1', text_magenta)
+  highlight('rainbowcol2', text_orange)
+  highlight('rainbowcol3', text_green)
+  highlight('rainbowcol4', text_red)
+  highlight('rainbowcol5', text_cyan)
+  highlight('rainbowcol6', { fg = C.yellow1 })
+  highlight('rainbowcol7', { fg = C.yellow3 })
+  highlight('IndentBlanklineChar', { fg = C.fg4, bg = 'NONE', nocombine = true })
+  highlight('IndentBlanklineSpaceChar', { fg = 'NONE', bg = 'NONE', nocombine = true })
+  highlight('IndentBlanklineSpaceCharBlankline', { fg = 'NONE', bg = 'NONE', nocombine = true })
+  highlight('IndentBlanklineContextChar', { fg = C.fg3, bg = 'NONE', nocombine = true })
+  highlight('IndentBlanklineContextSpaceChar', { fg = 'NONE', bg = 'NONE', nocombine = true })
+  highlight('IndentBlanklineContextStart', { fg = 'NONE', bg = 'NONE', sp = C.fg3, underdotted = true })
+  highlight('CmpItemAbbrDeprecated', { strikethrough = true })
+  highlight('CmpItemKindStruct', { fg = C.yellow2 })
+  highlight('CmpItemKindFunction', text_blue)
+  highlight('CmpItemKindText', { fg = C.fg2 })
+  highlight('CmpItemKindClass', { fg = C.yellow2 })
+  highlight('CmpItemKindValue', text_orange)
+  highlight('CmpItemKindEnum', { fg = C.yellow2 })
+  highlight('CmpItemKindInterface', { fg = C.yellow2 })
+  highlight('CmpItemKindMethod', text_cyan)
+  highlight('CmpItemKindUnit', text_red)
+  highlight('CmpItemKindConstant', text_emphasis)
+  highlight('CmpItemKindField', text_blue)
+  highlight('CmpItemKindModule', { fg = C.yellow2 })
+  highlight('CmpItemKindKeyword', text_magenta_italic)
+  highlight('CmpItemKindEnumMember', text_emphasis)
+  highlight('CmpItemKindProperty', text_blue)
+  highlight('CmpItemKindOperator', text_orange)
+  highlight('CmpItemKindReference', { fg = C.fg2 })
+  highlight('CmpItemKindSnippet', text_emphasis)
+  highlight('CmpItemKindTypeParameter', { fg = C.yellow2 })
+  highlight('CmpItemKindVariable', { fg = C.fg2 })
+  highlight('LeapMatch', { fg = C.bg3, bg = C.orange, bold = true })
+  highlight('LeapLabelPrimary', { fg = C.bg3, bg = C.yellow2, bold = true })
+  highlight('LeapLabelSecondary', { fg = C.bg3, bg = C.yellow3, bold = true })
+  highlight('LeapLabelSelected', { fg = C.bg3, bg = C.yellow1, bold = true })
+  highlight('LeapBackdrop', { fg = 'NONE', bg = C.bg3 })
+  highlight('Sneak', { fg = C.bg3, bg = C.yellow2, bold = true })
+  highlight('SneakLabel', { fg = C.bg3, bg = C.yellow2, bold = true })
+  highlight('GitSignsDelete', text_red)
+  highlight('GitSignsChange', { fg = C.yellow2 })
+  highlight('GitSignsAdd', text_green)
+  highlight('packerHash', text_red)
+  highlight('packerString', text_green)
+  highlight('packerStatusSuccess', text_green)
+  highlight('LspReferenceText', { underline = true, sp = C.fg3, bg = 'NONE', fg = 'NONE' })
+  highlight('LspReferenceRead', { underline = true, sp = C.fg3, bg = 'NONE', fg = 'NONE' })
+  highlight('LspReferenceWrite', { underline = true, sp = C.fg3, bg = 'NONE', fg = 'NONE' })
+  highlight('TelescopeBorder', text_faded)
+  highlight('TelescopeTitle', ui_title)
+  highlight('TelescopePromptCounter', { fg = C.fg2 })
+  highlight('TelescopeMatching', { bg = C.bg2 })
+  highlight('TelescopeSelectionCaret', { fg = C.fg2 })
+  highlight('TelescopeSelection', text_selected)
+  highlight('FloatTitle', ui_title)
+  highlight('FocusedSymbol', text_selected)
+  highlight('TroubleIndent', { bg = C.bg2 })
+  highlight('TroubleLocation', { bold = true })
+  highlight('NvimTreeNormal', { fg = C.fg2, bg = C.bg3 })
+  highlight('NvimTreeRootFolder', { fg = C.fg2 })
+  highlight('NvimTreeIndentMarker', { fg = C.fg3 })
+  highlight('NvimTreeOpenedFolderName', { underdotted = true })
+  highlight('NvimTreeOpenedFile', text_selected)
+  highlight('NvimTreeFolderName', { fg = C.fg2 })
+  highlight('NvimTreeEmptyFolderName', muted)
+  highlight('NvimTreeFolderIcon', muted)
+  highlight('NvimTreeExecFile', { fg = C.green, bold = true })
+  highlight('NvimTreeFileDeleted', muted)
+  highlight('NvimTreeFileNew', { fg = C.bg3 })
+  highlight('NvimTreeSpecialFile', { fg = C.fg2 })
+  highlight('NvimTreeGitDirty', text_red)
+  highlight('NvimTreeGitStaged', text_green)
+  highlight('NvimTreeGitRenamed', { fg = C.yellow2 })
+  highlight('NvimTreeGitDeleted', text_red)
+  highlight('NvimTreeSymlink', { fg = C.cyan2, bg = C.bg3 })
+  highlight('NotifyERRORBorder', { fg = C.red1 })
+  highlight('NotifyWARNBorder', { fg = C.yellow1 })
+  highlight('NotifyINFOBorder', text_green)
+  highlight('NotifyDEBUGBorder', text_orange)
+  highlight('NotifyTRACEBorder', text_magenta)
+  highlight('NotifyERRORIcon', text_red)
+  highlight('NotifyWARNIcon', text_yellow)
+  highlight('NotifyINFOIcon', text_green)
+  highlight('NotifyDEBUGIcon', text_orange)
+  highlight('NotifyTRACEIcon', text_magenta)
+  highlight('NotifyERRORTitle', { fg = C.red1, bold = true })
+  highlight('NotifyWARNTitle', { fg = C.yellow1, bold = true })
+  highlight('NotifyINFOTitle', { fg = C.green, bold = true })
+  highlight('NotifyDEBUGTitle', { fg = C.orange, bold = true })
+  highlight('NotifyTRACETitle', { fg = C.magenta, bold = true })
+  highlight('NotifyERRORBody', { fg = C.fg2 })
+  highlight('NotifyWARNBody', { fg = C.fg2 })
+  highlight('NotifyINFOBody', { fg = C.fg2 })
+  highlight('NotifyDEBUGBody', { fg = C.fg2 })
+  highlight('NotifyTRACEBody', { fg = C.fg2 })
+  highlight('DevIconGitAttributes', text_cyan)
+  highlight('DevIconGitCommit', text_red)
+  highlight('DevIconGitConfig', text_cyan)
+  highlight('DevIconGitIgnore', text_red)
+  highlight('DevIconGitModules', text_cyan)
+  highlight('DevIconDropbox', text_blue)
+  highlight('DevIconToml', text_cyan)
+  highlight('DevIconYaml', text_cyan)
+  highlight('DevIconJson', { fg = C.yellow2 })
+  highlight('DevIconYml', text_cyan)
+  highlight('DevIconMd', text_emphasis)
+  highlight('DevIconGo', text_blue)
+  highlight('DevIconTs', text_blue)
+  highlight('DevIconTsx', text_blue)
+  highlight('DevIconDsStore', muted)
+  highlight('DevIconDockerfile', text_blue)
+  highlight('DevIconScheme', text_emphasis)
+  highlight('@lsp.type.type', text_yellow)
+  highlight('@lsp.typemod.type.defaultLibrary', { fg = C.blue2, italic = true })
+  highlight('@lsp.typemod.type.documentation', text_yellow)
+  highlight('@lsp.type.enum', text_yellow)
+  highlight('@lsp.typemod.enum.defaultLibrary', { fg = C.blue2, italic = true })
+  highlight('@lsp.type.interface', text_yellow)
+  highlight('@lsp.typemod.interface.defaultLibrary', { fg = C.blue2, italic = true })
+  highlight('@lsp.type.class', text_yellow)
+  highlight('@lsp.typemod.class.defaultLibrary', text_yellow_italic)
+  highlight('@lsp.type.struct', { fg = C.yellow2 })
+  highlight('@lsp.typemod.struct.defaultLibrary', { fg = C.blue2, italic = true })
+  highlight('@lsp.type.macro', { fg = C.yellow2 })
+  highlight('@lsp.typemod.function.definition', text_cyan)
+  highlight('@lsp.type.function', { fg = C.blue2, nocombine = true })
+  highlight('@lsp.typemod.function.declaration', text_cyan)
+  highlight('@lsp.typemod.function.modification', text_cyan)
+  highlight('@lsp.typemod.function.defaultLibrary', { italic = true })
+  highlight('@lsp.typemod.function.documentation', text_blue)
+  highlight('@lsp.type.method', text_cyan)
+  highlight('@lsp.typemod.method.definition', text_cyan)
+  highlight('@lsp.type.property', { fg = C.blue1 })
+  highlight('@lsp.type.variable', { fg = C.fg2 })
+  highlight('@lsp.type.decorator', { fg = C.cyan2, bold = true })
+  highlight('@lsp.typemod.decorator.defaultLibrary', { fg = C.cyan2, bold = true, italic = true })
+  highlight('@lsp.type.namespace', { fg = C.yellow2 })
+  highlight('@lsp.typemod.namespace.defaultLibrary', { fg = C.yellow2, italic = true })
+  highlight('@lsp.type.parameter', { fg = C.fg2 })
+  highlight('@lsp.type.enumMember', { fg = C.blue1 })
+  highlight('@lsp.type.typeParameter', { fg = C.yellow2 })
+  highlight('@lsp.mod.defaultLibrary', { italic = true })
+  highlight('@lsp.mod.deprecated', { strikethrough = true })
+  highlight('@lsp.mod.declaration', {})
+  highlight('@lsp.typemod.variable.global.lua', { fg = C.fg1, italic = true })
+  highlight('FzfLuaNormal', default)
+  highlight('FzfLuaBorder', text_faded)
+  highlight('FzfLuaCursor', default)
+  highlight('FzfLuaSearch', search)
+  highlight('FzfLuaTitle', ui_title)
+  highlight('FzfLuaCursorLine', ui_select)
+  highlight('FzfLuaCursorLineNr', ui_select)
+  highlight('dosiniLabel', text_cyan)
+  highlight('dosiniHeader', text_red)
+  highlight('CopilotSuggestion', { bg = C.bg3, fg = C.fg3 })
+  highlight('NoiceCursor', { fg = C.fg2 })
+  highlight('CocCodeLens', { fg = C.fg3, bg = C.bg3 })
+  highlight('CocDisabled', { fg = C.fg3, bg = C.bg3 })
+  highlight('CocGitAddedSign', { fg = C.cyan1 })
+  highlight('CocGitChangedSign', { fg = C.yellow1 })
+  highlight('CocGitRemovedSign', { fg = C.red1 })
+  highlight('CocGitTopRemovedSign', { fg = C.red1 })
+  highlight('CocGitChangeRemovedSign', text_red)
+  highlight('CocCursorRange', { fg = C.bg3, bg = C.yellow1, bold = true })
+  highlight('CocSelectedRange', { fg = C.bg3, bg = C.yellow1, bold = true })
+  highlight('CocListsDesc', muted)
+  highlight('CocFloatActive', { bg = C.bg1, fg = C.fg1, bold = false })
+  highlight('CocFloatDividin', text_faded)
+  highlight('CocFloatSbar', ui_thumb)
+  highlight('CocFloatThumb', text_selected)
+  highlight('CocFadeOut', muted)
+  highlight('CocPumVirtualText', muted)
+  highlight('CocHighlightRead', { underline = true, bg = 'NONE', fg = 'NONE' })
+  highlight('CocHighlightText', { underline = true, bg = 'NONE', fg = 'NONE' })
+  highlight('CocHighlightWrite', { underline = true, bg = 'NONE', fg = 'NONE' })
+  highlight('CocHintFloat', { bold = true, bg = 'NONE', fg = 'NONE' })
+  highlight('CocInlayHint', { fg = C.fg3, bg = 'NONE' })
+  highlight('CocHoverRange', { underline = true, bg = 'NONE', sp = 'NONE' })
+  highlight('CocInlayHintType', { fg = C.fg3, bg = 'NONE' })
+  highlight('CocInlayHintParameter', { fg = C.fg3, bg = 'NONE' })
+  highlight('CocListLine', { bg = C.bg1, fg = C.fg1, bold = false })
+  highlight('CocListPath', { fg = C.fg2 })
+  highlight('CocListMode', { fg = C.fg2 })
+  highlight('CocListFgGreen', { fg = C.green, bg = 'NONE' })
+  highlight('CocListFgRed', { fg = C.red2, bg = 'NONE' })
+  highlight('CocListFgBlue', { fg = C.blue2, bg = 'NONE' })
+  highlight('CocListFgCyan', { fg = C.cyan2, bg = 'NONE' })
+  highlight('CocListFgGrey', { fg = C.fg3, bg = 'NONE' })
+  highlight('CocListFgWhite', { fg = C.fg1, bg = 'NONE' })
+  highlight('CocListFgYellow', { fg = C.yellow2, bg = 'NONE' })
+  highlight('CocListFgMagenta', { fg = C.magenta, bg = 'NONE' })
+  highlight('CocListBgGreen', { fg = 'NONE', bg = C.green })
+  highlight('CocListBgRed', { fg = 'NONE', bg = C.red2 })
+  highlight('CocListBgBlue', { fg = 'NONE', bg = C.blue2 })
+  highlight('CocListBgCyan', { fg = 'NONE', bg = C.cyan2 })
+  highlight('CocListBgGrey', { fg = 'NONE', bg = C.fg3 })
+  highlight('CocListBgWhite', { fg = 'NONE', bg = C.fg1 })
+  highlight('CocListBgYellow', { fg = 'NONE', bg = C.yellow2 })
+  highlight('CocListBgMagenta', { fg = 'NONE', bg = C.magenta })
+  highlight('CocSemType', { fg = C.yellow2 })
+  highlight('CocSemClass', { fg = C.yellow2 })
+  highlight('CocSemDecorator', { fg = C.magenta })
+  highlight('CocSemEnumMember', text_emphasis)
+  highlight('CocSemMacro', text_blue)
+  highlight('CocSemMethod', text_cyan)
+  highlight('CocSemNamespace', { fg = C.yellow2 })
+  highlight('CocSemProperty', { fg = C.blue1 })
+  highlight('CocSemRegexp', text_cyan)
+  highlight('CocSemModifier', text_red)
+  highlight('CocSemStruct', { fg = C.yellow2 })
+  highlight('CocSemTypeParameter', { fg = C.fg2 })
+  highlight('CocSemVariable', { fg = C.fg2 })
+  highlight('CocSemFunction', text_blue)
+  highlight('CocSemMacroBang', text_orange)
+  highlight('CocSemFormatSpecifier', text_cyan)
+  highlight('CocSemBuiltinAttribute', { fg = C.magenta })
+  highlight('CocSemColon', text_red)
+  highlight('CocSemAngle', text_orange)
+  highlight('CocSemCharacter', text_cyan)
+  highlight('CocSemKeyword', { italic = true })
+  highlight('CocSemComment', { fg = 'NONE' })
+  highlight('CocSemReadonlyVariable', { italic = true })
+  highlight('CocSemStaticVariable', { italic = true })
+  highlight('CocSemCallableVariable', text_blue)
+  highlight('CocSemDeclarationFunction', text_cyan)
+  highlight('CocSemDefinitionFunction', text_cyan)
+  highlight('CocSemReferenceMethod', text_blue)
+  highlight('CocSemDeclarationMethod', text_cyan)
+  highlight('CocSemDefaultLibraryMethod', { fg = C.blue2, italic = true })
+  highlight('CocSemDeclarationSelfKeyword', text_red)
+  highlight('CocSemDeclarationMacro', text_cyan)
+  highlight('CocSemDefaultLibrary', { italic = true })
+  highlight('CocSemDocumentationKeyword', text_orange)
+  highlight('CocSemDocumentationType', { fg = C.yellow2 })
+  highlight('CocSemDocumentationDecorator', { fg = C.magenta })
+  highlight('CocSemDocumentationEnumMember', text_emphasis)
+  highlight('CocSemDocumentationMacro', text_blue)
+  highlight('CocSemDocumentationMethod', text_cyan)
+  highlight('CocSemDocumentationNamespace', { fg = C.yellow2 })
+  highlight('CocSemDocumentationProperty', { fg = C.blue1 })
+  highlight('CocSemDocumentationRegexp', text_cyan)
+  highlight('CocSemDocumentationModifier', text_red)
+  highlight('CocSemDocumentationStruct', text_yellow)
+  highlight('CocSemDocumentationTypeParameter', { fg = C.fg2 })
+  highlight('CocSemDocumentationVariable', { fg = C.fg2 })
+  highlight('CocSemDocumentationFunction', text_blue)
+  highlight('CocSymbolEnum', text_yellow)
+  highlight('CocSymbolStruct', text_yellow)
+  highlight('CocSymbolText', { fg = C.fg2 })
+  highlight('CocSymbolField', { fg = C.blue1 })
+  highlight('CocSymbolProperty', { fg = C.blue1 })
+  highlight('CocSymbolEnumMember', text_emphasis)
+  highlight('CocSymbolVariable', text_yellow)
+  highlight('CocSymbolFunction', text_blue)
+  highlight('CocTreeTitle', ui_title)
+  highlight('CocTreeDescription', { fg = C.fg2 })
+  highlight('CocTreeSelected', text_selected)
+  highlight('CocTreeOpenClose', { bold = true })
+  highlight('CocTreeDescription', muted)
+  highlight('fzf1', { fg = C.red2, bg = C.bg3 })
+  highlight('fzf2', { fg = C.red2, bg = C.bg3 })
+  highlight('fzf3', { fg = C.red2, bg = C.bg3 })
 end
