@@ -5,8 +5,8 @@ local DEFAULT = require 'nvim-juliana.defaults'
 ---@class Juliana
 local M = setmetatable({ config = DEFAULT }, {})
 
---- Takes a table conforming to the Configuration interface and merges it with
--- the default configuration
+---Takes a table conforming to the Configuration interface,
+---merges it with the default configuration
 ---@param config? Configuration
 M.setup = function(config)
   if not config then return end
