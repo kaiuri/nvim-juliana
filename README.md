@@ -213,6 +213,20 @@ vim.cmd.colorscheme 'juliana'
 
 ## 🛒 Extras
 
+- statusline: `nvim-juliana` provides some statusline highlight groups:
+
+  | Highlight Group |                          Color                           |
+  | :-------------- | :------------------------------------------------------: |
+  | `StatusBlack`   | ![#a6acb9](https://placehold.co/15x15/a6acb9/a6acb9.png) |
+  | `StatusRed`     | ![#ec5f66](https://placehold.co/15x15/ec5f66/ec5f66.png) |
+  | `StatusGreen`   | ![#99c794](https://placehold.co/15x15/99c794/99c794.png) |
+  | `StatusYellow`  | ![#f9ae58](https://placehold.co/15x15/f9ae58/f9ae58.png) |
+  | `StatusBlue`    | ![#5c99d6](https://placehold.co/15x15/5c99d6/5c99d6.png) |
+  | `StatusMagenta` | ![#c695c6](https://placehold.co/15x15/c695c6/c695c6.png) |
+  | `StatusCyan`    | ![#5fb4b4](https://placehold.co/15x15/5fb4b4/5fb4b4.png) |
+  | `StatusWhite`   | ![#d8dee9](https://placehold.co/15x15/d8dee9/d8dee9.png) |
+  | `StatusOrange`  | ![#f97b58](https://placehold.co/15x15/f97b58/f97b58.png) |
+
 - Alacritty: There's a theme for [Alacritty](https://github.com/alacritty/alacritty/) available at [extras](./extras/juliana_alacritty.yml).
 
 ## 📜 Contributing
