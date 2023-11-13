@@ -48,7 +48,6 @@ Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tr
 
 - `NVIM v0.10.0-dev`.
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter): For better syntax highlighting.
-- (Optional)[kaiuri/treesitter-extras](https://github.com/kaiuri/treesitter-extras): For even prettier colors.
 
 ## 📦 Installation
 
