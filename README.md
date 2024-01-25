@@ -1,3 +1,4 @@
+**NOTICE**: This project has been archived (2024-01-25).
 # nvim-juliana
 
 Port of Sublime's Mariana Theme for Neovim for short attention span devs with Tree-sitter support.
